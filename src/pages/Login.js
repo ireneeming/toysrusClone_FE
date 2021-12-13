@@ -1,11 +1,24 @@
-import React from 'react';
+import React from 'react'
 
-const Login = () => {
+import { Grid, Button, Text, Input } from '../elements'
+
+const Login = (props) => {
   return (
     <>
-      로그인페이지
+      <Grid width="420px">
+        <Grid>
+          <Text>로그인</Text>
+        </Grid>
+        <Grid>
+          <Input></Input>
+          <Input></Input>
+        </Grid>
+        <Grid>
+          <Button>로그인하기</Button>
+        </Grid>
+      </Grid>
     </>
-  );
+  )
 }
 
-export default Login;
+export default Login
