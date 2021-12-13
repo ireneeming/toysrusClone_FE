@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Input = (props) => {
-  const { boxSizing, register, type, placeholder, label, margin, _onChange, padding, textarea, height, value } = props
+  const { search, boxSizing, register, type, placeholder, label, margin, _onChange, padding, textarea, height, value } = props
 
   const styles = {
     margin: margin,
@@ -13,6 +13,11 @@ const Input = (props) => {
 
   if (register) {
     return <InputRegister type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
+  }
+
+  
+  if (search) {
+    return <Search type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
   }
 
   return <InputBox type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
@@ -52,6 +57,19 @@ const InputRegister = styled.input`
   padding: 0 14px;
   color: #333;
   font-size: 14px;
+`
+
+const Search = styled.input`
+  position:relative; 
+  width: 450px;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 8px 43px 8px 20px;
+  color: #333;
+  font-size: 14px;
+  border:2px solid #1352a2;
+  box-sizing:border-box;
 `
 
 export default Input

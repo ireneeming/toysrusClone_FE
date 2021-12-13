@@ -35,7 +35,7 @@ const ImageDefault = styled.img`
 
 const LogoImg = styled.div`
   width:200px;
-  height:48px;
+  height:38px;
   background:url("https://static.lotteon.com/p/common/foCommon/assets/img/logo_toysrus@2x.png") no-repeat;
   background-size:contain;
   

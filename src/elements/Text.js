@@ -4,7 +4,8 @@ import '../index.css'
 
 const Text = (props) => {
   const { h2, mont, className, span, bold, color, size, align, margin, children } = props
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align, className: className }
+  const styles = { margin: margin, bold: bold, color: color, size: size, align: align , className:className}
+
 
   if (span) {
     return <Span {...styles}>{children}</Span>
