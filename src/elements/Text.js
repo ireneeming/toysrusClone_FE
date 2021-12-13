@@ -2,28 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Text = (props) => {
-  const { mont, span, bold, color, size, align, margin, children } = props
+  const { mont, className, span, bold, color, size, align, margin, children } = props
 
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align }
+  const styles = { margin: margin, bold: bold, color: color, size: size, align: align , className:className}
 
   if (span) {
     return <Span {...styles}>{children}</Span>
   }
-
+ 
   if (mont) {
     return <Mont {...styles}>{children}</Mont>
   }
 
-  return <detailStrong {...styles}>{children}</detailStrong>
+  return <P {...styles}> {children}</P>
+ 
 }
 
 Text.defaultProps = {
   cihldren: null,
   bold: false,
   color: '#222',
-  size: '18px',
+  size: false,
   align: false,
-  margin: false,
+  margin: "0px",
 }
 
 const H2 = styled.h2`

@@ -1,7 +1,5 @@
 import React from 'react'
-import Button from '../elements/Button'
-import Input from '../elements/Input'
-import Text from '../elements/Text'
+import {Text} from '../elements/index';
 
 const Main = () => {
   return (
