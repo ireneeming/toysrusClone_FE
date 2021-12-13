@@ -24,11 +24,13 @@ const Login = (props) => {
           <Input placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
         </Grid1>
         <Grid margin="24px 0px 0px 0px">
-          <Button red_btn>로그인하기</Button>
+          <Button red_btn text="로그인하기"></Button>
         </Grid>
         <TextDiv>
-          <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
-          <SmallText>아이디 저장</SmallText>
+          <Grid1>
+            <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
+            <SmallText>아이디 저장</SmallText>
+          </Grid1>
           <Btn>회원가입</Btn>
         </TextDiv>
       </Grid>
@@ -38,6 +40,7 @@ const Login = (props) => {
 
 const Grid1 = styled.div`
   display: flex;
+  align-items: center;
 `
 
 const TextDiv = styled.div`
@@ -56,8 +59,10 @@ const TextDiv = styled.div`
 const SmallText = styled.text`
   font-size: 14px;
   color: #333;
-  padding-left: 8px;
   letter-spacing: -0.023em;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 19px;
 `
 
 const Btn = styled.button`
