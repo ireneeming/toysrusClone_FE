@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import '../index.css'
 
 const Text = (props) => {
-  const { mont, span, bold, color, size, align, margin, children } = props
+  const { mont, span, h2, bold, color, size, align, margin, children } = props
 
   const styles = { margin: margin, bold: bold, color: color, size: size, align: align }
 
@@ -10,25 +11,29 @@ const Text = (props) => {
     return <Span {...styles}>{children}</Span>
   }
 
+  if (h2) {
+    return <H2 {...styles}>{children}</H2>
+  }
+
   if (mont) {
     return <Mont {...styles}>{children}</Mont>
   }
 
-  return <detailStrong {...styles}>{children}</detailStrong>
+  return <P {...styles}>{children}</P>
 }
 
 Text.defaultProps = {
   cihldren: null,
   bold: false,
   color: '#222',
-  size: '18px',
+  size: 'false',
   align: false,
   margin: false,
 }
 
 const H2 = styled.h2`
   margin: ${(props) => props.margin};
-  font-size: ${(props) => props.size};
+  font-size: 36px;
   line-height: 1.39;
   letter-spacing: -1.1px;
   color: #333;
