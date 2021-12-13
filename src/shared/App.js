@@ -8,11 +8,13 @@ import Detail from '../pages/Detail';
 import Cart from '../pages/Cart';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import Header from '../components/Header';
 
 
 function App() {
   return (
     <>
+    <Header></Header>
     <ConnectedRouter history={history}>
       <Route path="/" exact component={Main}/>
       <Route path="/detail/:itemId" exact component={Detail}/>
