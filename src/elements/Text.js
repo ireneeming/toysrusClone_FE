@@ -3,26 +3,22 @@ import styled from 'styled-components'
 import '../index.css'
 
 const Text = (props) => {
-
-  const { mont, className, span, bold, color, size, align, margin, children } = props
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align , className:className}
+  const { h2, mont, className, span, bold, color, size, align, margin, children } = props
+  const styles = { margin: margin, bold: bold, color: color, size: size, align: align, className: className }
 
   if (span) {
     return <Span {...styles}>{children}</Span>
   }
 
-
   if (h2) {
     return <H2 {...styles}>{children}</H2>
   }
-
 
   if (mont) {
     return <Mont {...styles}>{children}</Mont>
   }
 
   return <P {...styles}> {children}</P>
- 
 }
 
 Text.defaultProps = {
@@ -31,12 +27,12 @@ Text.defaultProps = {
   color: '#222',
   size: false,
   align: false,
-  margin: "0px",
+  margin: '0px',
 }
 
 const H2 = styled.h2`
   margin: ${(props) => props.margin};
-  font-size: 36px;
+  font-size: ${(props) => props.size};
   line-height: 1.39;
   letter-spacing: -1.1px;
   color: #333;
