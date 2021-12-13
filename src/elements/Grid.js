@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Grid = (props) => {
+
   const { className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
+
   const styles = {
     className:className,
     flex: flex,
@@ -10,6 +12,7 @@ const Grid = (props) => {
     width: width,
     height:height,
     padding: padding,
+    maxWidth: maxWidth,
     margin: margin,
     align: align,
     border:border,
@@ -59,6 +62,7 @@ Grid.defaultProps = {
   position: false,
   children: null,
   flex: false,
+  maxWidth: 'false',
   width: false,
   //width: 100% -> width:false, 로 바꿈 width:100% 짜리는 다 수정할 것
   height:false,
@@ -86,6 +90,7 @@ const HeaderBox = styled.div`
 const GridBox = styled.div`
   position: ${(props) => (props.position ? `${props.position}` : '')};
   width: ${(props) => props.width};
+  ${(props) => (props.maxWidth ? `max-width: ${props.maxWidth};` : '')}
   height: 100%;
   box-sizing: border-box;
   padding: ${(props) => (props.padding ? `${props.padding}` : '')};
