@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Grid = (props) => {
 
-  const { className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
+  const { bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
 
   const styles = {
     className:className,
@@ -17,6 +17,7 @@ const Grid = (props) => {
     align: align,
     border:border,
     lineHeight:lineHeight,
+    bdrBtm:bdrBtm,
     
   }
 
@@ -72,6 +73,7 @@ Grid.defaultProps = {
   border: false,
   lineHeight:false,
   _onClick: () => {},
+  bdrBtm:false,
 }
 
 const HeaderBox = styled.div`
@@ -84,20 +86,22 @@ const HeaderBox = styled.div`
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
   border: ${(props) => props.border};
-  border: 1px solid #eee;
+  *border: 1px solid #eee;
+  border-bottom:${(props) => props.bdrBtm};
 `;
 
 const GridBox = styled.div`
   position: ${(props) => (props.position ? `${props.position}` : '')};
   width: ${(props) => props.width};
   ${(props) => (props.maxWidth ? `max-width: ${props.maxWidth};` : '')}
-  height: 100%;
+  height: ${(props) => props.height};
   box-sizing: border-box;
   padding: ${(props) => (props.padding ? `${props.padding}` : '')};
   margin: ${(props) => (props.margin ? `${props.margin}` : '')};
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
   line-height:${(props) => props.lineHeight};
+
 `
 
 const ContentWrap = styled.div`
@@ -105,7 +109,7 @@ const ContentWrap = styled.div`
   width: 1140px;
 
   margin: 0 auto;
-  border: 1px solid #eee; // 임시로 지정
+  *border: 1px solid #eee; // 임시로 지정
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
 `

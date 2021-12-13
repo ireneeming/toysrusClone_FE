@@ -49,15 +49,51 @@ table {
 }
 
 
-/***** Header *****/
+/******************** Header ********************/
 
 .headerInfo {
   font-size:12px; 
-  color:#757575;
+  color:#757575!important;
 }
 
+.headerIcon li {
+	display:inline-block;
+	width:74px;
+	text-align:center;
+}
 
-/***** flex align *****/
+.headerMenu {height:50px;}
+
+/* .searchBtn {
+	position:absolute;
+	top: 8px;
+	right: 15px;
+	opacity: 1;
+	width: 28px;
+	height: 28px;
+	outline: none;
+	border:none;
+
+} */
+.searchBtn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("https://static.lotteon.com/p/common/foCommon/assets/img/icon_search_mask.png");
+    background-size: 28px;
+		background-color:#1352a2;
+}
+
+/******************** flex align ********************/
+
+.flexStart {
+  display:flex;
+  justify-content:flex-Start; 
+  align-items:center;
+}
 
 .flexEnd {
   display:flex;
@@ -69,4 +105,67 @@ table {
   display:flex;
   justify-content:space-between; 
   align-items:center;
+}
+
+/******************** margin ********************/
+
+.marginR-10 {
+	margin-right:10px;
+}
+
+.marginL-10 {
+	margin-left:10px;
+}
+
+.marginR-20 {
+	margin-right:20px;
+}
+
+.marginL-20 {
+	margin-left:20px;
+}
+
+/******************** Color ********************/
+
+.bgBlue {
+	background-color:#1352a2
+}
+
+.bgeee {
+	background-color:#eee
+}
+
+/******************** bar ********************/
+
+.bar {
+	position:absolute;
+	left:50%;
+	margin-left:-14px;
+	top:50%;
+	margin-top:-1px;
+	width:28px;
+	height:2px;
+	background-color:#fff;
+
+}
+.bar:before {
+	content: "";
+	position:absolute;
+	left:0;
+	top:-8px;
+	margin-top:-1px;
+	width:28px;
+	height:2px;
+	background-color:#fff;
+
+}
+.bar:after {
+	content: "";
+	position:absolute;
+	left:0;
+	top:9px;
+	width:28px;
+	height:2px;
+	background-color:#fff;
+
 }
