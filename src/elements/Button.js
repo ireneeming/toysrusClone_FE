@@ -2,93 +2,108 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Button = (props) => {
-  const { display, align, is_float, text, _onClick, margin, width, height, padding, children, bg, boxShadow, fontFamily, cursor, borderColor, borderRadius, border } = props
+  const { position, width, text, _onClick, red_btn, cart_btn, round_btn, margin } = props
+  const styles = {
+    position: position,
+    width: width,
+    margin: margin,
+  }
 
-  if (is_float) {
+  if (cart_btn) {
     return (
-      <React.Fragment>
-        <FloatButton onClick={_onClick}>{text ? text : children}</FloatButton>
-      </React.Fragment>
+      <BtnCircle onClick={_onClick} {...styles}>
+        {text}
+      </BtnCircle>
     )
   }
 
-  const styles = {
-    margin: margin,
-    padding: padding,
-    width: width,
-    height: height,
-    bg: bg,
-    display: display,
-    boxShadow: boxShadow,
-    fontFamily: fontFamily,
-    cursor: cursor,
-    borderColor: borderColor,
-    borderRadius: borderRadius,
-    border: border,
-    align: align,
+  if (round_btn) {
+    return (
+      <BtnBorderRound onClick={_onClick} {...styles}>
+        {text}
+      </BtnBorderRound>
+    )
+  }
+
+  if (red_btn) {
+    return (
+      <BtnRed onClick={_onClick} {...styles}>
+        {text}
+      </BtnRed>
+    )
   }
 
   return (
-    <React.Fragment>
-      <Button1 {...styles} onClick={_onClick}>
-        {text ? text : children}
-      </Button1>
-    </React.Fragment>
+    <Btn onClick={_onClick} {...styles}>
+      {text}
+    </Btn>
   )
 }
 
 Button.defaultProps = {
-  children: null,
-  is_float: false,
-  text: false,
+  position: false,
+  width: '100%',
+  text: '텍스트',
+  margin: '',
   _onClick: () => {},
-  margin: 'false',
-  width: 'false',
-  height: 'false',
-  padding: 'false',
-  bg: 'false',
-  boxShadow: 'false',
-  cursor: 'pointer',
-  display: 'false',
-  fontFamily: 'false',
-  borderColor: 'false',
-  borderRadius: 'false',
-  border: 'false',
-  align: 'false',
+  _disabled: () => {},
 }
 
-const Button1 = styled.button`
-  margin: ${(props) => props.margin};
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  padding: ${(props) => props.padding};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
-  ${(props) => (props.boxShadow ? `box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);` : '')}
-    ${(props) => (props.cursor ? `cursor: ${props.cursor};` : '')}
-    ${(props) => (props.fontFamily ? `font-family: ${props.fontFamily}` : '')}
-    ${(props) => (props.borderColor ? `border-color: ${props.borderColor};` : '')}
-    ${(props) => (props.borderRadius ? `border-radius: ${props.borderRadius};` : '')}
-    ${(props) => (props.border ? `border: ${props.border};` : '')}
-    ${(props) => (props.display ? `display: ${props.display};` : '')} 
-    ${(props) => (props.align ? `align-items: ${props.align};` : '')}
+const BtnCircle = styled.button`
+  background-image: url(https://static.lotteon.com/p/display/plugin/assets/img/icon_cart_toy.svg);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 52px;
 `
 
-const FloatButton = styled.button`
-  width: 'auto';
-  height: 'auto';
-  background-color: #212121;
-  color: #ffffff;
-  box-sizing: border-box;
-  font-size: 'auto';
-  font-weight: 'auto';
-  position: fixed;
-  bottom: 'auto';
-  right: 'auto';
-  text-align: center;
-  vertical-align: middle;
-  border: 'none';
-  border-radius: 'auto';
-  cursor: 'pointer';
+const BtnBorderRound = styled.button`
+  position: ${(props) => (props.position ? `${props.position}` : '')};
+  display: inline-block;
+  right: 13px;
+  height: 50px;
+  padding: 0 20px 0 20px;
+  border-radius: 25px;
+  border: 1px solid #555;
+  background-color: #fff;
+  -webkit-box-shadow: 0 5px 14px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 5px 14px 0 rgb(0 0 0 / 10%);
+  font-size: 14px;
+  line-height: 48px;
+  letter-spacing: -0.3px;
+  color: #333;
+`
+
+const Btn = styled.button`
+  position: ${(props) => (props.position ? `${props.position}` : ' ')};
+  min-width: 64px;
+  width: ${(props) => props.width};
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.23px;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #fff;
+`
+
+const BtnRed = styled.button`
+  position: ${(props) => (props.position ? `${props.position}` : ' ')};
+  min-width: 64px;
+  width: ${(props) => props.width};
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.23px;
+  color: #fff !important;
+  border: none;
+  background-color: #ef2a23;
 `
 
 export default Button
