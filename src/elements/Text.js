@@ -3,32 +3,35 @@ import styled from 'styled-components'
 import '../index.css'
 
 const Text = (props) => {
-  const { mont, span, h2, bold, color, size, align, margin, children } = props
 
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align }
+  const { mont, className, span, bold, color, size, align, margin, children } = props
+  const styles = { margin: margin, bold: bold, color: color, size: size, align: align , className:className}
 
   if (span) {
     return <Span {...styles}>{children}</Span>
   }
 
+
   if (h2) {
     return <H2 {...styles}>{children}</H2>
   }
+
 
   if (mont) {
     return <Mont {...styles}>{children}</Mont>
   }
 
-  return <P {...styles}>{children}</P>
+  return <P {...styles}> {children}</P>
+ 
 }
 
 Text.defaultProps = {
   cihldren: null,
   bold: false,
   color: '#222',
-  size: 'false',
+  size: false,
   align: false,
-  margin: false,
+  margin: "0px",
 }
 
 const H2 = styled.h2`

@@ -2,15 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Grid = (props) => {
-  const { position, children, flex, width, maxWidth, padding, margin, _onClick, contentWrap, signWrap, detailWrap, align } = props
+
+  const { className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
+
   const styles = {
+    className:className,
     flex: flex,
     position: position,
     width: width,
+    height:height,
     padding: padding,
     maxWidth: maxWidth,
     margin: margin,
     align: align,
+    border:border,
+    lineHeight:lineHeight,
+    
   }
 
   if (contentWrap) {
@@ -18,6 +25,14 @@ const Grid = (props) => {
       <ContentWrap {...styles} onClick={_onClick}>
         {children}
       </ContentWrap>
+    )
+  }
+
+  if (header) {
+    return (
+      <HeaderBox {...styles} onClick={_onClick}>
+        {children}
+      </HeaderBox>
     )
   }
 
@@ -47,13 +62,30 @@ Grid.defaultProps = {
   position: false,
   children: null,
   flex: false,
-  width: '100%',
   maxWidth: 'false',
+  width: false,
+  //width: 100% -> width:false, 로 바꿈 width:100% 짜리는 다 수정할 것
+  height:false,
   padding: false,
   margin: false,
   align: false,
+  border: false,
+  lineHeight:false,
   _onClick: () => {},
 }
+
+const HeaderBox = styled.div`
+  position: ${(props) => (props.position ? `${props.position}` : '')};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  box-sizing: border-box;
+  padding: ${(props) => (props.padding ? `${props.padding}` : '')};
+  margin: ${(props) => (props.margin ? `${props.margin}` : '')};
+  display: ${(props) => (props.flex ? `${props.flex}` : '')};
+  text-align: ${(props) => props.align};
+  border: ${(props) => props.border};
+  border: 1px solid #eee;
+`;
 
 const GridBox = styled.div`
   position: ${(props) => (props.position ? `${props.position}` : '')};
@@ -65,13 +97,15 @@ const GridBox = styled.div`
   margin: ${(props) => (props.margin ? `${props.margin}` : '')};
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
+  line-height:${(props) => props.lineHeight};
 `
 
 const ContentWrap = styled.div`
   position: relative;
-  width: 1220px;
+  width: 1140px;
+
   margin: 0 auto;
-  *border: 1px solid #eee; // 임시로 지정
+  border: 1px solid #eee; // 임시로 지정
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
 `
