@@ -3,14 +3,16 @@ import styled from 'styled-components'
 
 const Grid = (props) => {
 
+
   const { bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
 
+
   const styles = {
-    className:className,
+    className: className,
     flex: flex,
     position: position,
     width: width,
-    height:height,
+    height: height,
     padding: padding,
     maxWidth: maxWidth,
     margin: margin,
@@ -18,7 +20,7 @@ const Grid = (props) => {
     border:border,
     lineHeight:lineHeight,
     bdrBtm:bdrBtm,
-    
+
   }
 
   if (contentWrap) {
@@ -66,12 +68,12 @@ Grid.defaultProps = {
   maxWidth: 'false',
   width: false,
   //width: 100% -> width:false, 로 바꿈 width:100% 짜리는 다 수정할 것
-  height:false,
+  height: false,
   padding: false,
   margin: false,
   align: false,
   border: false,
-  lineHeight:false,
+  lineHeight: false,
   _onClick: () => {},
   bdrBtm:false,
 }
@@ -90,6 +92,7 @@ const HeaderBox = styled.div`
   border-bottom:${(props) => props.bdrBtm};
 `;
 
+
 const GridBox = styled.div`
   position: ${(props) => (props.position ? `${props.position}` : '')};
   width: ${(props) => props.width};
@@ -100,8 +103,7 @@ const GridBox = styled.div`
   margin: ${(props) => (props.margin ? `${props.margin}` : '')};
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
-  line-height:${(props) => props.lineHeight};
-
+  line-height: ${(props) => props.lineHeight};
 `
 
 const ContentWrap = styled.div`
