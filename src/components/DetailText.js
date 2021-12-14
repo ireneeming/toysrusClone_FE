@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Grid, Button, Text, Input } from '../elements'
+import Count from '../shared/Count'
 import './DetailText.css'
 
 const DetailText = () => {
@@ -9,7 +10,7 @@ const DetailText = () => {
       <div className="Wrap">
         <div className="brand">
           <sapn className="span">브랜드</sapn>
-          <text className="sammT">레고</text>
+          <text className="smallT">레고</text>
         </div>
         <div className="title">
           <h1 className="textH1">레고 플라워 꽃다발 (10280)</h1>
@@ -29,7 +30,9 @@ const DetailText = () => {
           </div>
         </div>
         <div className="select">
-          <div className="priceOption"></div>
+          <div className="priceOption">
+            <Count></Count>
+          </div>
         </div>
         <div>
           <button className="cart">장바구니 담기</button>
@@ -47,15 +50,19 @@ const DetailText = () => {
             <text>2만원 이상 구매 시 무료</text>
           </div>
           <GridFlex>
-            <Img src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Img>
-            <text>스마트픽</text>
-            <Imgarrow src="https://static.lotteon.com/p/product/assets/img/icon_page_arrow.svg"></Imgarrow>
+            <div>
+              <Img src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Img>
+              <text>스마트픽</text>
+              <Imgarrow src="https://static.lotteon.com/p/product/assets/img/icon_page_arrow.svg"></Imgarrow>
+            </div>
           </GridFlex>
         </Grid1>
         <Grid1>
           <GridFlex>
-            <BasicText>카드혜택</BasicText>
-            <BasicText>무이자 할부 안내</BasicText>
+            <div>
+              <BasicText>카드혜택</BasicText>
+              <BasicText>무이자 할부 안내</BasicText>
+            </div>
             <UnderlineText>더보기</UnderlineText>
           </GridFlex>
         </Grid1>
@@ -65,8 +72,8 @@ const DetailText = () => {
             <div>
               <Img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAALKADAAQAAAABAAAALAAAAAD8buejAAAEf0lEQVRYCe1YT2wUVRj/zZ/O7rbbZUvtQtGQ6AVOnkyICaALhhghkTMEL16I0eDBBG94MlEPqCQciEYvRhMTT0RjBGsgEA4mJB7kUC40NNA1pcWWbndnd56/b6bbZvfNdPbPFC/zJTsz75v3ft9vf+97M/M+ILVUgTYFjLZWAg31J4YrVezMOXhc2If5BCDbIBIhXJnC/qaHkwQ7rhR2rkcwUOX1lAn8UDLxo1HG6vq9Pi/6JkxiZuV3vKmAs7zeJ/EtG8rOwLCGAK8JNOuAWwuYMVCFV19kLFwcK2Mx8PZ+7JmwmkZmbganSPQDKOwxDKhMHsbwGOCM6ASEdJX0VhbgeR5M9l/mH7zkWDg/XsZ9fcTmnq4Jz99Cob6M0xzwPslOCtHcNhgj41TW2TyI3FWeTxorj6CaDRgc7xLrO1vhs/HX8Hc8QtAjlvA/1zDpNUjSw2kSLZgmvNwYzBEqanLqezaCVB8DT0i8UfOJ04PL/AOf7DiEG3F4kYTnp/Ccq/ARiZ4iiCP5ObydU18EkzQOtrv7tSUS53OkLkuTRtI3DRPndpRxJfDox1DClas4yBm8zFwbtR2oERLl9FNSHSAJj7sCLJN4bTlA4yx+SrXPhmFrhNUUsnNN3IOBidESFd0eNmxrfA0+9Bbu8wHjwrQMvFE6jF86I2maPVQ4zKQq5YpPl6wQs7NAcVcwj5zhE51kpa0RNhV2yw0nJ8enb0OMK08giubz6GRgdzo8vhB8n5YsnT2DdqNio34veFxwwSCzpwYzT336tbW4PIUubY1wr3GErPtgA8YqNuHk+bbYItNSYoviJAabEk5MygigVOEIYRJzpwonJmUEUKpwhDCJuVOFlWx8ttA2PgL6DNK5+6hNO5APIn5Ph5q1rYnsi/3v9gcm7Ox24c5y/yQ7M5qcG4vRmdZYMAciHI0cxI89Ws80MPzSKuTTshvrtl8U1sAKC7A96SL/atNPBeVF5MIaAyvPCssAphHmBlCx4MG57Q1VPtqT/A5maoUy0CZSGZgRqtwI/i8mlSKS5S6JG+EQ0whnbdxg5ycrixw32OyFhIt3SZ1CjIx/Da7ajxrh4gEssMvHVNh4NAPlrhU52ocl32J1Cf8+YDkrKBPeZrXz+7AokSvk4VWc54AzMj1D3H6zmIJsgZ7IEWHw8T4RhPU2rC5xRhmLI26zeHN04iBIX7dNw8/9gZeZFh8y/Y9xBZh+uYr1CtbWYGrLVQeP9BCMBH2irTIV+97hgv+8VMbXTIfIZNyUcCvg3HW8oOp4Fx7e5qIsSN2AahuiuhQ/ujWpGVeZcCy9tiqY8iz4mXhflg7hN8GNw+qKcAuElfY8p+0t1i7eI/Re8Uu6ZEeDn5Vp9dw4y8KVmpkoyrM/7QzKFr4xLVygonc3esdf9US4BSe5RvJHeH6Hv9fp9yvEfIspTqsh6UI/uJAUVV2PQQX/Yt+v+Me+ndjvk25Bdn1eB+t6REdHKXSz+nhM8py/58nzWXZhGRFLBJ9le5bta8z/n0qvYLpjeNpMFRhUgf8AEBpbGWthdPMAAAAASUVORK5CYII="></Img>
               <BasicText>L.POINT 최대</BasicText>
+              <text>120P</text>
             </div>
-            <text>120P</text>
             <UnderlineText>더보기</UnderlineText>
           </GridFlex>
         </Grid1>
@@ -106,6 +113,7 @@ const Div = styled.div`
 const Img = styled.img`
   width: 28px;
   height: 28px;
+  padding-top: 8px;
 `
 
 const Imgarrow = styled.img`
@@ -134,5 +142,6 @@ const UnderlineText = styled.div`
 const BasicText = styled.text`
   color: #333;
   font-size: 15px;
+  margin-right: 30px;
 `
 export default DetailText
