@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {Grid,Text,Input, Button,Images} from '../elements/index';
 import LimitProduct from '../components/LimitProduct';
@@ -7,7 +7,23 @@ import MainTitle from '../components/MainTitle';
 import Item from '../components/Item';
 import MainBanner from '../components/MainBanner';
 
-const Main = () => {
+import { useDispatch , useSelector} from 'react-redux';
+import { history } from '../redux/configureStore';
+
+import { actionCreators as itemActions } from '../redux/modules/item';
+
+const Main = (props) => {
+  const dispatch = useDispatch();
+  const recommend_list = useSelector((store)=> store);
+  console.log("recommend_list",recommend_list);
+
+
+  React.useEffect(()=> {
+    dispatch(itemActions.getItemSP());
+    
+    
+  },[])
+
   return (
     <>
       <Grid contentWrap padding="45px 0 0 0">
@@ -149,7 +165,7 @@ const LeftTime = styled.p`
   font-size: 18px;
   line-height: 26px;
   letter-spacing: -.5px;
-  
 
     `;
-export default Main
+export default Main;
+

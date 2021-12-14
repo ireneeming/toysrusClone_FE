@@ -1,0 +1,182 @@
+{
+    "christmasProducts": [
+        {
+            "itemId": 45,
+            "itemName": "마이크로킥보드_스쿠터 스피드",
+            "price": 209000,
+            "thumbnail": "http://item.ssgcdn.com/60/77/59/item/1000048597760_i1_1200.jpg"
+        }, {
+            "itemId": 65,
+            "itemName": "미미프렌즈 크리스탈레진아트",
+            "price": 31900,
+            "thumbnail": "http://item.ssgcdn.com/17/06/69/item/1000049690617_i1_1200.jpg"
+        }, {
+            "itemId": 75,
+            "itemName": "크리스마스 만들기 키트 뿅뿅이 미니 트리 만들기 재료",
+            "price": 2800,
+            "thumbnail": "http://item.ssgcdn.com/27/31/32/item/1000264323127_i1_1200.jpg"
+        }, {
+            "itemId": 78,
+            "itemName": "[핑크퐁] 한글버스",
+            "price": 37900,
+            "thumbnail": "http://item.ssgcdn.com/48/97/19/item/1000035199748_i1_1200.jpg"
+        }, {
+            "itemId": 87,
+            "itemName": "크리스마스 SALE 핑크퐁 뮤직스탠드 마이크_P303679437",
+            "price": 19900,
+            "thumbnail": "http://item.ssgcdn.com/85/10/79/item/1000065791085_i1_1200.jpg"
+        }
+    ],
+    "timeLimitProducts": [
+        {
+            "itemId": 35,
+            "itemName": "레고 76198 스파이더 맨 VS 닥터 옥토퍼스 로봇의 대결[슈퍼히어로]",
+            "price": 29900,
+            "discount": 25,
+            "description": "40개 한정 크리스마스 특가!!",
+            "thumbnail": "http://item.ssgcdn.com/45/93/90/item/1000066909345_i1_1200.jpg"
+        }, {
+            "itemId": 38,
+            "itemName": "타요 엘리베이터 중앙차고지/ 어린이 멜로디 변신 장난감",
+            "price": 55900,
+            "discount": 15,
+            "description": "롯데/신한/KB국민/현대카드 결제시 10% 추가할인",
+            "thumbnail": "http://item.ssgcdn.com/96/36/61/item/1000226613696_i1_1200.jpg"
+        }, {
+            "itemId": 40,
+            "itemName": "마이크로킥보드_맥시T 디럭스 LED (색상선택)",
+            "price": 234000,
+            "discount": 30,
+            "description": "크리스마스 기념 대박 할인!",
+            "thumbnail": "http://item.ssgcdn.com/82/70/09/item/1000045097082_i1_1200.jpg"
+        }
+    ],
+    "hotProducts": [
+        {
+            "itemId": 5,
+            "itemName": "손오공 신비아파트시즌4 사복검",
+            "price": 61800,
+            "thumbnail": "http://item.ssgcdn.com/62/52/15/item/1000276155262_i1_1200.jpg"
+        }, {
+            "itemId": 16,
+            "itemName": "헬로카봇 황금특공대 펜타스톰",
+            "price": 152600,
+            "thumbnail": "http://item.ssgcdn.com/33/01/93/item/1000267930133_i1_1200.jpg"
+        }, {
+            "itemId": 29,
+            "itemName": "레고 10956 놀이공원[듀플로]",
+            "price": 149900,
+            "thumbnail": "http://item.ssgcdn.com/40/42/50/item/1000075504240_i1_1200.jpg"
+        }, {
+            "itemId": 60,
+            "itemName": "[영실업공식스토어]시크릿쥬쥬 시크릿 댄스매트",
+            "price": 34800,
+            "thumbnail": "http://item.ssgcdn.com/30/98/49/item/1000093499830_i1_1200.jpg"
+        }, {
+            "itemId": 81,
+            "itemName": "3[미미월드] 춤추는 뽀로로 피아노",
+            "price": 58000,
+            "thumbnail": "http://item.ssgcdn.com/45/23/89/item/1000059892345_i1_1200.jpg"
+        }
+    ],
+    "recommendProducts": {
+        "content": [
+            {
+                "id": 1,
+                "itemName": "신비아파트 시즌4 강림 창공의 퇴마검",
+                "thumbnail": "http://item.ssgcdn.com/30/30/13/item/1000221133030_i1_1200.jpg",
+                "imgDetail": "http://www.ssg.com/item/nonSslIframePItemDtlDesc.ssg?itemId=1000221133030",
+                "price": 56200,
+                "discount": 0,
+                "description": null,
+                "showAreaEnum": "RECOMMEND",
+                "category": {
+                    "id": 1,
+                    "name": "robot"
+                },
+                "clickCount": 3
+            }, {
+                "id": 2,
+                "itemName": "신비아파트 시즌4 사복검",
+                "thumbnail": "http://item.ssgcdn.com/55/30/13/item/1000221133055_i1_1200.jpg",
+                "imgDetail": "http://www.ssg.com/item/nonSslIframePItemDtlDesc.ssg?itemId=1000221133055",
+                "price": 64900,
+                "discount": 0,
+                "description": null,
+                "showAreaEnum": "RECOMMEND",
+                "category": {
+                    "id": 1,
+                    "name": "robot"
+                },
+                "clickCount": 0
+            }, {
+                "id": 3,
+                "itemName": "메카드볼 트윈캐논 드라코스",
+                "thumbnail": "http://item.ssgcdn.com/33/12/54/item/1000270541233_i1_1200.jpg",
+                "imgDetail": "http://www.ssg.com/item/nonSslIframePItemDtlDesc.ssg?itemId=1000270541233",
+                "price": 37900,
+                "discount": 0,
+                "description": null,
+                "showAreaEnum": "RECOMMEND",
+                "category": {
+                    "id": 1,
+                    "name": "robot"
+                },
+                "clickCount": 1
+            }, {
+                "id": 4,
+                "itemName": "[영실업] 또봇V 4단합체 킹포트란 로봇 장난감",
+                "thumbnail": "http://item.ssgcdn.com/35/53/22/item/1000278225335_i1_1200.jpg",
+                "imgDetail": "http://www.ssg.com/item/nonSslIframePItemDtlDesc.ssg?itemId=1000278225335",
+                "price": 96000,
+                "discount": 0,
+                "description": null,
+                "showAreaEnum": "RECOMMEND",
+                "category": {
+                    "id": 1,
+                    "name": "robot"
+                },
+                "clickCount": 13
+            }, {
+                "id": 5,
+                "itemName": "손오공 신비아파트시즌4 사복검",
+                "thumbnail": "http://item.ssgcdn.com/62/52/15/item/1000276155262_i1_1200.jpg",
+                "imgDetail": "http://www.ssg.com/item/nonSslIframePItemDtlDesc.ssg?itemId=1000276155262",
+                "price": 61800,
+                "discount": 0,
+                "description": null,
+                "showAreaEnum": "HOTDEAL",
+                "category": {
+                    "id": 1,
+                    "name": "robot"
+                },
+                "clickCount": 0
+            }
+        ],
+        "pageable": {
+            "sort": {
+                "sorted": false,
+                "unsorted": true,
+                "empty": true
+            },
+            "pageNumber": 0,
+            "pageSize": 5,
+            "offset": 0,
+            "paged": true,
+            "unpaged": false
+        },
+        "last": false,
+        "totalPages": 19,
+        "totalElements": 93,
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "numberOfElements": 5,
+        "first": true,
+        "size": 5,
+        "number": 0,
+        "empty": false
+    }
+}

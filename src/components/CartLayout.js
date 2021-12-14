@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Grid,Text,Input, Button,Images} from '../elements/index';
+import Count from '../shared/Count';
 
 const CartLayout = (props) => {
   
@@ -17,7 +18,8 @@ const {layout} = props;
           </div>
           <div className="cartWrap accordion">
             <input type="checkbox" id="list01"></input>
-            <label htmlFor="list01">리스트 목록<em></em></label>
+            <label htmlFor="list01">
+              롯데마트 <span>매장택배 | 계양점</span> <em></em></label>
             <div className="newItem">
              <ul>
                <li className="newList">
@@ -34,7 +36,9 @@ const {layout} = props;
                       <p>단일상품 혹은 상품 갯수 정하기 </p>
                     </div>
                    </div>
-                   <div className="count">갯수 </div>
+                   <div className="count">
+                    <Count cart></Count>   
+                  </div>
                    <div className="totalPrice">전체 금액</div>
                  </div>
                </li>
@@ -92,6 +96,9 @@ const Normal = styled.div`
   }
 
   .accordion{
+    .list01 span{
+      font-size:12px;
+    }
     
     input[id="list01"]{
       display:none;

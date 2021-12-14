@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Count = () => {
+const Count = (props) => {
+
+  const{cart}=props;
   const [number, setNumber] = React.useState(0)
 
   const onIncrease = () => {
@@ -12,6 +14,20 @@ const Count = () => {
     if (number > 0) {
       setNumber(number - 1)
     }
+  }
+  if(cart) {
+    return (
+      <>
+        <WrapCount>
+          <SpinnerBox>
+            <Minus onClick={onDecrease}></Minus>
+            <Number>{number}</Number>
+            <Plus onClick={onIncrease}></Plus>
+          </SpinnerBox>
+        </WrapCount>
+      </>
+    )
+
   }
 
   return (
