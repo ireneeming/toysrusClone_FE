@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import DetailImage from '../components/DetailImage'
+import DetailSticky from '../components/DetailSticky'
 import DetailText from '../components/DetailText'
+import TopButton from '../components/TopButton'
 import './Detail.css'
 
 const Detail = () => {
@@ -21,9 +23,19 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <DetailImage></DetailImage>
+      <DivFlex>
+        <DetailImage></DetailImage>
+        <DetailSticky></DetailSticky>
+      </DivFlex>
     </>
   )
 }
+const DivFlex = styled.div`
+  display: flex;
+  margin: auto;
+  width: 1143px;
+  border-top: 1px solid #333;
+  margin: auto;
+`
 
 export default Detail

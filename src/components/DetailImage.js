@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import './DetailImage.css'
+import DetailSticky from './DetailSticky'
 
 const DetailImage = () => {
   return (
@@ -39,11 +40,29 @@ const DetailImage = () => {
           <ImageUrl>
             <img src="https://simage.lottemart.com/lim/static_root/images/edidescrimg/images/001492/[%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98]48%EC%BB%AC%EB%9F%AC-%EC%8A%88%ED%8D%BC%EB%94%94%EB%9F%AD%EC%8A%A4%EC%84%B8%ED%8A%B8.jpg"></img>
           </ImageUrl>
+          <MoreButton>
+            <More>상세정보 더보기</More>
+            <img url="https://static.lotteon.com/p/product/assets/img/btn_icon_arrow-bottom_red.svg"></img>
+          </MoreButton>
         </div>
       </div>
     </>
   )
 }
+
+const MoreButton = styled.button`
+  width: 212px;
+  padding: 0px 34px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 24px;
+  border: 1px solid #ef2a23;
+`
+
+const More = styled.span`
+  color: #ef2a23;
+  font-size: 15px;
+`
 
 const TextGrid = styled.div`
   display: flex;
@@ -86,6 +105,6 @@ const ProductTextBold = styled.text`
 const ImageUrl = styled.p`
   max-width: 750px;
   margin-top: 50px;
-  margin-left: 99px;
+  margin-left: 75px;
 `
 export default DetailImage
