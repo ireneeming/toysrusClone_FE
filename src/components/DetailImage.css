@@ -1,0 +1,22 @@
+.wrap {
+  /* max-width: 1143px;
+  border-top: 1px solid #333; */
+  width: 786px;
+  margin: auto;
+  padding: 14px 0 0;
+}
+
+.productDetailContents {
+  width: 786px;
+  padding-right: 36px;
+}
+
+.title {
+  padding: 0 84px;
+  width: 785px;
+  border-bottom: 1px solid #eee;
+}
+
+.contetnt {
+  padding: 96px 36px 0 0;
+}
