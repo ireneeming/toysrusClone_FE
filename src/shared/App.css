@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Noto Sans KR';
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -107,6 +108,10 @@ table {
   align-items:center;
 }
 
+.alignitemT {
+	align-items:flex-start;
+}
+
 /******************** margin ********************/
 
 .marginR-10 {
@@ -189,4 +194,24 @@ table {
 
 .ovfHidden {
 	overflow:hidden;
+}
+
+
+/**/
+.menuBar{
+	/* padding: 1rem; */
+	background: #be5eff;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+.tabs li{
+	font-size: 1rem;
+	font-weight: bold;
+	display: inline-block;
+	color: #efefef;
+	padding: 1rem;
+}
+.tabs li.active{
+	background-color: #6f03b7;
+	height: 100%;
 }
