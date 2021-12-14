@@ -74,7 +74,7 @@ const Register = () => {
               <Input width="350px" register placeholder="-없이 휴대폰 번호를 입력해주세요."></Input>
             </Grid1>
           </Grid>
-          <RegisterAgree></RegisterAgree>
+          {/* <RegisterAgree></RegisterAgree> */}
         </Grid>
       </Grid>
     </>
