@@ -1,10 +1,10 @@
 .container {
   padding: 45px 0 120px;
   max-width: 1140px;
-  /* margin: auto; */
+  margin: auto;
 }
 
-.wrap {
+.wrapcontents {
   display: flex;
 }
 

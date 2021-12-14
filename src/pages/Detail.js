@@ -8,7 +8,7 @@ const Detail = () => {
   return (
     <>
       <div className="container">
-        <div className="wrap">
+        <div className="wrapcontents">
           <div className="imageBox">
             <div className="imgDiv">
               <div className="colorBox">
@@ -21,6 +21,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
+      <DetailImage></DetailImage>
     </>
   )
 }

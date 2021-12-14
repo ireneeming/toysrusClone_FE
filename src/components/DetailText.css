@@ -44,6 +44,11 @@
   vertical-align: middle;
 }
 
+.title {
+  width: 100%;
+  /* border-bottom: 1px solid #333; */
+}
+
 .textH1 {
   font-size: 28px;
   letter-spacing: -0.8px;
@@ -51,11 +56,6 @@
   max-width: 100%;
   word-break: break-all;
   padding-bottom: 18px;
-}
-
-.title {
-  width: 100%;
-  /* border-bottom: 1px solid #333; */
 }
 
 .price {
@@ -120,6 +120,7 @@
   margin-bottom: 10px;
   overflow: hidden;
   background-color: #f8f8f8;
+  border-radius: 6px;
 }
 
 .priceOption {
