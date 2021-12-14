@@ -5,25 +5,15 @@ import LimitProduct from '../components/LimitProduct';
 import BranchIcon from '../components/BranchIcon';
 import MainTitle from '../components/MainTitle';
 import Item from '../components/Item';
+import MainBanner from '../components/MainBanner';
 
 const Main = () => {
   return (
     <>
       <Grid contentWrap padding="45px 0 0 0">
         <MainTitle/>
-        {/********* 이벤트 이미지 슬라이드 부분 *********/}
-        <Grid className="flexSpaceBetween">
-          <Grid width="360px;" height="360px" className=" ovfHidden borderRadius-10">
-            <Images src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000007/67399/P8C736AC481D0383CD7B762443443BE421117F6BC5E1959916696E6AA60BF43BC/file/dims/optimize"/>
-          </Grid>
-          <Grid width="360px;" height="360px" className="ovfHidden borderRadius-10">
-            <Images src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000007/196837/PC2CED6DBAECE71E871E951E799845E288628DA6ACDECC2DC9B4ED44277B1EF02/file/dims/optimize"/>
-          </Grid>
-          <Grid width="360px;" height="360px" className="ovfHidden borderRadius-10">
-            <Images src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000007/196838/P5E141E4F5A4D68D9A92941D207F57BF8F9CCA6560044E43A7B5C0EB0DADBD056/file/dims/optimize"/>
-          </Grid>
-        </Grid>
-      
+        <MainBanner/>
+        
         {/********* 쿠폰 *********/}
         <Grid className=" ovfHidden borderRadius-10 marginTB-15" background="rgb(255, 137, 59)" align="center">
           <Images width="auto" height="84px" src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000011/195432/PB93C75EFEFD55DE9D61830E54EE30D83F7F296D43D198C9C13EA8ED552085E9E/file/dims/optimize"/>
