@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Grid = (props) => {
 
 
-  const { bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
+  const { background, bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
 
 
   const styles = {
@@ -20,6 +20,7 @@ const Grid = (props) => {
     border:border,
     lineHeight:lineHeight,
     bdrBtm:bdrBtm,
+    background:background,
 
   }
 
@@ -76,6 +77,7 @@ Grid.defaultProps = {
   lineHeight: false,
   _onClick: () => {},
   bdrBtm:false,
+  background: false,
 }
 
 const HeaderBox = styled.div`
@@ -104,12 +106,14 @@ const GridBox = styled.div`
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
   line-height: ${(props) => props.lineHeight};
+  background:${(props) => props.background};
+  border:${(props) => props.border};
 `
 
 const ContentWrap = styled.div`
   position: relative;
   width: 1140px;
-
+  padding: ${(props) => (props.padding ? `${props.padding}` : '')};
   margin: 0 auto;
   *border: 1px solid #eee; // 임시로 지정
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
