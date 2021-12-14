@@ -125,6 +125,16 @@ table {
 	margin-left:20px;
 }
 
+.marginTB-15 {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+
+/******************** padding ********************/
+.paddingTB-15{
+	padding:15px 0;
+}
+
 /******************** Color ********************/
 
 .bgBlue {
@@ -168,4 +178,15 @@ table {
 	height:2px;
 	background-color:#fff;
 
+}
+
+/******************** border-radius ********************/
+.borderRadius-10 {
+	border-radius:10px;
+}
+
+/******************** overflow ********************/
+
+.ovfHidden {
+	overflow:hidden;
 }

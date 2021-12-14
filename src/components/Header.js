@@ -3,7 +3,7 @@ import '../shared/App.css';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
  
-import {Grid,Text,Image,Input, Button} from '../elements/index';
+import {Grid,Text,Images,Input, Button} from '../elements/index';
 
 
 
@@ -24,9 +24,9 @@ const Header = () => {
             </Grid>
             {/* 혼종 Start */}
             <Grid className="flexSpaceBetween" flex="flex; align-items:top;" height="91px" padding="15px 0 16px 0">
-              <Image logo />
+              <Images logo />
               <Grid position="relative;">
-                <Input search/>
+                <Input search placeholder="검색어를 입력하세요"/>
 
                 <Button search_btn className="searchBtn"></Button>
                 
