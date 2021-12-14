@@ -1,35 +1,43 @@
-import React from 'react'
-import './QuickMenu.css'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Grid } from '@material-ui/core'
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined'
-import ArrowDropDownCircleSharpIcon from '@mui/icons-material/ArrowDropDownCircleSharp'
+import './TopButton.css'
 
 const TopButton = () => {
-  var location = document.querySelector('#Header')
+  const [ScrollY, setScrollY] = useState(0)
+
+  const handleTop = () => {
+    window.scrollTo({
+      top: 0,
+      // behavior: 'smooth',
+    })
+    setScrollY(0)
+  }
 
   return (
     <React.Fragment>
-      <Grid position="fixed" right="7%" bottom="5%">
-        <div className="Rotate">
-          <Grid is_grid font-size="5rem">
-            {/* <Permit> */}
-            <ArrowDropDownCircleSharpIcon
-              className="TopToButton"
-              fontSize="10rem"
-              width="auto"
-              height="auto"
-              outline="none"
-              _onClick={() => {
-                window.scrollBy(0, -window.innerHeight)
-                //ref로 요소를 잡아오기,scrollTP
-              }}
-            />
-          </Grid>
-        </div>
-      </Grid>
+      <ButtonDiv>
+        <ButtonTop onClick={handleTop}></ButtonTop>
+      </ButtonDiv>
     </React.Fragment>
   )
 }
+
+const ButtonDiv = styled.div`
+  position: fixed;
+  height: 50px;
+  z-index: 900;
+  right: 85px;
+  bottom: 27px;
+`
+
+const ButtonTop = styled.button`
+  position: absolute;
+  top: -9px;
+  right: 0;
+  width: 68px;
+  height: 68px;
+  background-image: url(https://static.lotteon.com/p/common/foCommon/assets/img/btn_move_top.png);
+  background-size: 100% 100%;
+`
 
 export default TopButton

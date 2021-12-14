@@ -16,7 +16,7 @@ const Count = () => {
 
   return (
     <>
-      <div>
+      <WrapCount>
         <SpinnerBox>
           <Minus onClick={onDecrease}></Minus>
           <Number>{number}</Number>
@@ -25,10 +25,17 @@ const Count = () => {
         <div>
           {number * 49900} <span>원</span>
         </div>
-      </div>
+      </WrapCount>
     </>
   )
 }
+
+const WrapCount = styled.div`
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: space-between;
+`
 
 const SpinnerBox = styled.div`
   width: 110px;

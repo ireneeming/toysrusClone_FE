@@ -1,18 +1,15 @@
 .wrap {
-  max-width: 1143px;
-  border-top: 1px solid #333;
-  margin: auto;
-  padding: 14px 0 0;
+  width: 785px;
 }
 
 .productDetailContents {
-  width: 786px;
+  width: 785px;
   padding-right: 36px;
 }
 
 .titleName {
   padding: 0 84px;
-  width: 785px;
+  width: 617px;
   border-bottom: 1px solid #eee;
 }
 
@@ -21,7 +18,6 @@
 }
 
 .productDetail {
-  width: 750px;
   height: 90px;
   border-radius: 14px;
   overflow: hidden;
