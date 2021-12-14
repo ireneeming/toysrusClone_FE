@@ -38,8 +38,8 @@ const WrapCount = styled.div`
 `
 
 const SpinnerBox = styled.div`
-  width: 110px;
-  height: 32px;
+  /* width: 110px;
+  height: 32px; */
   border: 1px solid #ddd;
   background-color: #fff;
   display: -webkit-box;
