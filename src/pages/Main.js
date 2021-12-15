@@ -1,28 +1,25 @@
-import React,{useEffect, useState} from 'react';
-import styled from 'styled-components';
-import {Grid,Text,Input, Button,Images} from '../elements/index';
-import LimitProduct from '../components/LimitProduct';
-import BranchIcon from '../components/BranchIcon';
-import MainTitle from '../components/MainTitle';
-import Item from '../components/Item';
-import MainBanner from '../components/MainBanner';
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { Grid, Text, Input, Button, Images } from '../elements/index'
+import LimitProduct from '../components/LimitProduct'
+import BranchIcon from '../components/BranchIcon'
+import MainTitle from '../components/MainTitle'
+import Item from '../components/Item'
+import MainBanner from '../components/MainBanner'
 
-import { useDispatch , useSelector} from 'react-redux';
-import { history } from '../redux/configureStore';
+import { useDispatch, useSelector } from 'react-redux'
+import { history } from '../redux/configureStore'
 
-import { actionCreators as itemActions } from '../redux/modules/item';
+import { actionCreators as itemActions } from '../redux/modules/item'
 
 const Main = (props) => {
-  const dispatch = useDispatch();
-  const recommend_list = useSelector((store)=> store);
-  console.log("recommend_list",recommend_list);
+  const dispatch = useDispatch()
+  const recommend_list = useSelector((state) => state.item.result)
+  console.log('recommend_list', recommend_list)
 
-
-  React.useEffect(()=> {
-    dispatch(itemActions.getItemSP());
-    
-    
-  },[])
+  React.useEffect(() => {
+    dispatch(itemActions.getItemSP())
+  }, [])
 
   return (
     <>
@@ -139,15 +136,19 @@ const Main = (props) => {
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
+          {recommend_list &&
+            recommend_list.map((list, idx) => {
+              console.log(list)
+            })}
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
+          {/* <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
 
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
+          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" /> */}
         </Grid>
       </Grid>
     </>
@@ -172,9 +173,6 @@ const LeftTime = styled.p`
   color: #fff;
   font-size: 18px;
   line-height: 26px;
-  letter-spacing: -.5px;
-
-    `;
-export default Main;
-
-
+  letter-spacing: -0.5px;
+`
+export default Main
