@@ -3,28 +3,21 @@ import styled from 'styled-components'
 import DetailImage from '../components/DetailImage'
 import DetailSticky from '../components/DetailSticky'
 import DetailText from '../components/DetailText'
+import Image from '../elements/Images'
 // import TopButton from '../components/TopButton';
 import './Detail.css'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 import { useDispatch, useSelector } from 'react-redux'
-import api from '../api/api'
 
 const Detail = (props) => {
+  const data = useSelector((state) => state.item.list)
+  console.log(data)
   const dispatch = useDispatch()
-  console.log(props)
   const itemId = props.match.params.itemId
-  console.log(itemId)
 
   React.useEffect(() => {
-    const getDetailSP = () => {
-      const itemId = props.match.params.itemId
-      return async function (dispatch, useState, { history }) {
-        await api.get(`/api/item/${itemId}`).then((res) => {
-          console.log(res)
-        })
-      }
-    }
+    dispatch(itemActions.getDetailSP(itemId))
   }, [])
 
   return (
@@ -34,7 +27,7 @@ const Detail = (props) => {
           <div className="imageBox">
             <div className="imgDiv">
               <div className="colorBox">
-                <img src="https://contents.lotteon.com/itemimage/_v031639/LM/50/54/13/13/19/53/6_/00/1/LM5054131319536_001_1.jpg/dims/resizef/554X554"></img>
+                <Image src={data.thumbnail}></Image>
               </div>
             </div>
           </div>

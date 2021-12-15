@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Count = (props) => {
+import { useSelector } from 'react-redux'
 
-  const{cart}=props;
+const Count = (props) => {
+  const data = useSelector((state) => state.item.list)
+
+  const { cart } = props
   const [number, setNumber] = React.useState(0)
 
   const onIncrease = () => {
@@ -15,7 +18,7 @@ const Count = (props) => {
       setNumber(number - 1)
     }
   }
-  if(cart) {
+  if (cart) {
     return (
       <>
         <WrapCount>
@@ -27,7 +30,6 @@ const Count = (props) => {
         </WrapCount>
       </>
     )
-
   }
 
   return (
@@ -39,7 +41,7 @@ const Count = (props) => {
           <Plus onClick={onIncrease}></Plus>
         </SpinnerBox>
         <div>
-          {number * 49900} <span>원</span>
+          {number * data.price} <span>원</span>
         </div>
       </WrapCount>
     </>

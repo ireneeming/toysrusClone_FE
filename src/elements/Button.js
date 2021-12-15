@@ -68,6 +68,8 @@ cursor:pointer;
 
 `;
 
+
+
 const BtnCircle = styled.button`
   background-image: url(https://static.lotteon.com/p/display/plugin/assets/img/icon_cart_toy.svg);
   width: 52px;

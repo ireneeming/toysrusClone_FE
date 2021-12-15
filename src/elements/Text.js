@@ -29,6 +29,7 @@ Text.defaultProps = {
   size: false,
   align: false,
   margin: '0px',
+  
 }
 
 const H2 = styled.h2`
@@ -50,6 +51,7 @@ const P = styled.p`
   word-break: keep-all;
   letter-spacing: -0.5px;
   font-family: 'Noto Sans KR';
+  letter-spacing:-0.02em;
 `
 
 const Mont = styled.p`
@@ -74,5 +76,4 @@ const Span = styled.span`
   word-break: keep-all;
   font-family: 'Noto Sans KR';
 `
-
 export default Text

@@ -18,7 +18,6 @@ const Main = (props) => {
   const list = useSelector((state) => state.item.list)
   const recommend_list = useSelector((state) => state.item.recommend_list)
 
-  console.log(list)
   const christmas_list = list.christmasProducts
   const hot_list = list.hotProducts
   console.log('핫', hot_list)
@@ -60,13 +59,7 @@ const Main = (props) => {
           {timeLimit_list &&
             timeLimit_list.map((list) => {
               return (
-                <Grid
-                  width="49%"
-                  _onClick={() => {
-                    dispatch(itemActions.getDetailSP())
-                    history.push(`/item/${list.itemId}`)
-                  }}
-                >
+                <Grid width="49%"  _onClick={() => { history.push(`/item/${list.itemId}`)  }}  >
                   <LimitProduct key={list.itemId} {...list} />
                 </Grid>
               )
@@ -146,7 +139,11 @@ const Main = (props) => {
         height="515px"
         background="url('https://contents.lotteon.com/display/dshoplnk/31650/2/M000084/196572/PD52047A4873003579A1520B17C029FA57D042D0621423C5304C640B165DA930C/file') no-repeat;background-size:100%;"
       >
-        <Grid contentWrap>{/******** 크리스마스 추천 선물 *********/}</Grid>
+         {/******** 크리스마스 추천 선물 *********/}
+        <Grid contentWrap>
+         
+          
+        </Grid>
       </Grid>
       <Grid contentWrap>
         {/******** 지금 핫한 신상품 *********/}
