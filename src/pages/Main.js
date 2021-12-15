@@ -18,12 +18,11 @@ const Main = (props) => {
   const list = useSelector((state) => state.item.list)
   const recommend_list = useSelector((state) => state.item.recommend_list)
 
-
   console.log(list)
   const christmas_list = list.christmasProducts
   const hot_list = list.hotProducts
+  console.log('핫', hot_list)
   const timeLimit_list = list.timeLimitProducts
-
 
   const hoursMinSecs = { hours: 5, minutes: 20, seconds: 40 }
 
@@ -65,7 +64,7 @@ const Main = (props) => {
                 <Grid
                   width="49%"
                   _onClick={() => {
-                    history.push(`/detail/${list.itemId}`)
+                    history.push(`/item/${list.itemId}`)
                   }}
                 >
                   <LimitProduct key={list.itemId} {...list} />
@@ -161,7 +160,7 @@ const Main = (props) => {
                   width="33%"
                   height="434px"
                   _onClick={() => {
-                    history.push(`/detail/${list.itemId}`)
+                    history.push(`/item/${list.itemId}`)
                   }}
                 >
                   <Item three key={list.itemId} {...list} />
@@ -175,19 +174,18 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-
+              console.log(list)
               return (
                 <Grid
                   width="25%"
                   height="434px"
                   _onClick={() => {
-                    history.push(`/detail/${list.itemId}`)
+                    history.push(`/item/${list.id}`)
                   }}
                 >
                   <Item key={list.id} {...list} />
                 </Grid>
               )
-
             })}
         </Grid>
       </Grid>
