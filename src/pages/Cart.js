@@ -92,7 +92,7 @@ width:100%;
 min-height:390px;
 margin-top:40px;
 margin-bottom:80px;
-border:1px solid #eee;
+*border:1px solid #eee;
 position:relative;
 `;
 

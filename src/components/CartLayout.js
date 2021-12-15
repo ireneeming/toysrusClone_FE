@@ -88,6 +88,10 @@ const {layout} = props;
                     </div>
                   </li>
                 </ul>
+                <div className="deliveryInfo">
+                  <p>258,000월 + 배송비 0원 - 할인 0원 = <b>258,900</b>원(<span className="fontRed">30,000원 이상</span> 무료배송)</p>
+              
+                </div>
               {/* 상품 리스트 영역 end */}
               </div>
             </div>
@@ -100,15 +104,15 @@ const {layout} = props;
 
             <Grid className="flexSpaceBetween">
               <Text className="priceList">상품금액</Text>
-              <Text className="priceList" align="right" bold color="">298,000원</Text>
+              <Text className="priceList" align="right" bold color="">298,000 원</Text>
             </Grid>
             <Grid className="flexSpaceBetween">
               <Text className="priceList">배송비</Text>
-              <Text className="priceList" align="right" bold>0원</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
             </Grid>
             <Grid className="flexSpaceBetween" padding="0 0 18px 0">
               <Text className="priceList">상품할인금액</Text>
-              <Text className="priceList" align="right" bold>0원</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
             </Grid>
             <div className="horiLine"></div>
             <Grid className="flexSpaceBetween" padding="17px 0 18px 0">
@@ -132,10 +136,45 @@ const {layout} = props;
     return(
 
       <>
-        <Text>명절배송</Text>
-        <Button text="전체 선택"></Button>
-        <Button text="품절상품 삭제"></Button>
-        <Button text="선택삭제"></Button>
+        <Normal>
+          {/* 배송지 및 주문내역 */}
+          <div className="delivery_left">
+            
+            <div className="noItem">
+                <Text size="15px" margin="140px 0 0 0" align="center" color="#333">장바구니에 담긴 상품이 없어요.</Text>
+            </div>
+          </div>
+
+          {/* 결제예정금액 */}
+
+          <div className="delivery_right">
+            <Text className="priceTitle">결제예정금액</Text>
+
+            <Grid className="flexSpaceBetween">
+              <Text className="priceList">상품금액</Text>
+              <Text className="priceList" align="right" bold color="">0 원</Text>
+            </Grid>
+            <Grid className="flexSpaceBetween">
+              <Text className="priceList">배송비</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
+            </Grid>
+            <Grid className="flexSpaceBetween" padding="0 0 18px 0">
+              <Text className="priceList">상품할인금액</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
+            </Grid>
+            <div className="horiLine"></div>
+            <Grid className="flexSpaceBetween" padding="17px 0 18px 0">
+              <Text className="priceList">총 0건</Text>
+              <Text className="totalTotalPrice" align="right" bold>0<span className="won"> 원</span></Text>
+            </Grid>
+            <Grid>
+              <Button red_btn text="주문하기"/>
+              <Button className="giftBtn" text="선물하기"/>
+            </Grid>
+
+          </div>
+         
+       </Normal>
       </>
     );
 
@@ -145,10 +184,45 @@ const {layout} = props;
     return(
 
       <>
-        <Text>정기배송</Text>
-        <Button text="전체 선택"></Button>
-        <Button text="품절상품 삭제"></Button>
-        <Button text="선택삭제"></Button>
+        <Normal>
+          {/* 배송지 및 주문내역 */}
+          <div className="delivery_left">
+            
+            <div className="noItem">
+                <Text size="15px" margin="140px 0 0 0" align="center" color="#333">장바구니에 담긴 상품이 없어요.</Text>
+            </div>
+          </div>
+
+          {/* 결제예정금액 */}
+
+          <div className="delivery_right">
+            <Text className="priceTitle">결제예정금액</Text>
+
+            <Grid className="flexSpaceBetween">
+              <Text className="priceList">상품금액</Text>
+              <Text className="priceList" align="right" bold color="">0 원</Text>
+            </Grid>
+            <Grid className="flexSpaceBetween">
+              <Text className="priceList">배송비</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
+            </Grid>
+            <Grid className="flexSpaceBetween" padding="0 0 18px 0">
+              <Text className="priceList">상품할인금액</Text>
+              <Text className="priceList" align="right" bold>0 원</Text>
+            </Grid>
+            <div className="horiLine"></div>
+            <Grid className="flexSpaceBetween" padding="17px 0 18px 0">
+              <Text className="priceList">총 0건</Text>
+              <Text className="totalTotalPrice" align="right" bold>0<span className="won"> 원</span></Text>
+            </Grid>
+            <Grid>
+              <Button red_btn text="주문하기"/>
+              <Button className="giftBtn" text="선물하기"/>
+            </Grid>
+
+          </div>
+         
+       </Normal>
       </>
     );
 
@@ -162,16 +236,26 @@ justify-content:space-between;
   .delivery_left{
     width:786px;
 
-  .Homeaddress{
-    width:100%;
-    border-bottom:1px dashed #ccc;
-    margin:0 0 40px 0;
-    padding:0 0 20px 0;
+    .Homeaddress{
+      width:100%;
+      border-bottom:1px dashed #ccc;
+      margin:0 0 40px 0;
+      padding:0 0 20px 0;
 
       button{
         border:none;
         background:none;
       }
+    
+  }
+  .noItem {
+    width:100%;
+    height:262px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background: url(//static.lotteon.com/p/order/assets/img/icon_no_result_cart.svg) no-repeat;
+    background-position:50% 70px;
+
   }
 
   .accordion{
@@ -188,7 +272,7 @@ justify-content:space-between;
       padding:20px;
       border:1px solid #ddd;
       cursor:pointer;
-      border-radius:10px;
+      border-radius:10px 10px 0 0;
     }
     input[id="list01"]+label em {
       position:absolute;
@@ -202,8 +286,8 @@ justify-content:space-between;
     input[id="list01"]+label + div{
       min-height:100px;
       padding:0;
-      
-      
+      border-radius:0 0 10px 10px;
+      margin-top:-1px;
       transition:all .35s;
       overflow:hidden;
       
@@ -215,18 +299,16 @@ justify-content:space-between;
       border-bottom:1px solid #ddd;
       border-left:1px solid #ddd;
       
-      border-radius:10px 10px 0 0;
+      border-radius:10px;
        
      }
 
 
     input[id="list01"]:checked + label + div {
-      border-right:1px solid #ddd;
-      border-bottom:1px solid #ddd;
-      border-left:1px solid #ddd;
-      border-radius:0 0 10px 10px;
+      
       height:0;
       min-height:0;
+      border:none;
       
      
       
@@ -235,8 +317,20 @@ justify-content:space-between;
         width:100%;
         height:auto;
         padding:24px 10px 24px 20px;
-        border:1px solid #bbb;
+        border:1px solid #ddd;
         box-sizing:border-box;
+
+        .newList{border-bottom:1px solid #ddd;}
+        .newList:last-child{border-bottom:none;}
+
+        .deliveryInfo{
+          padding: 20px;
+          background-color:#fef5f4;
+          color:#757575;
+          font-size:13px;
+          letter-spacing:0;
+          font-weight:300;
+        }
       }
       .newItem label {
         display:none;
@@ -281,7 +375,7 @@ justify-content:space-between;
   }
   .delivery_right {
     width:300px;
-    height:385px;
+    height:355px;
     border:1px solid #ddd;
     border-radius:10px;
     padding:24px 20px 20px 20px;
