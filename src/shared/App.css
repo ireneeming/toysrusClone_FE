@@ -144,12 +144,14 @@ table {
 /******************** Color ********************/
 
 .bgBlue {
-	background-color:#1352a2
+	background-color:#1352a2;
 }
 
 .bgeee {
-	background-color:#eee
+	background-color:#eee;
 }
+
+.fontRed {color:#ef2a23;}
 
 /******************** bar ********************/
 

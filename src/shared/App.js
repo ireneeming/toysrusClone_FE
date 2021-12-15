@@ -11,11 +11,12 @@ import Register from '../pages/Register'
 import Header from '../components/Header'
 import TopButton from '../components/TopButton'
 import ScrollToTop from './ScrollRestoration'
+import Footer from './Footer'
 
 function App() {
   return (
     <>
-      <Header></Header>
+      <Header/>
       <ConnectedRouter history={history}>
         <ScrollToTop />
         <Route path="/" exact component={Main} />
@@ -24,7 +25,8 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
       </ConnectedRouter>
-      <TopButton></TopButton>
+      <TopButton/>
+      <Footer/>
     </>
   )
 }
