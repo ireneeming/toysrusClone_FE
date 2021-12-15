@@ -10,12 +10,14 @@ import Login from '../pages/Login'
 import Register from '../pages/Register'
 import Header from '../components/Header'
 import TopButton from '../components/TopButton'
+import ScrollToTop from './ScrollRestoration'
 
 function App() {
   return (
     <>
       <Header></Header>
       <ConnectedRouter history={history}>
+        <ScrollToTop />
         <Route path="/" exact component={Main} />
         <Route path="/item/:itemId" exact component={Detail} />
         <Route path="/cart/:userId" exact component={Cart} />

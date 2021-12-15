@@ -1,29 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Grid, Text,  Button, Images } from '../elements/index';
-import LimitProduct from '../components/LimitProduct';
-import BranchIcon from '../components/BranchIcon';
-import MainTitle from '../components/MainTitle';
-import Item from '../components/Item';
-import MainBanner from '../components/MainBanner';
+import React from 'react'
+import styled from 'styled-components'
+import { Grid, Text, Button, Images } from '../elements/index'
+import LimitProduct from '../components/LimitProduct'
+import BranchIcon from '../components/BranchIcon'
+import MainTitle from '../components/MainTitle'
+import Item from '../components/Item'
+import MainBanner from '../components/MainBanner'
 import CountDown from '../components/CountDown'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { history } from '../redux/configureStore';
+import { history } from '../redux/configureStore'
 
-import { actionCreators as itemActions } from '../redux/modules/item';
+import { actionCreators as itemActions } from '../redux/modules/item'
 
 const Main = (props) => {
   const dispatch = useDispatch()
-  const list = useSelector((state) => state.item.list);
+  const list = useSelector((state) => state.item.list)
   const recommend_list = useSelector((state) => state.item.recommend_list)
 
 
+  console.log(list)
+  const christmas_list = list.christmasProducts
+  const hot_list = list.hotProducts
+  const timeLimit_list = list.timeLimitProducts
 
-  // const recommend_list = list.recommendProducts
-  //console.log(recommend_list);
 
-  const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 }
+  const hoursMinSecs = { hours: 5, minutes: 20, seconds: 40 }
 
   React.useEffect(() => {
     dispatch(itemActions.getItemSP())
@@ -56,8 +58,20 @@ const Main = (props) => {
         </EventLimit>
         {/********* 한정수량특가 이미지 슬라이드 *********/}
         <Grid className="paddingTB-15 flexSpaceBetween">
-          <LimitProduct></LimitProduct>
-          <LimitProduct></LimitProduct>
+          {timeLimit_list &&
+            timeLimit_list.map((list) => {
+              console.log('여기야여기', list)
+              return (
+                <Grid
+                  width="49%"
+                  _onClick={() => {
+                    history.push(`/detail/${list.itemId}`)
+                  }}
+                >
+                  <LimitProduct key={list.itemId} {...list} />
+                </Grid>
+              )
+            })}
         </Grid>
 
         {/******** 브랜치 아이콘 *********/}
@@ -139,9 +153,21 @@ const Main = (props) => {
         {/******** 지금 핫한 신상품 *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193018/PFAFDE167221465811CBABF99EA29D783408E3BBE21565AB0B3C67B0D527A7250/file/dims/optimize" />
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
-          <Item three src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item three src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item three src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
+          {hot_list &&
+            hot_list.map((list) => {
+              console.log(list)
+              return (
+                <Grid
+                  width="33%"
+                  height="434px"
+                  _onClick={() => {
+                    history.push(`/detail/${list.itemId}`)
+                  }}
+                >
+                  <Item three key={list.itemId} {...list} />
+                </Grid>
+              )
+            })}
         </Grid>
 
         {/******** 지금 꼭 사야할 추천상품*********/}
@@ -149,7 +175,19 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-              return <Item key={list.id} {...list} _onClick={()=>{history.push(`/item/${list.id}`)}} />
+
+              return (
+                <Grid
+                  width="25%"
+                  height="434px"
+                  _onClick={() => {
+                    history.push(`/detail/${list.itemId}`)
+                  }}
+                >
+                  <Item key={list.id} {...list} />
+                </Grid>
+              )
+
             })}
         </Grid>
       </Grid>
