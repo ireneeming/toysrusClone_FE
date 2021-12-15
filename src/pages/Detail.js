@@ -17,7 +17,8 @@ const Detail = (props) => {
   console.log(itemId)
 
   React.useEffect(() => {
-    const getDetailSP = (itemId) => {
+    const getDetailSP = () => {
+      const itemId = props.match.params.itemId
       return async function (dispatch, useState, { history }) {
         await api.get(`/api/item/${itemId}`).then((res) => {
           console.log(res)
