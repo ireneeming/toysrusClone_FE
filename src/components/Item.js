@@ -10,27 +10,23 @@ const Item = (props) => {
   if (three) {
     return (
       <>
-        <Grid width="33%" height="434px">
-          <Grid className="ovfHidden borderRadius-10" position="relative;">
-            <Images src={props.src} />
-            <ImgBlock />
-          </Grid>
-          <Text>{props.itemName}</Text>
-          <Text>{props.price}원</Text>
-        </Grid>
-      </>
-    )
-  }
-  return (
-    <>
-      <Grid width="25%" height="434px">
         <Grid className="ovfHidden borderRadius-10" position="relative;">
           <Images src={props.thumbnail} />
           <ImgBlock />
         </Grid>
         <Text>{props.itemName}</Text>
         <Text>{props.price}원</Text>
+      </>
+    )
+  }
+  return (
+    <>
+      <Grid className="ovfHidden borderRadius-10" position="relative;">
+        <Images src={props.thumbnail} />
+        <ImgBlock />
       </Grid>
+      <Text>{props.itemName}</Text>
+      <Text>{props.price}원</Text>
     </>
   )
 }

@@ -1,6 +1,5 @@
 import {createAction, handleActions} from "redux-actions";
 import { produce } from 'immer';
-
 import api from '../../api/api';
 
 const GET_USER = "GET_USER";
@@ -12,7 +11,7 @@ const getUser = createAction(GET_USER, ( user )=>({ user }));
 const logIn = createAction(LOG_IN, (user)=> ({user}));
 
 const initialState= {
-  email:null,
+  username:null,
   is_login:false,
 
 }
@@ -20,20 +19,24 @@ const initialState= {
 
 // 미들웨어
 
-const loginSP = (email,pwd) => {
+const loginSP = (id,pwd) => {
   return async function (dispatch, getState, {history}){
     const user = {
-      email:email,
+      username:id,
       password:pwd
     }
     await api.post("/api/auth/login", user).then(function(response){
-      console.log("로그인요청", response);
-      
-
-      
+      localStorage.setItem('token', response.headers.authorization);
+      localStorage.setItem('name' ,response.headers.name);
+      console.log(response);
+     
     }).catch((err)=>{
       
-    })
+    });
+    
+    
+   
+
   }
 }
 

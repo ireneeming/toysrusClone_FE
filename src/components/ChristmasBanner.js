@@ -14,7 +14,7 @@ import 'swiper/components/navigation/navigation.min.css'
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation])
 
-const MainBanner = () => {
+const ChristmasBanner = () => {
   return (
     <>
       <Swiper
@@ -85,4 +85,4 @@ const MainBanner = () => {
   )
 }
 
-export default MainBanner
+export default ChristmasBanner
