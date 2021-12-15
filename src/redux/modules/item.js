@@ -5,11 +5,17 @@ import axios from 'axios'
 
 // 액션 타입
 
-const LOAD_ITEM = 'LOAD_ITEM'
+const LOAD_ITEM ="LOAD_ITEM";
 
+
+//액션 생성자 생성
 const loadItem = createAction(LOAD_ITEM, (item_list) => ({ item_list }))
 
-const initialState = {}
+
+const initialState={
+  list: [],
+}
+
 
 // middleware
 
@@ -23,13 +29,13 @@ const getItemSP = () => {
   }
 }
 
+//reducer
 export default handleActions(
   {
-    [LOAD_ITEM]: (state, action) =>
-      produce(state, (draft) => {
-        console.log(state)
-        draft.result = action.payload.item_list
-      }),
+    [LOAD_ITEM]: (state, action) => produce(state,(draft) => {
+      draft.list = action.payload.item_list;
+    })
+
   },
   initialState
 )

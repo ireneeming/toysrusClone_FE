@@ -13,13 +13,18 @@ import { history } from '../redux/configureStore'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 const Main = (props) => {
-  const dispatch = useDispatch()
-  const recommend_list = useSelector((state) => state.item.result)
-  console.log('recommend_list', recommend_list)
 
-  React.useEffect(() => {
-    dispatch(itemActions.getItemSP())
-  }, [])
+  const dispatch = useDispatch();
+  const recommend_list = useSelector((store)=> store.item.list);
+  console.log("recommend_list",recommend_list);
+
+
+  React.useEffect(()=> {
+
+    dispatch(itemActions.getItemSP());
+        
+  },[])
+
 
   return (
     <>
@@ -141,14 +146,7 @@ const Main = (props) => {
               console.log(list)
             })}
           <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          {/* <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" /> */}
+          
         </Grid>
       </Grid>
     </>
