@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Grid, Text, Input, Button, Images } from '../elements/index'
 
 const Item = (props) => {
-  const { three } = props
+  const { three, history } = props
   // console.log(props)
 
   // 타임 한정 수량 특가

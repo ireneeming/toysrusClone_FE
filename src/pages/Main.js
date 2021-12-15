@@ -15,8 +15,9 @@ import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Main = (props) => {
   const dispatch = useDispatch()
-  const recommend_list = useSelector((store) => store.item.list)
-  console.log('recommend_list', recommend_list)
+  const list = useSelector((state) => state.item.list)
+
+  const recommend_list = list.recommendProducts
 
   const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 }
 
@@ -45,7 +46,9 @@ const Main = (props) => {
 
         <EventLimit className="ovfHidden borderRadius-10 marginTB-15">
           <LeftTime>남은시간</LeftTime>
-          <CountDown hoursMinSecs={hoursMinSecs} />
+          <DivTime>
+            <CountDown hoursMinSecs={hoursMinSecs} />
+          </DivTime>
         </EventLimit>
         {/********* 한정수량특가 이미지 슬라이드 *********/}
         <Grid className="paddingTB-15 flexSpaceBetween">
@@ -140,15 +143,20 @@ const Main = (props) => {
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
-          {recommend_list &&
+          {/* {recommend_list &&
             recommend_list.map((list, idx) => {
               return <Item key={list.id} {...list} />
-            })}
+            })} */}
         </Grid>
       </Grid>
     </>
   )
 }
+
+const DivTime = styled.div`
+  font-size: 64px;
+  color: #fff;
+`
 
 const EventLimit = styled.div`
   height: 188px;

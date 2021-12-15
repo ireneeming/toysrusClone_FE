@@ -18,10 +18,11 @@ const initialState = {
 
 const getItemSP = () => {
   return async function (dispatch, useState, { history }) {
-    await api.get('/api/item?page=1&size=50').then(function (response) {
+    await api.get('/api/item?page=1&size=30').then(function (response) {
       console.log(response.data.recommendProducts.content)
-      //console.log("오잉",response.data.recommendProducts);
-      dispatch(loadItem(response.data.recommendProducts.content))
+      console.log(response.data)
+      // dispatch(loadItem(response.data.recommendProducts.content))
+      dispatch(loadItem(response.data))
     })
   }
 }

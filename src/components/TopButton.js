@@ -36,6 +36,7 @@ const ButtonTop = styled.button`
   right: 0;
   width: 68px;
   height: 68px;
+  border: none;
   background-image: url(https://static.lotteon.com/p/common/foCommon/assets/img/btn_move_top.png);
   background-size: 100% 100%;
 `
