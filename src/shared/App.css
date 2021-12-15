@@ -55,6 +55,7 @@ table {
 .headerInfo {
   font-size:12px; 
   color:#757575!important;
+	cursor:pointer;
 }
 
 .headerIcon li {

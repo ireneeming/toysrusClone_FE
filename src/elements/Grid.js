@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Grid = (props) => {
 
 
-  const { background, bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
+  const { bdrTop, background, bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
 
 
   const styles = {
@@ -20,6 +20,7 @@ const Grid = (props) => {
     border:border,
     lineHeight:lineHeight,
     bdrBtm:bdrBtm,
+    bdrTop:bdrTop,
     background:background,
 
   }
@@ -92,6 +93,7 @@ const HeaderBox = styled.div`
   border: ${(props) => props.border};
   *border: 1px solid #eee;
   border-bottom:${(props) => props.bdrBtm};
+  border-top:${(props) => props.bdrTop};
 `;
 
 

@@ -1,11 +1,31 @@
 import React from 'react'
-import styled from 'styled-components'
-import Checkbox from '@material-ui/core/Checkbox'
+import styled from 'styled-components';
+import Checkbox from '@material-ui/core/Checkbox';
 
-import { Grid, Button, Text, Input } from '../elements'
+import { Grid, Button, Text, Input } from '../elements';
+import {actionCreators as userActions } from '../redux/modules/user';
+import { useDispatch } from 'react-redux';
 
 const Login = (props) => {
-  const [checked, setChecked] = React.useState(true)
+  const dispatch = useDispatch();
+  
+  const [checked, setChecked] = React.useState(true);
+
+  const [id, setId] = React.useState("");
+  const [pwd, setPwd] = React.useState("");
+
+  const changeId = (e) => {
+    setId(e.target.value);
+  }
+
+  const changePwd = (e) => {
+    setPwd(e.target.value);
+  }
+
+  const login = () => {
+    dispatch(userActions.loginSP());
+  }
+
 
   const handleChange = (event) => {
     setChecked(event.target.checked)
@@ -18,13 +38,13 @@ const Login = (props) => {
           <Text h2>로그인</Text>
         </Grid>
         <Grid1 display="flex">
-          <Input placeholder="아이디 또는 이메일 아이디"></Input>
+          <Input value={id} _onChange={changeId} placeholder="이메일 아이디"></Input>
         </Grid1>
         <Grid1 display="flex">
-          <Input placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
+          <Input value={pwd} _onChange={changePwd} placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
         </Grid1>
         <Grid margin="24px 0px 0px 0px">
-          <Button red_btn text="로그인하기"></Button>
+          <Button red_btn text="로그인하기" _onClick={login}></Button>
         </Grid>
         <TextDiv>
           <Grid1>
