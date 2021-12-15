@@ -8,9 +8,10 @@ import axios from 'axios'
 const LOAD_ITEM = 'LOAD_ITEM'
 const GET_DETAIL = 'GET_DETAIL'
 
+
 //액션 생성자 생성
 const loadItem = createAction(LOAD_ITEM, (item_list) => ({ item_list }))
-const getDetail = createAction(GET_DETAIL, (detail_list) => ({ detail_list }))
+const getDetail = createAction(GET_DETAIL, (item) => ({ item }))
 
 const initialState = {
   list: [],
@@ -26,10 +27,11 @@ const getItemSP = () => {
   }
 }
 
+//상품 하나만 가져오기
 const getDetailSP = (itemId) => {
   return async function (dispatch, useState, { history }) {
-    await api.get(`/api/item/${itemId}`).then((res) => {
-      console.log(getDetail(res))
+    await api.get(`/api/item/${itemId}`).then(function(response) {
+      console.log("확인!?", response);
     })
   }
 }

@@ -11,19 +11,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import api from '../api/api'
 
 const Detail = (props) => {
-  const dispatch = useDispatch()
-  console.log(props)
-  const itemId = props.match.params.itemId
-  console.log(itemId)
+  const dispatch = useDispatch();
+  const itemId = props.match.params.itemId;
 
+  
+  
   React.useEffect(() => {
-    const getDetailSP = (itemId) => {
-      return async function (dispatch, useState, { history }) {
-        await api.get(`/api/item/${itemId}`).then((res) => {
-          console.log(res)
-        })
-      }
-    }
+    dispatch(itemActions.getDetailSP(itemId));
   }, [])
 
   return (
