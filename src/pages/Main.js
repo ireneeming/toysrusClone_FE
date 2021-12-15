@@ -59,7 +59,6 @@ const Main = (props) => {
         <Grid className="paddingTB-15 flexSpaceBetween">
           {timeLimit_list &&
             timeLimit_list.map((list) => {
-              console.log('여기야여기', list)
               return (
                 <Grid
                   width="49%"
