@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { Grid, Text, Input, Button, Images } from '../elements/index'
-import LimitProduct from '../components/LimitProduct'
-import BranchIcon from '../components/BranchIcon'
-import MainTitle from '../components/MainTitle'
-import Item from '../components/Item'
-import MainBanner from '../components/MainBanner'
+import React from 'react';
+import styled from 'styled-components';
+import { Grid, Text,  Button, Images } from '../elements/index';
+import LimitProduct from '../components/LimitProduct';
+import BranchIcon from '../components/BranchIcon';
+import MainTitle from '../components/MainTitle';
+import Item from '../components/Item';
+import MainBanner from '../components/MainBanner';
 import CountDown from '../components/CountDown'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { history } from '../redux/configureStore'
+import { history } from '../redux/configureStore';
 
-import { actionCreators as itemActions } from '../redux/modules/item'
+import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Main = (props) => {
   const dispatch = useDispatch()
