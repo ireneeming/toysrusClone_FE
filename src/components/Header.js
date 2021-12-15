@@ -2,11 +2,9 @@ import React from 'react';
 import '../shared/App.css';
 import HeaderMenu from './HeaderMenu';
 import { history } from '../redux/configureStore'; 
-import {Grid,Text,Images,Input, Button} from '../elements/index';
-import {useSelector, useDispatch } from 'react-redux';
+import {Grid,Text} from '../elements/index';
 
 
-import { Grid, Text, Images, Input, Button } from '../elements/index'
 
 const Header = () => {
 

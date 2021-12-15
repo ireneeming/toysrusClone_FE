@@ -15,15 +15,17 @@ const Login = (props) => {
   const [pwd, setPwd] = React.useState("");
 
   const changeId = (e) => {
+    console.log(e.target.value);
     setId(e.target.value);
   }
 
   const changePwd = (e) => {
+    console.log(e.target.value);
     setPwd(e.target.value);
   }
 
   const login = () => {
-    dispatch(userActions.loginSP());
+    dispatch(userActions.loginSP(id,pwd));
   }
 
 
@@ -44,7 +46,10 @@ const Login = (props) => {
           <Input value={pwd} _onChange={changePwd} placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
         </Grid1>
         <Grid margin="24px 0px 0px 0px">
-          <Button red_btn text="로그인하기" _onClick={login}></Button>
+          <Button red_btn text="로그인하기" _onClick={()=>{
+            console.log("로그인 버튼 클릭!");
+            login();
+          }}></Button>
         </Grid>
         <TextDiv>
           <Grid1>
@@ -93,4 +98,4 @@ const Btn = styled.button`
   background-color: #fff;
 `
 
-export default Login
+export default Login;

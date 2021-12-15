@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import DetailImage from '../components/DetailImage'
-import DetailSticky from '../components/DetailSticky'
-import DetailText from '../components/DetailText'
-import TopButton from '../components/TopButton'
+import React from 'react';
+import styled from 'styled-components';
+import DetailImage from '../components/DetailImage';
+import DetailSticky from '../components/DetailSticky';
+import DetailText from '../components/DetailText';
+// import TopButton from '../components/TopButton';
 import './Detail.css'
 
 const Detail = () => {
