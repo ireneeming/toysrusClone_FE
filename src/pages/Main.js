@@ -17,10 +17,6 @@ const Main = (props) => {
   const dispatch = useDispatch()
   const list = useSelector((state) => state.item.list);
   const recommend_list = useSelector((state) => state.item.recommend_list)
-  
-  const christmas_list = list.christmasProducts;
-
-  console.log("이상하다",recommend_list)
 
 
 
@@ -153,7 +149,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-              return <Item key={list.id} {...list} />
+              return <Item key={list.id} {...list} _onClick={()=>{history.push(`/item/${list.id}`)}} />
             })}
         </Grid>
       </Grid>
