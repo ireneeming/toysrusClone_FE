@@ -4,7 +4,12 @@ import { Grid, Button, Text, Input } from '../elements'
 import Count from '../shared/Count'
 import './DetailText.css'
 
+import { useSelector } from 'react-redux'
+
 const DetailText = () => {
+  const data = useSelector((state) => state.item.list)
+  const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+
   return (
     <>
       <div className="Wrap">
@@ -13,11 +18,11 @@ const DetailText = () => {
           <text className="smallT">레고</text>
         </div>
         <div className="title">
-          <h1 className="textH1">레고 플라워 꽃다발 (10280)</h1>
+          <h1 className="textH1">{data.itemName}</h1>
         </div>
         <div className="price">
           <div>
-            <text className="priceText">49,900</text>
+            <text className="priceText">{price}</text>
             <em className="won">원</em>
           </div>
           <div className="form">

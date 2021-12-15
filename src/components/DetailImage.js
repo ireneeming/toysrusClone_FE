@@ -2,8 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import './DetailImage.css'
 import DetailSticky from './DetailSticky'
+import { useSelector } from 'react-redux'
+import { Images } from '../elements'
 
 const DetailImage = () => {
+  const data = useSelector((state) => state.item.list)
+  console.log(data)
   return (
     <>
       <div className="wrap">
@@ -38,7 +42,7 @@ const DetailImage = () => {
             </BoxDiv>
           </div>
           <ImageUrl>
-            <img src="https://simage.lottemart.com/lim/static_root/images/edidescrimg/images/001492/[%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98]48%EC%BB%AC%EB%9F%AC-%EC%8A%88%ED%8D%BC%EB%94%94%EB%9F%AD%EC%8A%A4%EC%84%B8%ED%8A%B8.jpg"></img>
+            <Images src={data.imgDetail}></Images>
           </ImageUrl>
           <MoreButton>
             <More>상세정보 더보기</More>
@@ -102,9 +106,11 @@ const ProductTextBold = styled.text`
   color: #333;
   font-size: 14px;
 `
-const ImageUrl = styled.p`
-  max-width: 750px;
+const ImageUrl = styled.div`
+  width: 750px;
+  min-height: 1500px;
   margin-top: 50px;
-  margin-left: 75px;
+  /* margin-left: 75px; */
+  background-color: #ddd;
 `
 export default DetailImage
