@@ -26,6 +26,17 @@ const getItemSP = () => {
   }
 }
 
+// const getItemSP = () => {
+//   return async function (dispatch, useState, { history }) {
+//     await api.get('/timeLimitProducts').then(function (response) {
+//       console.log(response.data)
+//       //console.log("오잉",response.data.recommendProducts);
+//       //dispatch(loadItem(response.data.recommendProducts.content))
+//     })
+//   }
+// }
+
+
 //reducer
 export default handleActions(
   {

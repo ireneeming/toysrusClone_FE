@@ -1,9 +1,9 @@
-import { Select } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
-import { Grid, Text, Input, Button } from '../elements'
-import Checkbox from '@material-ui/core/Checkbox'
-import RegisterAgree from '../components/RegisterAgree'
+// import { Select } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
+import { Grid, Text, Input } from '../elements';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import RegisterAgree from '../components/RegisterAgree';
 
 const Register = () => {
   return (
