@@ -15,9 +15,17 @@ import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Main = (props) => {
   const dispatch = useDispatch()
-  const list = useSelector((state) => state.item.list)
+  const list = useSelector((state) => state.item.list);
+  const recommend_list = useSelector((state) => state.item.recommend_list)
+  
+  const christmas_list = list.christmasProducts;
 
-  const recommend_list = list.recommendProducts
+  console.log("이상하다",recommend_list)
+
+
+
+  // const recommend_list = list.recommendProducts
+  //console.log(recommend_list);
 
   const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 }
 
@@ -143,10 +151,10 @@ const Main = (props) => {
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
-          {/* {recommend_list &&
+          {recommend_list &&
             recommend_list.map((list, idx) => {
               return <Item key={list.id} {...list} />
-            })} */}
+            })}
         </Grid>
       </Grid>
     </>
