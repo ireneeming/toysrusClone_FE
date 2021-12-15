@@ -106,13 +106,22 @@ const {layout} = props;
               <Text className="priceList">배송비</Text>
               <Text className="priceList" align="right" bold>0원</Text>
             </Grid>
-            <Grid className="flexSpaceBetween">
+            <Grid className="flexSpaceBetween" padding="0 0 18px 0">
               <Text className="priceList">상품할인금액</Text>
               <Text className="priceList" align="right" bold>0원</Text>
             </Grid>
-          </div>
-          
+            <div className="horiLine"></div>
+            <Grid className="flexSpaceBetween" padding="17px 0 18px 0">
+              <Text className="priceList">총 2건</Text>
+              <Text className="totalTotalPrice" align="right" bold>258,900<span className="won">원</span></Text>
+            </Grid>
+            <Grid>
+              <Button red_btn text="주문하기"/>
+              <Button className="giftBtn" text="선물하기"/>
+            </Grid>
 
+          </div>
+         
        </Normal>
       </>
     );
@@ -292,6 +301,22 @@ justify-content:space-between;
       line-height:1.57;
       
 
+    }
+    .totalTotalPrice {
+      font-size:28px;
+      font-weight:700;
+      color:#ef2a23;
+    }
+    .won {
+      font-size:22px;
+      font-weight:300;
+      color:#ef2a23;
+    }
+
+    .giftBtn {
+      margin-top:8px;
+      font-size:13px; 
+      height:33px;
     }
     
   }

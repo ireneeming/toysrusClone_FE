@@ -26,9 +26,9 @@ const getItemSP = () => {
   }
 }
 
-const getDetailSP = () => {
+const getDetailSP = (itemId) => {
   return async function (dispatch, useState, { history }) {
-    await api.get('/api/item/itemId').then((res) => {
+    await api.get(`/api/item/${itemId}`).then((res) => {
       console.log(getDetail(res))
     })
   }
