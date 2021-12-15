@@ -15,6 +15,7 @@
     "add": "^2.0.6",
     "axios": "^0.24.0",
     "connected-react-router": "6.8.0",
+    "countdown-timer-react": "^0.1.2",
     "history": "4.10.1",
     "immer": "^9.0.7",
     "react": "^17.0.2",
