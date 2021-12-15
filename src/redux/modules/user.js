@@ -1,6 +1,5 @@
 import {createAction, handleActions} from "redux-actions";
 import { produce } from 'immer';
-
 import api from '../../api/api';
 
 const GET_USER = "GET_USER";
