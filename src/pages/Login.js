@@ -43,7 +43,7 @@ const Login = (props) => {
           <Input value={id} _onChange={changeId} placeholder="이메일 아이디"></Input>
         </Grid1>
         <Grid1 display="flex">
-          <Input value={pwd} _onChange={changePwd} placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
+          <Input type="password" value={pwd} _onChange={changePwd} placeholder="8~15자리 영문+숫자+특수문자 조합"></Input>
         </Grid1>
         <Grid margin="24px 0px 0px 0px">
           <Button red_btn text="로그인하기" _onClick={()=>{

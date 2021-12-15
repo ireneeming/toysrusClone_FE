@@ -6,7 +6,7 @@ import DetailText from '../components/DetailText';
 // import TopButton from '../components/TopButton';
 import './Detail.css'
 
-const Detail = () => {
+const Detail = (props) => {
   return (
     <>
       <div className="container">

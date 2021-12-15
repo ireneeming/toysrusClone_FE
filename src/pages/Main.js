@@ -18,10 +18,12 @@ const Main = (props) => {
   const list = useSelector((state) => state.item.list)
   const recommend_list = useSelector((state) => state.item.recommend_list)
 
+
   console.log(list)
   const christmas_list = list.christmasProducts
   const hot_list = list.hotProducts
   const timeLimit_list = list.timeLimitProducts
+
 
   const hoursMinSecs = { hours: 5, minutes: 20, seconds: 40 }
 
@@ -173,6 +175,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
+
               return (
                 <Grid
                   width="25%"
@@ -184,6 +187,7 @@ const Main = (props) => {
                   <Item key={list.id} {...list} />
                 </Grid>
               )
+
             })}
         </Grid>
       </Grid>

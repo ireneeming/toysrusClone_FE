@@ -3,13 +3,29 @@ import styled from 'styled-components'
 import { Grid, Text, Input, Button, Images } from '../elements/index'
 
 const Item = (props) => {
-  const { three, history } = props
+  const { three, history,_onClick } = props
   // console.log(props)
 
   // 타임 한정 수량 특가
   if (three) {
     return (
       <>
+
+        <Grid width="33%" height="434px">
+          <Grid className="ovfHidden borderRadius-10" position="relative;">
+            <Images src={props.src} />
+            <ImgBlock />
+          </Grid>
+          <Text>{props.itemName}</Text>
+          <Text>{props.price}원</Text>
+        </Grid>
+      </>
+    )
+  }
+  return (
+    <>
+      <Grid width="25%" height="434px" _onClick={_onClick} >
+
         <Grid className="ovfHidden borderRadius-10" position="relative;">
           <Images src={props.thumbnail} />
           <ImgBlock />
@@ -43,12 +59,12 @@ Item.defaultProps = {
 }
 
 const ImgBlock = styled.div`
-  width: ${(props) => props.width};
+  width: 100%;
   display: block;
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.03);
 `
 export default Item

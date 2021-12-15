@@ -19,7 +19,7 @@ function App() {
       <ConnectedRouter history={history}>
         <ScrollToTop />
         <Route path="/" exact component={Main} />
-        <Route path="/detail/:itemId" exact component={Detail} />
+        <Route path="/item/:itemId" exact component={Detail} />
         <Route path="/cart/:userId" exact component={Cart} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
