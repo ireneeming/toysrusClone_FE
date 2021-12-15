@@ -4053,6 +4053,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countdown-timer-react@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/countdown-timer-react/-/countdown-timer-react-0.1.2.tgz#ba1d3a8731d6ba00937c614fc6bac4efa0544391"
+  integrity sha512-WhcDOSfwMbJW9KKZeE4qVi8Mste1stqUA90JK/gllQZijR6Kz6F2L2kJdtTzjopyK1EpbfOjFTdPZNE7GoY3Ng==
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.4.tgz#d6e7f4bffa66736085a0762fd3a632684dabcc4e"
