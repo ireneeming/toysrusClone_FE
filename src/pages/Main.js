@@ -18,8 +18,10 @@ const Main = (props) => {
   const list = useSelector((state) => state.item.list)
 
   const recommend_list = list.recommendProducts
+  console.log(recommend_list.content)
+  // console.log(recommend_list.content)
 
-  const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 }
+  const hoursMinSecs = { hours: 22, minutes: 20, seconds: 40 }
 
   React.useEffect(() => {
     dispatch(itemActions.getItemSP())
