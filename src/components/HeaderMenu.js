@@ -5,10 +5,23 @@ import { history } from '../redux/configureStore';
 
 import {Grid, Text, Images, Input, Button} from '../elements/index';
 
+import {useSelector, useDispatch} from "react-redux";
+import { actionCreators as userActions } from '../redux/modules/user';
 
 // 헤더 메뉴 공통부분
 
 const HeaderMenu = () => {
+
+  const dispatch = useDispatch();
+  const local_token = localStorage.getItem('token');
+
+  const gotoCart = () => {
+    if(local_token){
+      history.push(`/cart`);
+    }
+  }
+
+
     return (
         <> 
         <Grid header>
@@ -28,7 +41,7 @@ const HeaderMenu = () => {
                     <img src="https://static.lotteon.com/p/common/foCommon/assets/img/icon_my_black.svg"/>
                     <p className="headerInfo">마이롯데</p>
                 </li>
-                <li onClick={()=>{history.push('/cart/1');}} style={{cursor:"pointer"}}>
+                <li onClick={gotoCart} style={{cursor:"pointer"}}>
                     <img src="https://static.lotteon.com/p/common/foCommon/assets/img/icon_cart_black.svg"/>
                     <p className="headerInfo">장바구니</p>
                 </li>
