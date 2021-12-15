@@ -64,6 +64,7 @@ const Main = (props) => {
                 <Grid
                   width="49%"
                   _onClick={() => {
+                    dispatch(itemActions.getDetailSP())
                     history.push(`/item/${list.itemId}`)
                   }}
                 >

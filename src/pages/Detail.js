@@ -1,12 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import DetailImage from '../components/DetailImage';
-import DetailSticky from '../components/DetailSticky';
-import DetailText from '../components/DetailText';
+import React from 'react'
+import styled from 'styled-components'
+import DetailImage from '../components/DetailImage'
+import DetailSticky from '../components/DetailSticky'
+import DetailText from '../components/DetailText'
 // import TopButton from '../components/TopButton';
 import './Detail.css'
+import { actionCreators as itemActions } from '../redux/modules/item'
+
+import { useDispatch, useSelector } from 'react-redux'
 
 const Detail = (props) => {
+  console.log(props)
+  const itemId = props.match.params.itemId
+
   return (
     <>
       <div className="container">

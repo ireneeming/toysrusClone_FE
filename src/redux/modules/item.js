@@ -6,9 +6,11 @@ import axios from 'axios'
 // 액션 타입
 
 const LOAD_ITEM = 'LOAD_ITEM'
+const GET_DETAIL = 'GET_DETAIL'
 
 //액션 생성자 생성
 const loadItem = createAction(LOAD_ITEM, (item_list) => ({ item_list }))
+const getDetail = createAction(GET_DETAIL, (detail_list) => ({ detail_list }))
 
 const initialState = {
   list: [],
@@ -19,21 +21,30 @@ const initialState = {
 const getItemSP = () => {
   return async function (dispatch, useState, { history }) {
     await api.get('/api/item?page=1&size=30').then(function (response) {
-     
       dispatch(loadItem(response.data))
     })
   }
 }
 
+const getDetailSP = () => {
+  return async function (dispatch, useState, { history }) {
+    await api.get('/api/item/itemId').then((res) => {
+      console.log(getDetail(res))
+    })
+  }
+}
 
 //reducer
 export default handleActions(
   {
     [LOAD_ITEM]: (state, action) =>
       produce(state, (draft) => {
-        draft.list = action.payload.item_list;
-        draft.recommend_list = action.payload.item_list.recommendProducts.content;
-       
+        draft.list = action.payload.item_list
+        draft.recommend_list = action.payload.item_list.recommendProducts.content
+      }),
+    [GET_DETAIL]: (state, action) =>
+      produce(state, (draft) => {
+        // draft.list = action.payload.detail_list
       }),
   },
   initialState
@@ -42,6 +53,7 @@ export default handleActions(
 const actionCreators = {
   loadItem,
   getItemSP,
+  getDetailSP,
 }
 
 export { actionCreators }
