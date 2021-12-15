@@ -9,13 +9,13 @@ import axios from 'axios';
 const LOAD_ITEM ="LOAD_ITEM";
 
 
-
+//액션 생성자 생성
 const loadItem = createAction(LOAD_ITEM, (item_list)=>({item_list}));
 
 
 
 const initialState={
-
+  list: [],
 }
 
 
@@ -32,11 +32,11 @@ const getItemSP = () => {
   }
 }
 
-
+//reducer
 export default handleActions(
   {
     [LOAD_ITEM]: (state, action) => produce(state,(draft) => {
-      draft.result = action.payload.item_list;
+      draft.list = action.payload.item_list;
     })
   },
   initialState

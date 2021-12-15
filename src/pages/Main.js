@@ -14,14 +14,14 @@ import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Main = (props) => {
   const dispatch = useDispatch();
-  const recommend_list = useSelector((store)=> store);
+  const recommend_list = useSelector((store)=> store.item.list);
   console.log("recommend_list",recommend_list);
 
 
   React.useEffect(()=> {
+
     dispatch(itemActions.getItemSP());
-    
-    
+        
   },[])
 
   return (
