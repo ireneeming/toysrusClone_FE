@@ -8,10 +8,23 @@ import './Detail.css'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 import { useDispatch, useSelector } from 'react-redux'
+import api from '../api/api'
 
 const Detail = (props) => {
+  const dispatch = useDispatch()
   console.log(props)
   const itemId = props.match.params.itemId
+  console.log(itemId)
+
+  React.useEffect(() => {
+    const getDetailSP = (itemId) => {
+      return async function (dispatch, useState, { history }) {
+        await api.get(`/api/item/${itemId}`).then((res) => {
+          console.log(res)
+        })
+      }
+    }
+  }, [])
 
   return (
     <>
