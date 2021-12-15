@@ -6,6 +6,7 @@ import BranchIcon from '../components/BranchIcon'
 import MainTitle from '../components/MainTitle'
 import Item from '../components/Item'
 import MainBanner from '../components/MainBanner'
+import CountDown from '../components/CountDown'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../redux/configureStore'
@@ -13,18 +14,15 @@ import { history } from '../redux/configureStore'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 const Main = (props) => {
+  const dispatch = useDispatch()
+  const recommend_list = useSelector((store) => store.item.list)
+  console.log('recommend_list', recommend_list)
 
-  const dispatch = useDispatch();
-  const recommend_list = useSelector((store)=> store.item.list);
-  console.log("recommend_list",recommend_list);
+  const hoursMinSecs = { hours: 1, minutes: 20, seconds: 40 }
 
-
-  React.useEffect(()=> {
-
-    dispatch(itemActions.getItemSP());
-        
-  },[])
-
+  React.useEffect(() => {
+    dispatch(itemActions.getItemSP())
+  }, [])
 
   return (
     <>
@@ -47,6 +45,7 @@ const Main = (props) => {
 
         <EventLimit className="ovfHidden borderRadius-10 marginTB-15">
           <LeftTime>남은시간</LeftTime>
+          <CountDown hoursMinSecs={hoursMinSecs} />
         </EventLimit>
         {/********* 한정수량특가 이미지 슬라이드 *********/}
         <Grid className="paddingTB-15 flexSpaceBetween">
@@ -142,11 +141,9 @@ const Main = (props) => {
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
-            recommend_list.map((list, idx) => { 
-              console.log(list)
+            recommend_list.map((list, idx) => {
+              return <Item key={list.id} {...list} />
             })}
-          <Item src="https://contents.lotteon.com/itemimage/_v031652/LM/88/09/82/10/70/53/5_/00/1/LM8809821070535_001_1.jpg/dims/optimize/dims/resizef/262x262" />
-          
         </Grid>
       </Grid>
     </>

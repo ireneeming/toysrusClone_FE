@@ -5,23 +5,20 @@ import axios from 'axios'
 
 // 액션 타입
 
-const LOAD_ITEM ="LOAD_ITEM";
-
+const LOAD_ITEM = 'LOAD_ITEM'
 
 //액션 생성자 생성
 const loadItem = createAction(LOAD_ITEM, (item_list) => ({ item_list }))
 
-
-const initialState={
+const initialState = {
   list: [],
 }
-
 
 // middleware
 
 const getItemSP = () => {
   return async function (dispatch, useState, { history }) {
-    await api.get('/api/item?page=1&size=20').then(function (response) {
+    await api.get('/api/item?page=1&size=50').then(function (response) {
       console.log(response.data.recommendProducts.content)
       //console.log("오잉",response.data.recommendProducts);
       dispatch(loadItem(response.data.recommendProducts.content))
@@ -32,10 +29,10 @@ const getItemSP = () => {
 //reducer
 export default handleActions(
   {
-    [LOAD_ITEM]: (state, action) => produce(state,(draft) => {
-      draft.list = action.payload.item_list;
-    })
-
+    [LOAD_ITEM]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list = action.payload.item_list
+      }),
   },
   initialState
 )

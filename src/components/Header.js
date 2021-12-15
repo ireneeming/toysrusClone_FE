@@ -6,6 +6,7 @@ import {Grid,Text,Images,Input, Button} from '../elements/index';
 import {useSelector, useDispatch } from 'react-redux';
 
 
+import { Grid, Text, Images, Input, Button } from '../elements/index'
 
 const Header = () => {
 
@@ -46,14 +47,11 @@ const Header = () => {
                 <Grid lineHeight="34px;"><Text className="headerInfo">고객센터</Text> </Grid>
               </Grid>
             </Grid>
-            
           </Grid>
       </Grid>
       <HeaderMenu/>
     </>
-  );
+  )
 }
 
-
-export default Header;
-
+export default Header
