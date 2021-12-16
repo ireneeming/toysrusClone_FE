@@ -2,19 +2,20 @@ import {createAction, handleActions} from "redux-actions";
 import { produce } from 'immer';
 import api from '../../api/api';
 
-const GET_USER = "GET_USER";
+const GET_USERNAME = "GET_USERNAME";
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
 
 
 
 
-const getUser = createAction(GET_USER, ( user )=>({ user }));
+const getUser = createAction(GET_USERNAME, ( user )=>({ user }));
 const logIn = createAction(LOG_IN, (user)=> ({user}));
 const logOut = createAction(LOG_OUT, (user)=>({user}))
 
 const initialState= {
-  username:null,
+  user:null,
+  name:null,
   is_login:false,
 
 }
@@ -30,20 +31,45 @@ const loginSP = (id,pwd) => {
     }
     await api.post("/api/auth/login", user).then(function(response){
       localStorage.setItem('token', response.headers.authorization);
-      localStorage.setItem('name' ,response.headers.name);
-      dispatch(logIn(response.data.name));
+      
+      //dispatch(logIn(response.data.name));
+      
       document.location.href = '/';
      
     }).catch((err)=>{
       window.alert("정확한 아이디와 비밀번호를 입력해주세요.");
     });
+
+
+    
   }
 }
+
+const getUsernameSP = () => {
+  return async function (dispatch, getState, {history}){
+    const token = localStorage.getItem('token');
+    await api.get('/api/auth',
+    {
+      headers: { Authorization: 
+        `${token}` }
+    }
+    ).then(function(response){
+      // console.log("된것이냐 ..",response.data.username)
+      dispatch(getUser(response.data.username));
+    })
+  }
+}
+
 
 
 export default handleActions(
  
   {
+    [GET_USERNAME]: (state, action) => produce(state, (draft) => {
+     draft.username = action.payload.user;
+     
+
+    }),
     [LOG_OUT]: (state, action) => produce(state, (draft) => {
       localStorage.removeItem('name');
       localStorage.removeItem('token');
@@ -57,7 +83,8 @@ export default handleActions(
 const actionCreators = {
   getUser,
   loginSP,
-  logOut
+  logOut,
+  getUsernameSP
 }
 
 export {actionCreators};

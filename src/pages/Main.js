@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Grid, Text, Button, Images } from '../elements/index'
+import {VideoPlayer} from 'react-video-players'
+import ReactPlayer from 'react-player'
 import LimitProduct from '../components/LimitProduct'
 import BranchIcon from '../components/BranchIcon'
 import MainTitle from '../components/MainTitle'
@@ -8,7 +10,8 @@ import Item from '../components/Item'
 import MainBanner from '../components/MainBanner'
 import CountDown from '../components/CountDown'
 import Christmas from '../components/Christmas'
-
+import Header from '../components/Header'
+import Footer from '../shared/Footer';
 import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../redux/configureStore'
 
@@ -21,7 +24,7 @@ const Main = (props) => {
 
   const christmas_list = list.christmasProducts
   const hot_list = list.hotProducts
-  console.log('핫', hot_list)
+  //console.log('핫', hot_list)
   const timeLimit_list = list.timeLimitProducts
 
   const hoursMinSecs = { hours: 5, minutes: 20, seconds: 40 }
@@ -32,6 +35,7 @@ const Main = (props) => {
 
   return (
     <>
+    <Header/>
       <Grid contentWrap padding="45px 0 0 0">
         <MainTitle />
         <MainBanner />
@@ -89,9 +93,15 @@ const Main = (props) => {
         {/******** 금주의 TOY TV *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/192988/PE6E1D3627C59951BC25401579693493E9212BEC3BBAC03F972A171F371694C1D/file/dims/optimize" />
         {/* video 넣는 방법 알아보기 */}
+        
         <Grid flex="flex">
-          <Grid width="906px;" background="#f8f8f8" margin="0 auto">
-            <Grid width="100%;" height="516px"></Grid>
+         
+          <Grid width="906px;" background="#f8f8f8" margin="0 auto" className="borderRadius-10" >
+            <Grid width="100%;" height="516px" >
+              <ReactPlayer
+              width="100%"
+               url="https://contents.lotteon.com/display/dshoplnk/31650/2/M000031/199512/MDE1C729B0E4A4A5046F3078B5293AD9EAC147FCE5AF67A283CD41E73521E9A59/file"/>
+            </Grid>
             <Grid flex="flex">
               <Grid width="50%" padding="20px;" flex="flex">
                 <Images width="auto" height="72px" src="https://contents.lotteon.com/itemimage/_v031648/LM/88/09/64/40/91/20/5_/00/1/LM8809644091205_001_1.jpg/dims/optimize/dims/resizef/72x72" />
@@ -156,7 +166,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {hot_list &&
             hot_list.map((list) => {
-              console.log(list)
+             
               return (
                 <Grid
                   width="33%"
@@ -176,7 +186,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-              console.log(list)
+              
               return (
                 <Grid
                   width="25%"
@@ -191,6 +201,7 @@ const Main = (props) => {
             })}
         </Grid>
       </Grid>
+      <Footer/>
     </>
   )
 }
