@@ -42,13 +42,7 @@ const DetailImage = () => {
             </BoxDiv>
           </div>
           <ImageUrl>
-            
-            <Iframe 
-            width="100%"
-            height="1500px"
-            allow="fullscreen"
-            url={data.imgDetail}/>
-
+            <Iframe width="100%" height="1500px" allow="fullscreen" url={data.imgDetail} />
           </ImageUrl>
           <MoreButton>
             <More>상세정보 더보기</More>
@@ -118,5 +112,7 @@ const ImageUrl = styled.div`
   margin-top: 50px;
   /* margin-left: 75px; */
   background-color: #ddd;
+  
+  }
 `
 export default DetailImage
