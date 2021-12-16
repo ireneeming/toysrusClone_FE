@@ -111,28 +111,29 @@ const Main = (props) => {
         <Grid flex="flex">
           <Grid width="906px;" background="#f8f8f8" margin="0 auto" className="borderRadius-10">
             <Grid width="100%;" height="516px">
-              <ReactPlayer width="100%" url="https://contents.lotteon.com/display/dshoplnk/31650/2/M000031/199512/MDE1C729B0E4A4A5046F3078B5293AD9EAC147FCE5AF67A283CD41E73521E9A59/file" />
+              <ReactPlayer width="100%" height="516px" url="https://www.youtube.com/embed/jYf6iEEZDho" />
+            
+             
             </Grid>
             <Grid flex="flex">
               <Grid width="50%" padding="20px;" flex="flex">
-                <Images width="auto" height="72px" src="https://contents.lotteon.com/itemimage/_v031648/LM/88/09/64/40/91/20/5_/00/1/LM8809644091205_001_1.jpg/dims/optimize/dims/resizef/72x72" />
-                <Grid margin="0 0 0 20px;">
-                  <Text>상품명</Text>
-                  <Text>금액</Text>
+                <Images borderRadius="10px" width="auto" height="72px" src="https://contents.lotteon.com/itemimage/LM/06/30/50/99/26/56/5_/00/1/LM0630509926565_001_1.jpg/dims/resizef/72x72" />
+                <Grid margin="10px 0 0 20px;">
+                  <Text><b>너프</b> 너프 울트라 THREE</Text>
+                  <Text margin="10px 0 0 0;"><b>35,900</b> <span className="mainwon">원</span></Text>
                 </Grid>
               </Grid>
               <Grid width="50%" padding="20px;" flex="flex">
-                <Images width="auto" height="72px" src="https://contents.lotteon.com/itemimage/_v031648/LM/88/09/64/40/91/20/5_/00/1/LM8809644091205_001_1.jpg/dims/optimize/dims/resizef/72x72" />
-                <Grid margin="0 0 0 20px;">
-                  <Text>상품명</Text>
-                  <Text>금액</Text>
+                <Images borderRadius="10px" width="auto" height="72px" src="https://contents.lotteon.com/itemimage/_v070642/LM/06/30/50/99/47/95/9_/00/1/LM0630509947959_001_1.jpg/dims/resizef/72x72" />
+                <Grid margin="10px 0 0 20px;">
+                  <Text><b>너프</b> 너프 엘리트 2.0 피닉스</Text>
+                  <Text margin="10px 0 0 0;"><b>23,900</b> <span className="mainwon">원</span></Text>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Button text="타요 더보기 >" />
-
+        <More >타요 더보기 &gt;</More>
         {/******** 크리스마스 선물 인기 브랜드 *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193008/P543775D9C398E6E4B25CBA3E9364DE557318AF4D4BE9707F710AF01C66636068/file/dims/optimize" />
         <Grid width="520px" margin="0 auto" align="center" flex="flex;justify-content:space-between;flex-wrap:wrap" padding="15px 0">
@@ -184,11 +185,13 @@ const Main = (props) => {
             </Wrap>
           </Swiper>
         </Grid>
+        
       </Grid>
+      <More >🎁추천 선물 더보기 &gt;</More>
       <Grid contentWrap>
         {/******** 지금 핫한 신상품 *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193018/PFAFDE167221465811CBABF99EA29D783408E3BBE21565AB0B3C67B0D527A7250/file/dims/optimize" />
-        <Grid margin="15px 0px 0px 0px" width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
+        <Grid margin="15px 0px 0px 0px" width="100%;" className="flexStart" flex="flex;flex-wrap:wrap;">
           {hot_list &&
             hot_list.map((list) => {
               return (
@@ -210,13 +213,13 @@ const Main = (props) => {
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid margin="30px 0px"></Grid>
-        <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
+        <Grid width="100%;" className="flexStart" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
               return (
                 <Grid
                   cursor
-                  width="262px"
+                  width="285px"
                   height="374px"
                   _onClick={() => {
                     history.push(`/item/${list.id}`)
@@ -306,4 +309,17 @@ const LeftTime = styled.p`
   line-height: 26px;
   letter-spacing: -0.5px;
 `
+
+const More = styled.button`
+display:block;
+background:none;
+border:1px solid #333;
+padding:0 48px;
+height:48px;
+border-radius:30px;
+margin:0 auto;
+margin-top:30px;
+font-size:15px;
+letter-spacing:-0.1em;
+`;
 export default Main

@@ -14,14 +14,14 @@ const Item = (props) => {
           <Images src={props.thumbnail} />
           <ImgBlock />
         </Grid>
-        <Text>{props.itemName}</Text>
+        <Text size="16px" margin="10px 0 0 0">{props.itemName}</Text>
         <Text>{props.price}원</Text>
       </>
     )
   }
   return (
     <>
-      <Grid className="ovfHidden borderRadius-10" position="relative;">
+      <Grid className="ovfHidden borderRadius-10" position="relative;" margin="0 5px">
         <Images src={props.thumbnail} />
         <ImgBlock />
       </Grid>

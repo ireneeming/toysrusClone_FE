@@ -10,10 +10,10 @@ const LimitProduct = (props) => {
         <Images src={props.thumbnail} />
         <ImgBlock />
       </Grid>
-      <Text>{props.itemName}</Text>
-      <Text>{props.price}원</Text>
-      <Text>{props.discount}%</Text>
-      <Text>{props.discription}</Text>
+      <Text className="productTitleMain" margin="10px 0 0 0">{props.itemName}</Text>
+      <Text className="productPriceMain" margin="8px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
+      
+      <Text color="#f37233" size="14px" margin="8px 0 0 0" weight="200">롯데/신한/KB국민/현대카드 결제시 5천원 추가할인! </Text>
     </>
   )
 }

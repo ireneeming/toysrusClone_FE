@@ -49,7 +49,19 @@ table {
 	border-spacing: 0;
 }
 
+/*main*/
+.mainwon {font-size:12px;}
+b{font-weight:700;}
+.productTitleMain {
+	margin-top:10px;
+	font-size:16px; 
+}
 
+.productPriceMain {
+	font-size:19px;
+	font-weight:700px;
+	margin-top:5px;
+}
 /******************** Header ********************/
 
 .headerInfo {
@@ -227,3 +239,28 @@ table {
 	background-color: #6f03b7;
 	height: 100%;
 }
+
+/*main slider*/
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+	color:#000!important;
+
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+
+color:#000!important;
+}
+.swiper-container {height:400px;}
+.swiper-pagination.swiper-pagination-fraction{
+	position: absolute!important;
+	bottom: 0!important;
+	left: 0!important;
+	z-index: 999!important;
+	left: 50%!important;
+	margin-left: -25px!important;
+	padding: 4px 11px;
+	border:1px solid #222;
+  border-radius: 20px;
+}
+
+/**/
