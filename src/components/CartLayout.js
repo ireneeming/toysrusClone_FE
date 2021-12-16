@@ -45,48 +45,8 @@ const {layout} = props;
                       <div className="totalPrice">전체 금액</div>
                     </div>
                   </li>
-                  <li className="newList">
-                    
-                    <div className="newItemDetail">
-                      <input type="checkbox" />
-                      <label>
-                        시크릿 쥬쥬
-                      </label>
-                      <div className="titleDetailWarp flexStart alignitemT">
-                        <div className="imgDetail">
-                          <img src="https://contents.lotteon.com/itemimage/_v230000/LM/88/01/19/80/62/68/7_/00/1/LM8801198062687_001_M.jpg/dims/resizemc/100x100" alt="" /></div>
-                        <div className="titleDetail">
-                          <p>상품명</p>
-                          <p>단일상품 혹은 상품 갯수 정하기 </p>
-                        </div>
-                      </div>
-                      <div className="count">
-                        <Count cart></Count>   
-                      </div>
-                      <div className="totalPrice">전체 금액</div>
-                    </div>
-                  </li>
-                  <li className="newList">
-                    
-                    <div className="newItemDetail">
-                      <input type="checkbox" />
-                      <label>
-                        시크릿 쥬쥬
-                      </label>
-                      <div className="titleDetailWarp flexStart alignitemT">
-                        <div className="imgDetail">
-                          <img src="https://contents.lotteon.com/itemimage/_v230000/LM/88/01/19/80/62/68/7_/00/1/LM8801198062687_001_M.jpg/dims/resizemc/100x100" alt="" /></div>
-                        <div className="titleDetail">
-                          <p>상품명</p>
-                          <p>단일상품 혹은 상품 갯수 정하기 </p>
-                        </div>
-                      </div>
-                      <div className="count">
-                        <Count cart></Count>   
-                      </div>
-                      <div className="totalPrice">전체 금액</div>
-                    </div>
-                  </li>
+                  
+                  
                 </ul>
                 <div className="deliveryInfo">
                   <p>258,000월 + 배송비 0원 - 할인 0원 = <b>258,900</b>원(<span className="fontRed">30,000원 이상</span> 무료배송)</p>

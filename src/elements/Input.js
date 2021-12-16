@@ -2,17 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Input = (props) => {
-  const { search, boxSizing, register, type, placeholder, label, margin, _onChange, padding, textarea, height, value } = props
+  const { _oninput,search, boxSizing, register, type, placeholder, label, margin, _onChange, padding, textarea, height, value ,maxlength} = props
 
   const styles = {
     margin: margin,
     padding: padding,
     boxSizing: boxSizing,
     height: height,
+    maxlength:maxlength,
   }
 
   if (register) {
-    return <InputRegister type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
+    return <InputRegister type={type} placeholder={placeholder} oninput={_oninput} onChange={_onChange} value={value} {...styles} maxlength={maxlength}/>
   }
 
   
@@ -33,6 +34,8 @@ Input.defaultProps = {
   boxSizing: 'border-box',
   _onChange: () => {},
   height: '60px',
+  maxlength:'',
+  oninput:()=>{},
 }
 
 const InputBox = styled.input`
