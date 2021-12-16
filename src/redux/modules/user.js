@@ -9,9 +9,11 @@ const LOG_OUT = "LOG_OUT";
 
 
 
+
 const getUser = createAction(GET_USERNAME, ( user )=>({ user }));
 const logIn = createAction(LOG_IN, (user)=> ({user}));
-const logOut = createAction(LOG_OUT, (user)=>({user}))
+const logOut = createAction(LOG_OUT, (user)=>({user}));
+
 
 const initialState= {
   user:null,
@@ -59,7 +61,32 @@ const getUsernameSP = () => {
     })
   }
 }
+//회원가입
+const registerSP = (name, email,domain, pwd ,pwdCheck,phone,address) => {
+  return async function(dispatch, getState, {history}){
 
+    const userInfo = {
+      name:name,
+      username:email,
+      domain:domain,
+      password:pwd,
+      passwordCheck:pwdCheck,
+      phone:phone,
+      address:address,
+      
+
+    }
+
+    await api.post("/api/auth/signup", userInfo).then(function(response){
+      
+      history.push('/login');
+
+    }).catch((err)=>{
+      //window.alert("회원가입 실패하였습니다. 다시 시도해주세요");
+    })
+
+  }
+}
 
 
 export default handleActions(
@@ -84,7 +111,8 @@ const actionCreators = {
   getUser,
   loginSP,
   logOut,
-  getUsernameSP
+  getUsernameSP,
+  registerSP
 }
 
 export {actionCreators};
