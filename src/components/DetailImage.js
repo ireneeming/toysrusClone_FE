@@ -4,7 +4,7 @@ import './DetailImage.css'
 import DetailSticky from './DetailSticky'
 import { useSelector } from 'react-redux'
 import { Images } from '../elements'
-
+import Iframe from 'react-iframe'
 const DetailImage = () => {
   const data = useSelector((state) => state.item.list)
   console.log(data)
@@ -42,7 +42,13 @@ const DetailImage = () => {
             </BoxDiv>
           </div>
           <ImageUrl>
-            <Images src={data.imgDetail}></Images>
+            
+            <Iframe 
+            width="100%"
+            height="1500px"
+            allow="fullscreen"
+            url={data.imgDetail}/>
+
           </ImageUrl>
           <MoreButton>
             <More>상세정보 더보기</More>
