@@ -19,6 +19,7 @@ const Input = (props) => {
   if (search) {
     return <Search type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
   }
+  
 
   return <InputBox type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
 }
@@ -57,6 +58,7 @@ const InputRegister = styled.input`
   padding: 0 14px;
   color: #333;
   font-size: 14px;
+  box-sizing:border-box;
 `
 
 const Search = styled.input`

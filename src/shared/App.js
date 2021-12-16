@@ -8,15 +8,15 @@ import Detail from '../pages/Detail'
 import Cart from '../pages/Cart'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
-import Header from '../components/Header'
+
 import TopButton from '../components/TopButton'
 import ScrollToTop from './ScrollRestoration'
-import Footer from './Footer'
+
 
 function App() {
   return (
     <>
-      <Header/>
+     
       <ConnectedRouter history={history}>
         <ScrollToTop />
         <Route path="/" exact component={Main} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/register" exact component={Register} />
       </ConnectedRouter>
       <TopButton/>
-      <Footer/>
+      
     </>
   )
 }

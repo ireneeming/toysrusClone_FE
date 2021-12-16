@@ -9,7 +9,7 @@ const Register = () => {
   return (
     <>
       <Grid position="relative" padding="45px 0px 120px 0px">
-        <Grid maxWidth="530px" margin="auto">
+        <Grid width="530px" margin="auto">
           <Grid margin="60px 0px 28px 0px">
             <Text h2 size="36px">
               <Span>
@@ -49,7 +49,7 @@ const Register = () => {
               <TextSmall size="15px">비밀번호</TextSmall>
             </Grid>
             <Grid1>
-              <Input width="350px" register placeholder="아래의 조합으로 입력해 주세요."></Input>
+              <Input  register placeholder="아래의 조합으로 입력해 주세요."></Input>
             </Grid1>
             <CheckGrid>
               <TextPasswordCheck>영문</TextPasswordCheck>
@@ -60,10 +60,10 @@ const Register = () => {
           </Grid>
           <Grid margin="0px 0px 20px 0px">
             <Grid margin="0px 0px 9px 0px">
-              <TextSmall size="15px">비밀번호 확인</TextSmall>
+            <Input  register placeholder="비밀번호 확인"></Input>
             </Grid>
             <Grid1>
-              <Input width="350px" register placeholder="비밀번호를 다시 입력해 주세요."></Input>
+              <Input register placeholder="비밀번호를 다시 입력해 주세요."></Input>
             </Grid1>
           </Grid>
           <Grid margin="0px 0px 20px 0px">
@@ -71,11 +71,12 @@ const Register = () => {
               <TextSmall size="15px">휴대폰 번호</TextSmall>
             </Grid>
             <Grid1>
-              <Input width="350px" register placeholder="-없이 휴대폰 번호를 입력해주세요."></Input>
+              <Input register placeholder="-없이 휴대폰 번호를 입력해주세요."></Input>
             </Grid1>
           </Grid>
           {/* <RegisterAgree></RegisterAgree> */}
         </Grid>
+        
       </Grid>
     </>
   )

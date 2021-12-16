@@ -21,7 +21,7 @@ const initialState = {
 const getItemSP = () => {
   return async function (dispatch, useState, { history }) {
     await api.get('/api/item?page=1&size=30').then(function (response) {
-      console.log(response)
+    //  console.log(response)
       dispatch(loadItem(response.data))
     })
   }
@@ -31,7 +31,7 @@ const getItemSP = () => {
 const getDetailSP = (itemId) => {
   return async function (dispatch, useState, { history }) {
     await api.get(`/api/item/${itemId}`).then(function (response) {
-      console.log(response.data)
+     // console.log(response.data)
       dispatch(getDetail(response.data))
     })
   }

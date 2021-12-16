@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import { history } from '../redux/configureStore'; 
 import { Grid, Button, Text, Input } from '../elements';
 import {actionCreators as userActions } from '../redux/modules/user';
 import { useDispatch } from 'react-redux';
+import Header from '../components/Header';
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -26,6 +28,8 @@ const Login = (props) => {
 
   const login = () => {
     dispatch(userActions.loginSP(id,pwd));
+    
+  
   }
 
 
@@ -35,6 +39,7 @@ const Login = (props) => {
 
   return (
     <>
+    <Header></Header>
       <Grid maxWidth="420px" margin="auto" padding="45px 0px 120px 0px ">
         <Grid margin="60px 0px 0px 0px">
           <Text h2>로그인</Text>
@@ -56,7 +61,7 @@ const Login = (props) => {
             <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
             <SmallText>아이디 저장</SmallText>
           </Grid1>
-          <Btn>회원가입</Btn>
+          <Btn onClick={()=>{history.push('/register')}}>회원가입</Btn>
         </TextDiv>
       </Grid>
     </>
@@ -96,6 +101,7 @@ const Btn = styled.button`
   padding-left: 11px;
   border: none;
   background-color: #fff;
+  cursor:pointer;
 `
 
 export default Login;

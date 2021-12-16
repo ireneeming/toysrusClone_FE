@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import {Grid,Text,Input, Button,Images} from '../elements/index';
 import CartLayout from '../components/CartLayout';
-
+import Header from '../components/Header';
+import Footer from '../shared/Footer';
 
 const Cart = (props) => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -22,6 +23,7 @@ const Cart = (props) => {
   
   return (
     <>
+    <Header/>
       <Grid contentWrap padding="45px 0 120px 0 ">
         <Text size="36px" align="center;" margin="15px 0 30px 0">장바구니</Text>
         
@@ -47,6 +49,8 @@ const Cart = (props) => {
 
 
       </Grid>
+
+      <Footer/>
     </>
   );
 }
