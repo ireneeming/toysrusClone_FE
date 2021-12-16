@@ -1,0 +1,41 @@
+.slideWrap {
+  width: 360px;
+  margin-right: 30px;
+  min-height: 320px;
+  /* padding: 66px; */
+}
+
+.thumb {
+  border-radius: 14px;
+  background-color: #ddd;
+  width: 360px;
+  height: 203px;
+}
+
+.TextGrid {
+  width: 360px;
+  margin-top: 10px;
+  margin-bottom: 11.5px;
+}
+
+.smallTextBox {
+  font-size: 11px;
+  border: 1px solid #333;
+  display: inline-block;
+  color: #333;
+  vertical-align: top;
+  line-height: 15px;
+  margin: 0px 4px 5px 0px;
+  border-radius: 2px;
+}
+
+.TextTitle {
+  margin-bottom: 15px;
+  margin-top: 4px;
+}
+
+.PriceText {
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 700px;
+}

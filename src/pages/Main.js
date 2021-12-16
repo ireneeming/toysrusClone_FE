@@ -7,6 +7,7 @@ import MainTitle from '../components/MainTitle'
 import Item from '../components/Item'
 import MainBanner from '../components/MainBanner'
 import CountDown from '../components/CountDown'
+import Christmas from '../components/Christmas'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../redux/configureStore'
@@ -59,7 +60,12 @@ const Main = (props) => {
           {timeLimit_list &&
             timeLimit_list.map((list) => {
               return (
-                <Grid width="49%"  _onClick={() => { history.push(`/item/${list.itemId}`)  }}  >
+                <Grid
+                  width="49%"
+                  _onClick={() => {
+                    history.push(`/item/${list.itemId}`)
+                  }}
+                >
                   <LimitProduct key={list.itemId} {...list} />
                 </Grid>
               )
@@ -139,10 +145,9 @@ const Main = (props) => {
         height="515px"
         background="url('https://contents.lotteon.com/display/dshoplnk/31650/2/M000084/196572/PD52047A4873003579A1520B17C029FA57D042D0621423C5304C640B165DA930C/file') no-repeat;background-size:100%;"
       >
-         {/******** 크리스마스 추천 선물 *********/}
+        {/******** 크리스마스 추천 선물 *********/}
         <Grid contentWrap>
-         
-          
+          <Christmas></Christmas>
         </Grid>
       </Grid>
       <Grid contentWrap>
