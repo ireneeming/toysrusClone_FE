@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Count = (props) => {
   const data = useSelector((state) => state.item.list)
+  // const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
   const { cart } = props
   const [number, setNumber] = React.useState(0)
@@ -18,6 +19,10 @@ const Count = (props) => {
       setNumber(number - 1)
     }
   }
+
+  const a = number * data.price
+  const price = String(a).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+
   if (cart) {
     return (
       <>
@@ -40,9 +45,9 @@ const Count = (props) => {
           <Number>{number}</Number>
           <Plus onClick={onIncrease}></Plus>
         </SpinnerBox>
-        <div>
-          {number * data.price} <span>원</span>
-        </div>
+        <BoldText>
+          {price} <span>원</span>
+        </BoldText>
       </WrapCount>
     </>
   )
@@ -55,22 +60,23 @@ const WrapCount = styled.div`
   justify-content: space-between;
 `
 
+const BoldText = styled.div`
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+`
+
 const SpinnerBox = styled.div`
   /* width: 110px;
   height: 32px; */
   border: 1px solid #ddd;
   background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 `
 
 const Number = styled.div`
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   line-height: 30px;
   text-align: center;
   width: 42px;

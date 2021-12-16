@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import './TopButton.css'
 
 const TopButton = () => {
   const [ScrollY, setScrollY] = useState(0)

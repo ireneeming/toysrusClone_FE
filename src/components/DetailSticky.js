@@ -14,7 +14,7 @@ const DetailSticky = () => {
               <TextSmall>7개 남음</TextSmall>
             </TextDiv>
 
-            {/* <UnderLine></UnderLine> */}
+            <UnderLine></UnderLine>
           </div>
           <Count></Count>
         </DivText>
@@ -33,27 +33,24 @@ const OptionContents = styled.div`
 const DivText = styled.div`
   padding: 20px 20px 16px;
   background-color: #f8f8f8;
-  border-radius: 4px;
+  border-radius: 8px;
   height: 168px;
 `
 
 const TextDiv = styled.div`
   position: relative;
-  margin-top: 8px;
+  margin-top: 12px;
 `
 
 const TextSmall = styled.p`
-  display: block;
-  float: left;
-  width: calc(100% - 52px);
   font-size: 13px;
-  line-height: 1.46;
-  letter-spacing: -0.2px;
   color: #333;
+  margin: 8px 0px;
 `
 
 const UnderLine = styled.div`
   border-bottom: 1px solid #ddd;
+  margin: 20px 0px;
 `
 
 const TextP = styled.p`
