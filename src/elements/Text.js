@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import '../index.css'
 
 const Text = (props) => {
-  const { h2, mont, className, span, bold, color, size, align, margin, children } = props
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align, className: className }
+  const { weight, h2, mont, className, span, bold, color, size, align, margin, children } = props
+  const styles = { weight:weight, margin: margin, bold: bold, color: color, size: size, align: align, className: className }
 
   if (span) {
     return <Span {...styles}>{children}</Span>
@@ -28,6 +28,7 @@ Text.defaultProps = {
   size: false,
   align: false,
   margin: '0px',
+  weight:false,
 }
 
 const H2 = styled.h2`

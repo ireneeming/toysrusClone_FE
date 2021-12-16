@@ -56,7 +56,7 @@ const getUsernameSP = () => {
         `${token}` }
     }
     ).then(function(response){
-      // console.log("된것이냐 ..",response.data.username)
+     //console.log("된것이냐 ..",response.data.username)
       dispatch(getUser(response.data.username));
     })
   }

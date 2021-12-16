@@ -21,9 +21,7 @@ const MainBanner = () => {
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={30}
         slidesPerView={3}
-        pagination={{
-          type: 'fraction',
-        }}
+        
         navigation={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
@@ -32,6 +30,11 @@ const MainBanner = () => {
           disableOnInteraction: false,
         }}
         loop={true}
+        pagination={{
+          type: 'fraction',
+          
+        }}
+        
       >
         <SwiperSlide>
           <Grid width="360px;" height="360px" className=" ovfHidden borderRadius-10">
@@ -81,6 +84,7 @@ const MainBanner = () => {
           </Grid>
         </SwiperSlide>
       </Swiper>
+      
     </>
   )
 }
