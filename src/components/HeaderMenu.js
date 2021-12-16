@@ -18,6 +18,9 @@ const HeaderMenu = () => {
   const gotoCart = () => {
     if(local_token){
       history.push(`/cart`);
+    }else{
+      window.alert("로그인이 필요합니다.");
+      history.push(`/login`);
     }
   }
 

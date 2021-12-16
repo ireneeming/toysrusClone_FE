@@ -6,7 +6,10 @@ import './DetailText.css'
 
 import { useSelector } from 'react-redux'
 
-const DetailText = () => {
+const DetailText = (props) => {
+
+
+
   const data = useSelector((state) => state.item.list)
   const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
