@@ -3,9 +3,39 @@ import styled from 'styled-components';
 import {Grid,Text,Input, Button,Images} from '../elements/index';
 import Count from '../shared/Count';
 
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { actionCreators as itemActions } from '../redux/modules/item';
+
 const CartLayout = (props) => {
   
+ const dispatch = useDispatch() 
 const {layout} = props;
+
+const cart_list = useSelector((state)=>state.item.cartList)
+
+
+
+
+React.useEffect(()=>{
+  dispatch(itemActions.getCartSP());
+},[])
+
+const data = useSelector((state) => state.item.list)
+const [number, setNumber] = React.useState(0);
+
+  const onIncrease = () => {
+    setNumber((prevNumber) => prevNumber + 1)
+  }
+
+  const onDecrease = () => {
+    if (number > 0) {
+      setNumber(number - 1)
+    }
+  }
+
+  const a = number * data.price
+  const price = String(a).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
   if(layout === 'normal'){
     return(
@@ -25,27 +55,47 @@ const {layout} = props;
               <div className="newItem">
                 {/* 상품 리스트 li 영역 start */}
                 <ul> 
-                  <li className="newList"> 
-                    <div className="newItemDetail">
-                      <input type="checkbox" />
-                      <label>
-                        시크릿 쥬쥬
-                      </label>
-                      <div className="titleDetailWarp flexStart alignitemT">
-                        <div className="imgDetail">
-                          <img src="https://contents.lotteon.com/itemimage/_v230000/LM/88/01/19/80/62/68/7_/00/1/LM8801198062687_001_M.jpg/dims/resizemc/100x100" alt="" /></div>
-                        <div className="titleDetail">
-                          <p>상품명</p>
-                          <p>단일상품 혹은 상품 갯수 정하기 </p>
-                        </div>
-                      </div>
-                      <div className="count">
-                        <Count cart></Count>   
-                      </div>
-                      <div className="totalPrice">전체 금액</div>
-                    </div>
-                  </li>
+                  {/* list 얘를 맵을 돌려주면 되는데에에 */}
                   
+                   {
+                     cart_list.map((p,idx)=>{
+                       let total= (p.count * p.price);
+                       
+                       let number = p.count;
+                       return(
+                        <>
+                         <li className="newList" key ={p.id}> 
+                          <div className="newItemDetail">
+                            <input type="checkbox" />
+                            <label>
+                              {p.itemName}
+                            </label>
+                            <div className="titleDetailWarp flexStart alignitemT">
+                              <div className="imgDetail">
+                                <img src="https://contents.lotteon.com/itemimage/_v230000/LM/88/01/19/80/62/68/7_/00/1/LM8801198062687_001_M.jpg/dims/resizemc/100x100" alt="" /></div>
+                              <div className="titleDetail">
+                                <p>{p.itemName}</p>
+                                <p>단일상품 혹은 상품 갯수 정하기 </p>
+                              </div>
+                            </div>
+                              <div className="count">
+                                <WrapCount>
+                                  <SpinnerBox>
+                                    <Minus onClick={onDecrease}></Minus>
+                                    <Number>{number}</Number>
+                                    <Plus onClick={onIncrease}></Plus>
+                                  </SpinnerBox>
+                                </WrapCount>
+                              </div>
+                            <div className="totalPrice">{total}</div>
+                          </div>
+                        </li>
+                        </>
+                       )
+                     })
+                   }
+                  
+                  {/* list 얘를 맵을 돌려주면 되는데에에 */}
                   
                 </ul>
                 <div className="deliveryInfo">
@@ -188,6 +238,65 @@ const {layout} = props;
 
   }
 }
+
+
+
+const WrapCount = styled.div`
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: space-between;
+`
+
+const BoldText = styled.div`
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+`
+
+const SpinnerBox = styled.div`
+  /* width: 110px;
+  height: 32px; */
+  border: 1px solid #ddd;
+  background-color: #fff;
+  display: flex;
+`
+
+const Number = styled.div`
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  line-height: 30px;
+  text-align: center;
+  width: 42px;
+  font-size: 13px;
+`
+
+const Minus = styled.button`
+  border: none;
+  color: #333;
+  overflow: hidden;
+  text-indent: -99999px;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  background: url(//static.lotteon.com/p/product/assets/img/btn_minus.svg) no-repeat 50%;
+`
+
+const Plus = styled.button`
+  border: none;
+  color: #333;
+  overflow: hidden;
+  text-indent: -99999px;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  background: url(//static.lotteon.com/p/product/assets/img/btn_plus.svg) no-repeat 50%;
+`
+
 
 const Normal = styled.div`
 display:flex;

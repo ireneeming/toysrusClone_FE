@@ -18,7 +18,7 @@ const Detail = (props) => {
 
 
   const data = useSelector((state) => state.item.list);
-  console.log(data);
+  //console.log(data);
   const dispatch = useDispatch();
   const itemId = props.match.params.itemId;
 
