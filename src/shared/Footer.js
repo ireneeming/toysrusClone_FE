@@ -15,8 +15,20 @@ const Footer = () => {
             <li>개인정보처리방침</li>
             <li>청소년보호방침</li>
             <li>임직원등록</li>
-            
           </ul>
+          
+
+        </Grid>
+        <hr/>
+        <Grid contentWrap padding="30px 0 40px 0">
+          <h2 className="logoArea">
+            <img src="https://contents.lotteon.com/ec/public/injectImage.20200228113625.1.png" alt="토이저러스 로고" />
+          </h2>
+          <div className="infoWrapper">
+
+          </div>
+          
+
         </Grid>
           
         
@@ -43,9 +55,10 @@ const FooterWrap = styled.div`
       padding-left:20px
 
     }
+    li:first-child {padding-left:0;}
     li:first-child:before{
       display:none;
-      padding-left:0;
+      
     } 
     li:before {
     content: "";
@@ -59,8 +72,22 @@ const FooterWrap = styled.div`
 
   }
   
-
-
+hr {
+    height: 1px;
+    margin: 0;
+    border: none;
+    background-color: #e5e5e5;
+}
+.logoArea{
+  width:234px;
+  text-align:left;
+  img{height:36px;}
+  
+}
+.infoWrapper {
+  width: calc(100% - 234px );
+  border:1px solid #bbb;
+}
 
 `;
 
