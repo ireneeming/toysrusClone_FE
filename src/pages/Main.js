@@ -1,4 +1,6 @@
 import React from 'react'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controller } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import styled from 'styled-components'
 import { Grid, Text, Button, Images } from '../elements/index'
 import {VideoPlayer} from 'react-video-players'
@@ -16,6 +18,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../redux/configureStore'
 
 import { actionCreators as itemActions } from '../redux/modules/item'
+import ChristmasBanner from '../components/ChristmasBanner'
+
+import 'swiper/swiper.min.css'
+
+import 'swiper/components/pagination'
+import 'swiper/components/navigation'
+import 'swiper/components/autoplay'
+import 'swiper/components/navigation/navigation.min.css'
+
+SwiperCore.use([Pagination, Navigation])
 
 const Main = (props) => {
   const dispatch = useDispatch()
@@ -24,7 +36,7 @@ const Main = (props) => {
 
   const christmas_list = list.christmasProducts
   const hot_list = list.hotProducts
-  //console.log('핫', hot_list)
+
   const timeLimit_list = list.timeLimitProducts
 
   const hoursMinSecs = { hours: 5, minutes: 20, seconds: 40 }
@@ -157,7 +169,20 @@ const Main = (props) => {
       >
         {/******** 크리스마스 추천 선물 *********/}
         <Grid contentWrap>
-          <Christmas></Christmas>
+          <Swiper modules={[Navigation, Pagination]} spaceBetween={30} slidesPerView={3} navigation={{ clickable: true }} loop={true}>
+            <SwiperButton></SwiperButton>
+            <SwiperButtonR></SwiperButtonR>
+            <Wrap>
+              {christmas_list &&
+                christmas_list.map((list) => {
+                  return (
+                    <SwiperSlide>
+                      <Christmas key={list.itemId} {...list}></Christmas>
+                    </SwiperSlide>
+                  )
+                })}
+            </Wrap>
+          </Swiper>
         </Grid>
       </Grid>
       <Grid contentWrap>
@@ -166,7 +191,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {hot_list &&
             hot_list.map((list) => {
-             
+
               return (
                 <Grid
                   width="33%"
@@ -186,7 +211,7 @@ const Main = (props) => {
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-              
+
               return (
                 <Grid
                   width="25%"
@@ -205,6 +230,54 @@ const Main = (props) => {
     </>
   )
 }
+
+const Wrap = styled.div`
+  position: relative;
+  padding-top: 66px;
+  max-width: 1140px;
+  height: 545px;
+  display: flex;
+  overflow: hidden;
+  vertical-align: center;
+  margin: 0 auto;
+`
+
+const SwiperButton = styled.button`
+  position: absolute !important;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  left: -19px;
+  top: 161px;
+  margin: 0;
+  z-index: 100;
+  background: hsla(0, 0%, 100%, 0.9)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAF9JREFUSA1jYBgFoyFAwxDIApotSkPzUYwGWfYfiK8AMV0sBVkCsmzUUmAgUB+MBi/1wxTJRJKDlwlJ86Bnkuw7Snw0ahkloQfXO3yDEeRFuldPMEtBwToKRkOAviEAALs9KkKjAObtAAAAAElFTkSuQmCC)
+    no-repeat 50%;
+  background-size: 16px auto;
+  transform: rotate(-180deg);
+  opacity: 1;
+`
+
+const SwiperButtonR = styled.button`
+  position: absolute !important;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  right: -19px;
+  top: 161px;
+  margin: 0;
+  z-index: 100;
+  background: hsla(0, 0%, 100%, 0.9)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAF9JREFUSA1jYBgFoyFAwxDIApotSkPzUYwGWfYfiK8AMV0sBVkCsmzUUmAgUB+MBi/1wxTJRJKDlwlJ86Bnkuw7Snw0ahkloQfXO3yDEeRFuldPMEtBwToKRkOAviEAALs9KkKjAObtAAAAAElFTkSuQmCC)
+    no-repeat 50%;
+  background-size: 16px auto;
+  opacity: 1 !important;
+`
 
 const DivTime = styled.div`
   font-size: 64px;
