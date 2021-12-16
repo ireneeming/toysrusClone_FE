@@ -32,6 +32,7 @@ SwiperCore.use([Pagination, Navigation])
 const Main = (props) => {
   const dispatch = useDispatch()
   const list = useSelector((state) => state.item.list)
+  console.log('이거', list)
   const recommend_list = useSelector((state) => state.item.recommend_list)
 
   const christmas_list = list.christmasProducts
