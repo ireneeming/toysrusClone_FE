@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Image = (props) => {
-  const { logo, _onClick, src, width, height } = props
+  const { margin, logo, _onClick, src, width, height, borderRadius } = props
   const styles = {
     src: src,
     width: width,
     height: height,
+    borderRadius: borderRadius,
+    margin: margin,
   }
 
   if (logo) {
@@ -27,13 +29,17 @@ const Image = (props) => {
 Image.defaultProps = {
   width: '100%',
   height: false,
+  margin: false,
   src: 'http://3.35.140.5/gobchang-1639031423467.jpg',
   _onClick: () => {},
+  borderRadius: 'false',
 }
 
 const ImageDefault = styled.img`
+  margin: ${(props) => props.margin};
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  ${(props) => (props.borderRadius ? `border-radius: ${props.borderRadius};` : '')}
 `
 
 const LogoImg = styled.div`

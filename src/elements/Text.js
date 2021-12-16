@@ -4,8 +4,7 @@ import '../index.css'
 
 const Text = (props) => {
   const { h2, mont, className, span, bold, color, size, align, margin, children } = props
-  const styles = { margin: margin, bold: bold, color: color, size: size, align: align , className:className}
-
+  const styles = { margin: margin, bold: bold, color: color, size: size, align: align, className: className }
 
   if (span) {
     return <Span {...styles}>{children}</Span>
@@ -29,7 +28,6 @@ Text.defaultProps = {
   size: false,
   align: false,
   margin: '0px',
-  
 }
 
 const H2 = styled.h2`
@@ -51,7 +49,7 @@ const P = styled.p`
   word-break: keep-all;
   letter-spacing: -0.5px;
   font-family: 'Noto Sans KR';
-  letter-spacing:-0.02em;
+  letter-spacing: -0.02em;
 `
 
 const Mont = styled.p`

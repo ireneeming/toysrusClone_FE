@@ -1,15 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Grid, Button, Text, Input } from '../elements'
+import { Grid, Button, Text, Input, Images } from '../elements'
 import Count from '../shared/Count'
 import './DetailText.css'
-
+import { history } from '../redux/configureStore'
 import { useSelector } from 'react-redux'
 
 const DetailText = (props) => {
-
-
-
   const data = useSelector((state) => state.item.list)
   const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
@@ -43,14 +40,21 @@ const DetailText = (props) => {
           </div>
         </div>
         <div>
-          <button className="cart">장바구니 담기</button>
+          <button
+            className="cart"
+            onClick={() => {
+              history.push('/cart')
+            }}
+          >
+            장바구니 담기
+          </button>
           <div className="buttonBorder"></div>
         </div>
         <Grid1>
           <GridFlex>
             <Img src="data:image/png;base64,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"></Img>
-            <TextPadding>오늘 12:50~17:00 도착 예정</TextPadding>
-            <TextPadding>-당일배송</TextPadding>
+            <TextNomal>오늘 12:50~17:00 도착 예정</TextNomal>
+            <TextNomal>-당일배송</TextNomal>
             <Imgarrow src="https://static.lotteon.com/p/product/assets/img/icon_page_arrow.svg"></Imgarrow>
             <UnderlineText>더보기</UnderlineText>
           </GridFlex>
@@ -58,11 +62,11 @@ const DetailText = (props) => {
             <TextPadding>2만원 이상 구매 시 무료</TextPadding>
           </div>
           <GridFlex>
-            <div>
-              <Img src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Img>
-              <text>스마트픽</text>
+            <Center>
+              <Images width="28px" height="28px" src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Images>
+              <TextM>스마트픽</TextM>
               <Imgarrow src="https://static.lotteon.com/p/product/assets/img/icon_page_arrow.svg"></Imgarrow>
-            </div>
+            </Center>
           </GridFlex>
         </Grid1>
         <Grid1>
@@ -108,6 +112,11 @@ const GridFlex = styled.div`
   justify-content: space-between;
 `
 
+const Center = styled.div`
+  align-items: center;
+  height: 28px;
+`
+
 const Div = styled.div`
   padding: 20px 0px;
   position: relative;
@@ -119,8 +128,8 @@ const Div = styled.div`
 `
 
 const Img = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   padding-top: 8px;
 `
 
@@ -150,6 +159,18 @@ const UnderlineText = styled.div`
 const TextPadding = styled.text`
   color: #333;
   font-size: 15px;
+  margin-left: 40px;
+`
+
+const TextNomal = styled.text`
+  color: #333;
+  font-size: 15px;
+`
+const TextM = styled.text`
+  margin-bottom: 28px;
+  margin-left: 10px;
+  font-size: 15px;
+  color: #333;
 `
 
 const BasicText = styled.text`

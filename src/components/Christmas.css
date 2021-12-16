@@ -7,9 +7,11 @@
 
 .thumb {
   border-radius: 14px;
-  background-color: #ddd;
+  background-color: rgb(243, 243, 243);
   width: 360px;
   height: 203px;
+  /* align-items: center;
+  vertical-align: center; */
 }
 
 .TextGrid {

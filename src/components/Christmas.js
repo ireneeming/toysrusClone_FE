@@ -13,7 +13,7 @@ const Christmas = (props) => {
       <div className="slideWrap">
         <div>
           <div className="thumb">
-            <Images width="360px" height="203px" src={props.thumbnail}></Images>
+            <Images margin="6.5px 20px" width="320px" height="190px" src={props.thumbnail}></Images>
           </div>
 
           <div className="TextGrid">

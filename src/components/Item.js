@@ -27,6 +27,13 @@ const Item = (props) => {
       </Grid>
       <Text>{props.itemName}</Text>
       <Text>{props.price}원</Text>
+      <CartBtnDiv>
+        <ButtonCart
+          onClick={() => {
+            history.push('/login')
+          }}
+        ></ButtonCart>
+      </CartBtnDiv>
     </>
   )
 }
@@ -50,5 +57,37 @@ const ImgBlock = styled.div`
   top: 0;
   height: 100%;
   background: rgba(0, 0, 0, 0.03);
+`
+
+const CartBtnDiv = styled.div`
+  position: absolute;
+    right: -1px;
+    bottom: -2px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    border: none;
+}
+`
+
+const ButtonCart = styled.button`
+  position: relative;
+  overflow: hidden;
+  float: none;
+  margin: 0;
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  font-size: 0;
+  background: url(https://static.lotteon.com/p/display/assets/img/icon_cart_toy.svg) no-repeat 0 0;
+  background-size: 100%;
+
+  &:hover {
+    background: url(https://static.lotteon.com/p/display/assets/img/icon_cart_toy_hover.svg) no-repeat 0 0;
+    color: #fff;
+  }
 `
 export default Item

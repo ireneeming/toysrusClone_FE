@@ -2,10 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Grid = (props) => {
-
-
-  const { bdrTop, background, bdrBtm, maxWidth,className,position,height,border, children, flex, width, padding, margin, _onClick, contentWrap, lineHeight,signWrap, detailWrap,header, align } = props
-
+  const {
+    cursor,
+    bdrTop,
+    background,
+    bdrBtm,
+    maxWidth,
+    className,
+    position,
+    height,
+    border,
+    children,
+    flex,
+    width,
+    padding,
+    margin,
+    _onClick,
+    contentWrap,
+    lineHeight,
+    signWrap,
+    detailWrap,
+    header,
+    align,
+  } = props
 
   const styles = {
     className: className,
@@ -17,12 +36,12 @@ const Grid = (props) => {
     maxWidth: maxWidth,
     margin: margin,
     align: align,
-    border:border,
-    lineHeight:lineHeight,
-    bdrBtm:bdrBtm,
-    bdrTop:bdrTop,
-    background:background,
-
+    border: border,
+    lineHeight: lineHeight,
+    bdrBtm: bdrBtm,
+    bdrTop: bdrTop,
+    background: background,
+    cursor: cursor,
   }
 
   if (contentWrap) {
@@ -77,8 +96,9 @@ Grid.defaultProps = {
   border: false,
   lineHeight: false,
   _onClick: () => {},
-  bdrBtm:false,
+  bdrBtm: false,
   background: false,
+  cursor: false,
 }
 
 const HeaderBox = styled.div`
@@ -92,10 +112,9 @@ const HeaderBox = styled.div`
   text-align: ${(props) => props.align};
   border: ${(props) => props.border};
   *border: 1px solid #eee;
-  border-bottom:${(props) => props.bdrBtm};
-  border-top:${(props) => props.bdrTop};
-`;
-
+  border-bottom: ${(props) => props.bdrBtm};
+  border-top: ${(props) => props.bdrTop};
+`
 
 const GridBox = styled.div`
   position: ${(props) => (props.position ? `${props.position}` : '')};
@@ -108,8 +127,9 @@ const GridBox = styled.div`
   display: ${(props) => (props.flex ? `${props.flex}` : '')};
   text-align: ${(props) => props.align};
   line-height: ${(props) => props.lineHeight};
-  background:${(props) => props.background};
-  border:${(props) => props.border};
+  background: ${(props) => props.background};
+  border: ${(props) => props.border};
+  ${(props) => (props.cursor ? `cursor:pointer` : '')}
 `
 
 const ContentWrap = styled.div`

@@ -3,7 +3,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controll
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styled from 'styled-components'
 import { Grid, Text, Button, Images } from '../elements/index'
-import {VideoPlayer} from 'react-video-players'
+import { VideoPlayer } from 'react-video-players'
 import ReactPlayer from 'react-player'
 import LimitProduct from '../components/LimitProduct'
 import BranchIcon from '../components/BranchIcon'
@@ -13,7 +13,7 @@ import MainBanner from '../components/MainBanner'
 import CountDown from '../components/CountDown'
 import Christmas from '../components/Christmas'
 import Header from '../components/Header'
-import Footer from '../shared/Footer';
+import Footer from '../shared/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../redux/configureStore'
 
@@ -47,7 +47,7 @@ const Main = (props) => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <Grid contentWrap padding="45px 0 0 0">
         <MainTitle />
         <MainBanner />
@@ -74,17 +74,19 @@ const Main = (props) => {
         {/********* 한정수량특가 이미지 슬라이드 *********/}
         <Grid className="paddingTB-15 flexSpaceBetween">
           {timeLimit_list &&
-            timeLimit_list.map((list) => {
-              return (
-                <Grid
-                  width="49%"
-                  _onClick={() => {
-                    history.push(`/item/${list.itemId}`)
-                  }}
-                >
-                  <LimitProduct key={list.itemId} {...list} />
-                </Grid>
-              )
+            timeLimit_list.map((list, idx) => {
+              if (idx < 2) {
+                return (
+                  <Grid
+                    width="49%"
+                    _onClick={() => {
+                      history.push(`/item/${list.itemId}`)
+                    }}
+                  >
+                    <LimitProduct key={list.itemId} {...list} />
+                  </Grid>
+                )
+              }
             })}
         </Grid>
 
@@ -105,14 +107,11 @@ const Main = (props) => {
         {/******** 금주의 TOY TV *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/192988/PE6E1D3627C59951BC25401579693493E9212BEC3BBAC03F972A171F371694C1D/file/dims/optimize" />
         {/* video 넣는 방법 알아보기 */}
-        
+
         <Grid flex="flex">
-         
-          <Grid width="906px;" background="#f8f8f8" margin="0 auto" className="borderRadius-10" >
-            <Grid width="100%;" height="516px" >
-              <ReactPlayer
-              width="100%"
-               url="https://contents.lotteon.com/display/dshoplnk/31650/2/M000031/199512/MDE1C729B0E4A4A5046F3078B5293AD9EAC147FCE5AF67A283CD41E73521E9A59/file"/>
+          <Grid width="906px;" background="#f8f8f8" margin="0 auto" className="borderRadius-10">
+            <Grid width="100%;" height="516px">
+              <ReactPlayer width="100%" url="https://contents.lotteon.com/display/dshoplnk/31650/2/M000031/199512/MDE1C729B0E4A4A5046F3078B5293AD9EAC147FCE5AF67A283CD41E73521E9A59/file" />
             </Grid>
             <Grid flex="flex">
               <Grid width="50%" padding="20px;" flex="flex">
@@ -163,6 +162,7 @@ const Main = (props) => {
       </Grid>
 
       <Grid
+        margin="10px 0px 0px 0px"
         width="100%;"
         height="515px"
         background="url('https://contents.lotteon.com/display/dshoplnk/31650/2/M000084/196572/PD52047A4873003579A1520B17C029FA57D042D0621423C5304C640B165DA930C/file') no-repeat;background-size:100%;"
@@ -188,14 +188,15 @@ const Main = (props) => {
       <Grid contentWrap>
         {/******** 지금 핫한 신상품 *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193018/PFAFDE167221465811CBABF99EA29D783408E3BBE21565AB0B3C67B0D527A7250/file/dims/optimize" />
-        <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
+        <Grid margin="15px 0px 0px 0px" width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {hot_list &&
             hot_list.map((list) => {
-
               return (
                 <Grid
-                  width="33%"
+                  cursor
+                  width="360px"
                   height="434px"
+                  margin="0px 10px"
                   _onClick={() => {
                     history.push(`/item/${list.itemId}`)
                   }}
@@ -208,14 +209,15 @@ const Main = (props) => {
 
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
+        <Grid margin="30px 0px"></Grid>
         <Grid width="100%;" className="flexSpaceBetween" flex="flex;flex-wrap:wrap;">
           {recommend_list &&
             recommend_list.map((list, idx) => {
-
               return (
                 <Grid
-                  width="25%"
-                  height="434px"
+                  cursor
+                  width="262px"
+                  height="374px"
                   _onClick={() => {
                     history.push(`/item/${list.id}`)
                   }}
@@ -226,7 +228,7 @@ const Main = (props) => {
             })}
         </Grid>
       </Grid>
-      <Footer/>
+      <Footer />
     </>
   )
 }
