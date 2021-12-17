@@ -73,8 +73,6 @@ const registerSP = (name, email,domain, pwd ,pwdCheck,phone,address) => {
       passwordCheck:pwdCheck,
       phone:phone,
       address:address,
-      
-
     }
 
     await api.post("/api/auth/signup", userInfo).then(function(response){
@@ -82,7 +80,8 @@ const registerSP = (name, email,domain, pwd ,pwdCheck,phone,address) => {
       history.push('/login');
 
     }).catch((err)=>{
-      //window.alert("회원가입 실패하였습니다. 다시 시도해주세요");
+      const err_result = err.response.data.result;
+      console.log(err_result)
     })
 
   }

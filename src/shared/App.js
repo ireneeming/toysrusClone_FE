@@ -8,6 +8,7 @@ import Detail from '../pages/Detail'
 import Cart from '../pages/Cart'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
+import Rank from '../components/Rank'
 
 import TopButton from '../components/TopButton'
 import ScrollToTop from './ScrollRestoration'
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cart/" exact component={Cart} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
+        <Route path="/rank" exact component={Rank} />
       </ConnectedRouter>
       <TopButton/>
       
