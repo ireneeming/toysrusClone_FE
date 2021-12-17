@@ -9,7 +9,6 @@ const LOG_OUT = "LOG_OUT";
 
 
 
-
 const getUser = createAction(GET_USERNAME, ( user )=>({ user }));
 const logIn = createAction(LOG_IN, (user)=> ({user}));
 const logOut = createAction(LOG_OUT, (user)=>({user}));
@@ -19,6 +18,7 @@ const initialState= {
   user:null,
   name:null,
   is_login:false,
+  email_ck:null,
 
 }
 
@@ -39,6 +39,7 @@ const loginSP = (id,pwd) => {
       document.location.href = '/';
      
     }).catch((err)=>{
+      
       window.alert("정확한 아이디와 비밀번호를 입력해주세요.");
     });
 
@@ -80,8 +81,10 @@ const registerSP = (name, email,domain, pwd ,pwdCheck,phone,address) => {
       history.push('/login');
 
     }).catch((err)=>{
-      const err_result = err.response.data.result;
-      console.log(err_result)
+      const err_result = err.response.data.errorMessage;
+     window.alert(err_result);
+     
+     
     })
 
   }
@@ -101,6 +104,8 @@ export default handleActions(
       localStorage.removeItem('token');
 
     }),
+   
+
   },
   initialState
 
@@ -111,7 +116,8 @@ const actionCreators = {
   loginSP,
   logOut,
   getUsernameSP,
-  registerSP
+  registerSP,
+  
 }
 
 export {actionCreators};
