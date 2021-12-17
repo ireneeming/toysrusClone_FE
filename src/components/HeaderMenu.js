@@ -7,13 +7,36 @@ import {Grid, Text, Images, Input, Button} from '../elements/index';
 
 import {useSelector, useDispatch} from "react-redux";
 import { actionCreators as userActions } from '../redux/modules/user';
+import { actionCreators as rankActions } from '../redux/modules/rank';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controller } from 'swiper'
+import styled from 'styled-components';
+
+import Rank from '../components/Rank';
+
+
+import 'swiper/swiper.min.css'
+
+import 'swiper/components/pagination'
+import 'swiper/components/navigation'
+import 'swiper/components/autoplay'
+import 'swiper/components/navigation/navigation.min.css'
+
 
 // 헤더 메뉴 공통부분
 
 const HeaderMenu = () => {
 
   const dispatch = useDispatch();
+  const rank_list = useSelector((state)=> state.rank.rank_list)
+
   const local_token = localStorage.getItem('token');
+
+  React.useEffect(()=>{
+
+    dispatch(rankActions.getRankSP())
+ },[])
+
 
   const gotoCart = () => {
     if(local_token){
@@ -64,10 +87,27 @@ const HeaderMenu = () => {
                 <Grid className="marginL-20">베스트</Grid>
                 <Grid className="marginL-20">기획전</Grid>
             </Grid> 
-            <Grid width="236px" className="flexStart">
+            <Grid width="300px" className="flexStart">
               <Grid width="1px" height="40px" className="bgeee" margin="5px 0"></Grid>
-              <Grid width="100%" padding="0 25px">
-                  <Text>1. 순위페이지</Text>
+              <Grid width="100%" height="40px;" padding="0 25px">
+              <Swiper modules={[Navigation, Pagination]} spaceBetween={30} slidesPerView={3} navigation={{ clickable: true }} loop={true}>
+            {/* <SwiperButton></SwiperButton>
+            <SwiperButtonR></SwiperButtonR> */}
+            
+            {
+                rank_list && rank_list.map((p,idx)=>{
+                return  (
+                  <>
+                  
+                    <Rank key={p.id} {...p} No={idx+1}/> 
+                   
+                  </>
+                )
+                })
+              }
+            
+          </Swiper>
+              
               </Grid>
             </Grid>
           </Grid>
