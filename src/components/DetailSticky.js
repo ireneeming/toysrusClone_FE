@@ -64,7 +64,7 @@ const DetailSticky = () => {
         </DivText>
         <Margin></Margin>
         <div>
-          <button className="cart" onClick={addCart}>
+          <button className="cart" onClick={addCart} style={{ cursor: 'pointer' }}>
             장바구니 담기
           </button>
           <div className="buttonBorder"></div>
@@ -106,6 +106,7 @@ const Number = styled.div`
 
 const Minus = styled.button`
   border: none;
+  cursor: pointer;
   color: #333;
   overflow: hidden;
   text-indent: -99999px;
@@ -119,6 +120,7 @@ const Minus = styled.button`
 
 const Plus = styled.button`
   border: none;
+  cursor: pointer;
   color: #333;
   overflow: hidden;
   text-indent: -99999px;

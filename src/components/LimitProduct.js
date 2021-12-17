@@ -4,16 +4,26 @@ import { Grid, Text, Input, Button, Images } from '../elements/index'
 
 const LimitProduct = (props) => {
   // 타임 한정 수량 특가
+
+  const price = String(props.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+
   return (
     <>
       <Grid className="ovfHidden borderRadius-10" position="relative;">
         <Images src={props.thumbnail} />
         <ImgBlock />
       </Grid>
-      <Text className="productTitleMain" margin="10px 0 0 0">{props.itemName}</Text>
-      <Text className="productPriceMain" margin="8px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
-      
-      <Text color="#f37233" size="14px" margin="8px 0 0 0" weight="200">롯데/신한/KB국민/현대카드 결제시 5천원 추가할인! </Text>
+      <Text className="productTitleMain" margin="10px 0 0 0">
+        {props.itemName}
+      </Text>
+      <Text className="productPriceMain" margin="8px 0 0 0">
+        <b>{price}</b>
+        <span className="mainwon"> 원</span>
+      </Text>
+
+      <Text color="#f37233" size="14px" margin="8px 0 0 0" weight="200">
+        롯데/신한/KB국민/현대카드 결제시 5천원 추가할인!{' '}
+      </Text>
     </>
   )
 }

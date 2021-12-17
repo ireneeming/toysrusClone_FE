@@ -78,6 +78,7 @@ const Main = (props) => {
               if (idx < 2) {
                 return (
                   <Grid
+                    cursor
                     width="49%"
                     _onClick={() => {
                       history.push(`/item/${list.itemId}`)

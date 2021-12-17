@@ -5,6 +5,7 @@ import { Grid, Text, Input, Button, Images } from '../elements/index'
 const Item = (props) => {
   const { three, history, _onClick } = props
   // console.log(props)
+  const price = String(props.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
   // 타임 한정 수량 특가
   if (three) {
@@ -19,7 +20,7 @@ const Item = (props) => {
           {props.itemName}
         </Text>
         <Text className="productPriceMain" margin="8px 0 0 0">
-          <b>{props.price}</b>
+          <b>{price}</b>
           <span className="mainwon"> 원</span>
         </Text>
       </>
@@ -40,7 +41,7 @@ const Item = (props) => {
         {props.itemName}
       </Text>
       <Text className="productPriceMain" margin="10px 0 0 0">
-        <b>{props.price}</b>
+        <b>{price}</b>
         <span className="mainwon"> 원</span>
         <CartBtnDiv>
           <ButtonCart></ButtonCart>

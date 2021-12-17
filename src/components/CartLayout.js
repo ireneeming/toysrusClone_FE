@@ -4,6 +4,7 @@ import { Grid, Text, Input, Button, Images } from '../elements/index'
 import Checkbox from '@material-ui/core/Checkbox'
 import Count from '../shared/Count'
 
+import { history } from '../redux/configureStore'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { actionCreators as itemActions } from '../redux/modules/item'
@@ -11,19 +12,17 @@ import { tableSortLabelClasses } from '@mui/material'
 
 const CartLayout = (props) => {
   const dispatch = useDispatch()
+
   const { layout } = props
 
   const cart_list = useSelector((state) => state.item.cartList)
   const user_address = useSelector((state) => state.item.userInfo)
-  const newCount = useSelector((state)=>state.item.cartCount)
-  const id = useSelector((state)=>state.item.cartCount)
+  const newCount = useSelector((state) => state.item.cartCount)
+  const id = useSelector((state) => state.item.cartCount)
 
- const [count, setCount] = React.useState('count');
+  const [count, setCount] = React.useState('count')
 
-  console.log("이것만 나오면 되는데!/.", newCount)
-  
-
-
+  console.log('이것만 나오면 되는데!/.', newCount)
 
   console.log('유저 주소정보 뽑아오기', user_address)
 
@@ -44,7 +43,6 @@ const CartLayout = (props) => {
 
   React.useEffect(() => {
     dispatch(itemActions.getCartSP())
-    
   }, [])
 
   const [number, setNumber] = React.useState(0)
@@ -111,7 +109,7 @@ const CartLayout = (props) => {
                                       console.log('버튼 눌려?')
                                     }}
                                   ></Minus>
-                                  
+
                                   <Number>{p.count}</Number>
                                   <Plus
                                     onClick={() => {
@@ -171,7 +169,14 @@ const CartLayout = (props) => {
               </Text>
             </Grid>
             <Grid>
-              <Button red_btn text="주문하기" />
+              <Button
+                red_btn
+                text="주문하기"
+                _onClick={() => {
+                  window.alert('주문이 불가합니다!')
+                  history.push('/')
+                }}
+              />
               <Button className="giftBtn" text="선물하기" />
             </Grid>
           </div>
