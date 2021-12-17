@@ -8,19 +8,19 @@ import {Grid, Text, Images, Input, Button} from '../elements/index';
 import {useSelector, useDispatch} from "react-redux";
 import { actionCreators as userActions } from '../redux/modules/user';
 import { actionCreators as rankActions } from '../redux/modules/rank';
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controller } from 'swiper'
-import styled from 'styled-components';
 
 import Rank from '../components/Rank';
 
-
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import 'swiper/swiper.min.css'
 
 import 'swiper/components/pagination'
 import 'swiper/components/navigation'
 import 'swiper/components/autoplay'
 import 'swiper/components/navigation/navigation.min.css'
+// install Swiper modules
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 
 // 헤더 메뉴 공통부분
@@ -87,26 +87,24 @@ const HeaderMenu = () => {
                 <Grid className="marginL-20">베스트</Grid>
                 <Grid className="marginL-20">기획전</Grid>
             </Grid> 
-            <Grid width="300px" className="flexStart">
+            <Grid width="300px; overflow:hidden;" className="flexStart">
               <Grid width="1px" height="40px" className="bgeee" margin="5px 0"></Grid>
               <Grid width="100%" height="40px;" padding="0 25px">
-              <Swiper modules={[Navigation, Pagination]} spaceBetween={30} slidesPerView={3} navigation={{ clickable: true }} loop={true}>
-            {/* <SwiperButton></SwiperButton>
-            <SwiperButtonR></SwiperButtonR> */}
-            
-            {
-                rank_list && rank_list.map((p,idx)=>{
-                return  (
-                  <>
-                  
-                    <Rank key={p.id} {...p} No={idx+1}/> 
-                   
-                  </>
-                )
-                })
-              }
-            
-          </Swiper>
+
+              
+                <Swiper spaceBetween={10} centeredSlides={true} autoplay={{  delay:5000,  disableOnInteraction: false }} direction={"vertical"} >
+                  {
+                    rank_list && rank_list.map((p,idx)=>{
+                    return  (
+                      <>
+                      
+                      <SwiperSlide><Rank key={p.id} {...p} No={idx+1}/> </SwiperSlide>
+                      
+                      </>
+                    )
+                    })
+                  }
+                </Swiper>
               
               </Grid>
             </Grid>
