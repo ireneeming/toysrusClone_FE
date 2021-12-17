@@ -101,7 +101,13 @@ export default handleActions(
         //console.log("다시다시다시",action.payload.cartList.items)
         draft.cartList = action.payload.cartList.items
       }),
-    [INCREASE]: (state, action) => produce(state, (draft) => {}),
+    [INCREASE]: (state, action) =>
+      produce(state, (draft) => {
+        console.log('+리듀서')
+        console.log('state', state)
+        draft.increase = action.payload
+        console.log(draft.increase)
+      }),
     [DECREASE]: (state, action) =>
       produce(state, (draft) => {
         console.log('나와라')

@@ -99,7 +99,12 @@ const CartLayout = (props) => {
                                     }}
                                   ></Minus>
                                   <Number>{number}</Number>
-                                  <Plus onClick={onIncrease}></Plus>
+                                  <Plus
+                                    onClick={() => {
+                                      dispatch(itemActions.increase())
+                                      console.log('+버튼')
+                                    }}
+                                  ></Plus>
                                 </SpinnerBox>
                               </WrapCount>
                             </div>
