@@ -17,7 +17,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation])
 const MainBanner = () => {
   return (
     <>
-      <Swiper
+      <Swiper style={{height:"400px"}}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={30}
         slidesPerView={3}

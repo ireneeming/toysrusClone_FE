@@ -12,8 +12,8 @@ const Christmas = (props) => {
     <>
       <div className="slideWrap">
         <div>
-          <div className="thumb">
-            <Images margin="6.5px 20px" width="320px" height="190px" src={props.thumbnail}></Images>
+          <div className="thumb" style={{background:"#fff", textAlign:"center"}}>
+            <Images width="auto" height="203px" src={props.thumbnail}></Images>
           </div>
 
           <div className="TextGrid">
@@ -22,10 +22,10 @@ const Christmas = (props) => {
             </div>
             <div className="TextTitle">
               <TextTitle>{props.itemName}</TextTitle>
-              <text>시크릿쥬쥬 매직캐리어 스페셜</text>
+              
             </div>
             <div>
-              <text className="PriceText">{price}원</text>
+              <text className="PriceText"><b>{price}</b><span className="mainwon">원</span></text>
             </div>
           </div>
           <CartBtnDiv>

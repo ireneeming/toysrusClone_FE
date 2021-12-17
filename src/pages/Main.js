@@ -167,13 +167,13 @@ const Main = (props) => {
         margin="10px 0px 0px 0px"
         width="100%;"
         height="515px"
-        background="url('https://contents.lotteon.com/display/dshoplnk/31650/2/M000084/196572/PD52047A4873003579A1520B17C029FA57D042D0621423C5304C640B165DA930C/file') no-repeat;background-size:100%;"
+        background="url('https://contents.lotteon.com/display/dshoplnk/31650/2/M000084/196572/PD52047A4873003579A1520B17C029FA57D042D0621423C5304C640B165DA930C/file') no-repeat;background-size:cover;"
       >
         {/******** 크리스마스 추천 선물 *********/}
         <Grid contentWrap>
           <Swiper modules={[Navigation, Pagination]} spaceBetween={30} slidesPerView={3} navigation={{ clickable: true }} loop={true}>
-            <SwiperButton></SwiperButton>
-            <SwiperButtonR></SwiperButtonR>
+            {/* <SwiperButton></SwiperButton>
+            <SwiperButtonR></SwiperButtonR> */}
             <Wrap>
               {christmas_list &&
                 christmas_list.map((list) => {
@@ -189,28 +189,34 @@ const Main = (props) => {
         
       </Grid>
       <More >🎁추천 선물 더보기 &gt;</More>
-      <Grid contentWrap>
+      <Grid contentWrap padding="0 0 120px 0">
         {/******** 지금 핫한 신상품 *********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193018/PFAFDE167221465811CBABF99EA29D783408E3BBE21565AB0B3C67B0D527A7250/file/dims/optimize" />
-        <Grid margin="15px 0px 0px 0px" width="100%;" className="flexStart" flex="flex;flex-wrap:wrap;">
+        <Swiper modules={[Navigation, Pagination]} spaceBetween={30} slidesPerView={3} navigation={{ clickable: true }} loop={true}>
+        <Grid margin="15px 0px 0px 0px" width="100%;" className="flexStart paddingTB-15" flex="flex;flex-wrap:wrap;">
           {hot_list &&
             hot_list.map((list) => {
               return (
-                <Grid
-                  cursor
-                  width="360px"
-                  height="434px"
-                  margin="0px 10px"
-                  _onClick={() => {
-                    history.push(`/item/${list.itemId}`)
-                  }}
-                >
-                  <Item three key={list.itemId} {...list} />
-                </Grid>
+                <SwiperSlide >
+                  <Grid className="paddingTB-15"
+                      cursor
+                      width="360px"
+                      height="434px"
+                      margin="0px 10px"
+                      _onClick={() => {
+                        history.push(`/item/${list.itemId}`)
+                      }}
+                    >
+                    <Item three key={list.itemId} {...list} />
+                  </Grid>
+                </SwiperSlide>
+
+               
               )
             })}
         </Grid>
-
+        </Swiper>
+        <More >더보기 &gt;</More>
         {/******** 지금 꼭 사야할 추천상품*********/}
         <MainTitle src="https://contents.lotteon.com/display/dshoplnk/31650/2/M000017/193019/P0D144AD621E8712B2C661122CF521C131D1FEAAB22A69DA20097E97A8E0329C8/file/dims/optimize" />
         <Grid margin="30px 0px"></Grid>
@@ -221,7 +227,8 @@ const Main = (props) => {
                 <Grid
                   cursor
                   width="285px"
-                  height="374px"
+                  height="390px"
+                  padding="0 15px"
                   _onClick={() => {
                     history.push(`/item/${list.id}`)
                   }}
@@ -322,5 +329,6 @@ margin:0 auto;
 margin-top:30px;
 font-size:15px;
 letter-spacing:-0.1em;
+
 `;
 export default Main
