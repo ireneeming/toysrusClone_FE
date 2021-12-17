@@ -33,7 +33,7 @@ const DetailText = (props) => {
     //장바구니 담기
 
     dispatch(itemActions.addCartSP(itemId, number))
-    console.log('확인!!!! ', itemId, number)
+    //console.log('확인!!!! ', itemId, number)
     if (number > 0) {
       window.alert('상품이 장바구니에 담겼습니다!')
     } else {

@@ -22,12 +22,12 @@ const CartLayout = (props) => {
     return a * b
   })
 
-  console.log('제발 나와', cartPrice)
+  //console.log('제발 나와', cartPrice)
   const totalPrice = cartPrice.reduce((a, b) => {
     return a + b
   }, 0)
 
-  console.log('너도 제발 나와', totalPrice)
+  //console.log('너도 제발 나와', totalPrice)
   const lastPrice = String(totalPrice).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
   React.useEffect(() => {
@@ -38,7 +38,7 @@ const CartLayout = (props) => {
 
   const onIncrease = () => {
     setNumber(number + 1)
-    console.log('나오냐0', setNumber)
+    //console.log('나오냐0', setNumber)
     dispatch(itemActions.increase())
   }
 
@@ -94,12 +94,15 @@ const CartLayout = (props) => {
                                 <SpinnerBox>
                                   <Minus
                                     onClick={() => {
-                                      dispatch(itemActions.decrease())
+                                      dispatch(itemActions.editDecrease(`${p.itemId}`,`${p.count}`))
                                       console.log('버튼 눌려?')
                                     }}
                                   ></Minus>
-                                  <Number>{number}</Number>
-                                  <Plus onClick={onIncrease}></Plus>
+                                  <Number>{p.count}</Number>
+                                  <Plus onClick={()=>{
+                                    dispatch(itemActions.editIncrease(`${p.itemId}`,`${p.count}`))
+                                    console.log('버튼 눌려?')
+                                  }}></Plus>
                                 </SpinnerBox>
                               </WrapCount>
                             </div>
