@@ -80,7 +80,7 @@ const DetailText = (props) => {
           </div>
         </div>
         <div>
-          <button className="cart" onClick={addCart}>
+          <button className="cart" onClick={addCart} style={{ cursor: 'pointer' }}>
             장바구니 담기
           </button>
           <div className="buttonBorder"></div>
@@ -246,6 +246,7 @@ const Number = styled.div`
 `
 
 const Minus = styled.button`
+  cursor: pointer;
   border: none;
   color: #333;
   overflow: hidden;
@@ -259,6 +260,7 @@ const Minus = styled.button`
 `
 
 const Plus = styled.button`
+  cursor: pointer;
   border: none;
   color: #333;
   overflow: hidden;
