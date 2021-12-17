@@ -118,12 +118,9 @@ export default handleActions(
       }),
     [INCREASE]: (state, action) =>
       produce(state, (draft) => {
-        
         draft.cartCount = action.payload.count
         draft.cartCount = action.payload.itemId
         //console.log('드래프트', action.payload)
-
-     
       }),
     [DECREASE]: (state, action) => produce(state, (draft) => {}),
   },
