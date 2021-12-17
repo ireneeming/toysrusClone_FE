@@ -130,6 +130,7 @@ export default handleActions(
         //   return l.itemId
         // })
 
+        console.log('state', state)
         draft.increase = action.payload
         console.log('드래프트', draft.increase)
 
