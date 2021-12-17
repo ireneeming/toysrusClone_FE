@@ -11,7 +11,7 @@ const {No}=props;
   
   return (
     <>
-    <RankBox>{No}. {props.itemName}</RankBox>
+    <RankBox><span className="mont">{No}.</span> {props.itemName}</RankBox>
      </>
   );
 }
@@ -27,5 +27,7 @@ line-height:40px;
 z-index:999;
 white-space:nowrap;
 text-overflow: ellipsis;
+font-family: 'Noto Sans KR';
+color:#222;
 `;
 export default Rank;
