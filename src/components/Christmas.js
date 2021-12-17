@@ -12,7 +12,7 @@ const Christmas = (props) => {
     <>
       <div className="slideWrap">
         <div>
-          <div className="thumb" style={{background:"#fff", textAlign:"center"}}>
+          <div className="thumb" style={{ background: '#fff', textAlign: 'center' }}>
             <Images width="auto" height="203px" src={props.thumbnail}></Images>
           </div>
 
@@ -22,19 +22,14 @@ const Christmas = (props) => {
             </div>
             <div className="TextTitle">
               <TextTitle>{props.itemName}</TextTitle>
-              
             </div>
             <div>
-              <text className="PriceText"><b>{price}</b><span className="mainwon">원</span></text>
+              <text className="PriceText">
+                <b>{price}</b>
+                <span className="mainwon">원</span>
+              </text>
             </div>
           </div>
-          <CartBtnDiv>
-            <ButtonCart
-              onClick={() => {
-                history.push('/cart/')
-              }}
-            ></ButtonCart>
-          </CartBtnDiv>
         </div>
       </div>
     </>

@@ -14,9 +14,14 @@ const Item = (props) => {
           <Images src={props.thumbnail} />
           <ImgBlock />
         </Grid>
-        
-        <Text className="productTitleMain" margin="10px 0 0 0">{props.itemName}</Text>
-        <Text className="productPriceMain" margin="8px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
+
+        <Text className="productTitleMain" margin="10px 0 0 0">
+          {props.itemName}
+        </Text>
+        <Text className="productPriceMain" margin="8px 0 0 0">
+          <b>{props.price}</b>
+          <span className="mainwon"> 원</span>
+        </Text>
       </>
     )
   }
@@ -26,18 +31,21 @@ const Item = (props) => {
         <Images src={props.thumbnail} />
         <ImgBlock />
       </Grid>
-      
-      <Text className="smallTextBox" margin="10px 0 0 0">당일배송</Text>
-      
-      <Text className="productTitleMain" margin="8px 0 0 0">{props.itemName}</Text>
-      <Text className="productPriceMain" margin="10px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
-      <CartBtnDiv>
-        <ButtonCart
-          onClick={() => {
-            history.push('/login')
-          }}
-        ></ButtonCart>
-      </CartBtnDiv>
+
+      <Text className="smallTextBox" margin="10px 0 0 0">
+        당일배송
+      </Text>
+
+      <Text className="productTitleMain" margin="8px 0 0 0">
+        {props.itemName}
+      </Text>
+      <Text className="productPriceMain" margin="10px 0 0 0">
+        <b>{props.price}</b>
+        <span className="mainwon"> 원</span>
+        <CartBtnDiv>
+          <ButtonCart></ButtonCart>
+        </CartBtnDiv>
+      </Text>
     </>
   )
 }
@@ -64,7 +72,8 @@ const ImgBlock = styled.div`
 `
 
 const CartBtnDiv = styled.div`
-  position: absolute;
+  /* position: absolute; */
+  float:right;
     right: -1px;
     bottom: -2px;
     width: auto;
@@ -75,7 +84,7 @@ const CartBtnDiv = styled.div`
 `
 
 const ButtonCart = styled.button`
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   float: none;
   margin: 0;
