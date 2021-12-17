@@ -250,7 +250,7 @@ b{font-weight:700;}
 
 color:#000!important;
 }
-.swiper-container {height:400px;}
+/* .swiper-container {} */
 .swiper-pagination.swiper-pagination-fraction{
 	position: absolute!important;
 	bottom: 0!important;

@@ -29,7 +29,7 @@ const HeaderMenu = () => {
         <> 
         <Grid header>
           <Grid contentWrap> 
-            <Grid className = "flexSpaceBetween" flex = "flex; align-items:top;" height = "91px" padding = "15px 0 16px 0"   > 
+            <Grid className = "flexSpaceBetween" flex = "flex; align-items:flex-start;" height = "91px" padding = "15px 0 16px 0"   > 
              <Grid  _onClick={()=>{history.push('/');}}><Images logo="logo"/></Grid>
             <Grid position="relative;">
               <Input search="search" placeholder="검색어를 입력하세요"/> 
@@ -57,6 +57,7 @@ const HeaderMenu = () => {
                 <Grid className="bgBlue" width="60px" position="relative">
                     <div className="bar"></div>
                 </Grid>
+                
                 <Grid className="marginL-20">오늘의토이</Grid>
                 <Grid className="marginL-20">제프리픽</Grid>
                 <Grid className="marginL-20">키덜트존</Grid>

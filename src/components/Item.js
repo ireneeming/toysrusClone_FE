@@ -14,19 +14,23 @@ const Item = (props) => {
           <Images src={props.thumbnail} />
           <ImgBlock />
         </Grid>
-        <Text size="16px" margin="10px 0 0 0">{props.itemName}</Text>
-        <Text>{props.price}원</Text>
+        
+        <Text className="productTitleMain" margin="10px 0 0 0">{props.itemName}</Text>
+        <Text className="productPriceMain" margin="8px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
       </>
     )
   }
   return (
     <>
-      <Grid className="ovfHidden borderRadius-10" position="relative;" margin="0 5px">
+      <Grid className="ovfHidden borderRadius-10" position="relative;">
         <Images src={props.thumbnail} />
         <ImgBlock />
       </Grid>
-      <Text>{props.itemName}</Text>
-      <Text>{props.price}원</Text>
+      
+      <Text className="smallTextBox" margin="10px 0 0 0">당일배송</Text>
+      
+      <Text className="productTitleMain" margin="8px 0 0 0">{props.itemName}</Text>
+      <Text className="productPriceMain" margin="10px 0 0 0"><b>{props.price}</b><span className="mainwon"> 원</span></Text>
       <CartBtnDiv>
         <ButtonCart
           onClick={() => {
