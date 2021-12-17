@@ -77,7 +77,7 @@ const getCartSP = () => {
         headers: { Authorization: `${token}` },
       })
       .then(function (response) {
-        console.log('된것이냐 ..', response.data)
+        //console.log('된것이냐 ..', response.data)
         dispatch(getCart(response.data))
       })
   }
@@ -119,6 +119,8 @@ export default handleActions(
       produce(state, (draft) => {
         //console.log("다시다시다시",action.payload.cartList.items)
         draft.cartList = action.payload.cartList.items
+        draft.userInfo = action.payload.cartList.userInfo.address
+        
       }),
     [INCREASE]: (state, action) => produce(state, (draft) => {}),
     [DECREASE]: (state, action) =>
