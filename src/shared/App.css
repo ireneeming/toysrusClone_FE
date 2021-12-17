@@ -49,6 +49,8 @@ table {
 	border-spacing: 0;
 }
 
+.mont {font-family: 'Montserrat';}
+
 /*main*/
 .mainwon {font-size:12px;}
 b{font-weight:700;}
@@ -264,3 +266,5 @@ color:#000!important;
 }
 
 /**/
+
+iframe #descContents img{width:100%!important;}

@@ -1,6 +1,6 @@
 // import { Select } from '@material-ui/core';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Grid, Text, Input,Button } from '../elements';
 import Select from 'react-select';
@@ -11,6 +11,7 @@ import { actionCreators as userActions } from '../redux/modules/user';
 
 const Register = (props) => {
 
+
   const dispatch = useDispatch();
 
   const [name, setName] = React.useState('');
@@ -20,6 +21,7 @@ const Register = (props) => {
   const [pwdCheck, setPwdCheck] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [address, setAddress] = React.useState('');
+  
 
   
   //유효성 검사
@@ -83,7 +85,7 @@ const Register = (props) => {
       window.alert('모든 정보를 넣어주세요.');
       return;
     }else if(pwd !== pwdCheck){
-      window.alert('비밀번호가 일치하지 않습니다.');
+     window.alert('비밀번호가 일치하지 않습니다.');
       return;
     }else{
       dispatch(userActions.registerSP(name, email,domain, pwd ,pwdCheck,phone,address));
