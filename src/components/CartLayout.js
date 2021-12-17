@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Grid, Text, Input, Button, Images } from '../elements/index'
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox'
 import Count from '../shared/Count'
 
 import { useDispatch } from 'react-redux'
@@ -14,8 +14,9 @@ const CartLayout = (props) => {
   const { layout } = props
 
   const cart_list = useSelector((state) => state.item.cartList)
-  const user_address = useSelector((state)=> state.item.userInfo)
+  const user_address = useSelector((state) => state.item.userInfo)
 
+  const c = useSelector((state) => console.log(state))
 
   console.log('유저 주소정보 뽑아오기', user_address)
 
@@ -82,11 +83,11 @@ const CartLayout = (props) => {
                       <>
                         <li className="newList" key={p.id}>
                           <div className="newItemDetail">
-                          <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
+                            <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
                             <label>{p.itemName}</label>
                             <div className="titleDetailWarp flexStart alignitemT">
                               <div className="imgDetail">
-                                <img src={p.thumbnail} alt="" style={{width:"100%"}}/>
+                                <img src={p.thumbnail} alt="" style={{ width: '100%' }} />
                               </div>
                               <div className="titleDetail">
                                 <p>{p.itemName}</p>
@@ -98,15 +99,17 @@ const CartLayout = (props) => {
                                 <SpinnerBox>
                                   <Minus
                                     onClick={() => {
-                                      dispatch(itemActions.editDecrease(`${p.itemId}`,`${p.count}`))
+                                      dispatch(itemActions.editDecrease(`${p.itemId}`, `${p.count}`))
                                       console.log('버튼 눌려?')
                                     }}
                                   ></Minus>
                                   <Number>{p.count}</Number>
-                                  <Plus onClick={()=>{
-                                    dispatch(itemActions.editIncrease(`${p.itemId}`,`${p.count}`))
-                                    console.log('버튼 눌려?')
-                                  }}></Plus>
+                                  <Plus
+                                    onClick={() => {
+                                      dispatch(itemActions.editIncrease(`${p.itemId}`, `${p.count}`))
+                                      console.log('버튼 눌려?')
+                                    }}
+                                  ></Plus>
                                 </SpinnerBox>
                               </WrapCount>
                             </div>

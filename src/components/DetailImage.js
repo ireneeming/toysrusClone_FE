@@ -108,7 +108,7 @@ const ProductTextBold = styled.text`
 `
 const ImageUrl = styled.div`
   width: 750px;
-  min-height: 1500px;
+  height: 1500px;
   margin-top: 50px;
   /* margin-left: 75px; */
   background-color: #ddd;

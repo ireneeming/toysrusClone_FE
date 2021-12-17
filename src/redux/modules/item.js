@@ -17,13 +17,12 @@ const loadItem = createAction(LOAD_ITEM, (item_list) => ({ item_list }))
 const getDetail = createAction(GET_DETAIL, (item) => ({ item }))
 //const addcart = createAction(ADD_CART, (cart_list) => ({cart_list}))
 const getCart = createAction(GET_CART, (cartList) => ({ cartList }))
-const increase = createAction(INCREASE, () => ({}))
+const increase = createAction(INCREASE, (itemId, count) => ({ itemId, count }))
 const decrease = createAction(DECREASE, () => ({}))
 
 const initialState = {
   list: [],
   cartList: [],
-  
 }
 
 // middleware
@@ -83,23 +82,19 @@ const getCartSP = () => {
   }
 }
 
-
 const editDecrease = (itemId, count) => {
-  return function(dispatch, getState, {history}){
-   let decrease = count-1;
-  // dispatch(decrease(count))
-    console.log(itemId,count,"얘decr ",decrease )
-
+  return function (dispatch, getState, { history }) {
+    let decrease = count - 1
+    // dispatch(decrease(count))
+    console.log(itemId, count, '얘decr ', decrease)
   }
 }
 const editIncrease = (itemId, count) => {
-  return function(dispatch, getState, {history}){
-   
-   let increment = parseInt(count)+1;
-   dispatch(increase(increment))
+  return function (dispatch, getState, { history }) {
+    let increment = parseInt(count) + 1
+    dispatch(increase(itemId, increment))
 
-    console.log(itemId,count,"얘 incre " ,increment)
-
+    console.log(itemId, count, '얘 incre ', increment)
   }
 }
 
@@ -120,13 +115,29 @@ export default handleActions(
         //console.log("다시다시다시",action.payload.cartList.items)
         draft.cartList = action.payload.cartList.items
         draft.userInfo = action.payload.cartList.userInfo.address
-        
       }),
-    [INCREASE]: (state, action) => produce(state, (draft) => {}),
-    [DECREASE]: (state, action) =>
+    [INCREASE]: (state, action) =>
       produce(state, (draft) => {
-        console.log('state', state)
+        // console.log('+리듀서')
+        // console.log('state여기', state.cartList[0].itemId)
+
+        // let list = state.cartList
+        // console.log('안녕 난 리스트야', list)
+
+        // let Id = list.map((l) => {
+        //   console.log('리스트는 나오는거 가튼데', l)
+        //   console.log('아이디도 나와주면 안돼겟니', l.itemId)
+        //   return l.itemId
+        // })
+
+        draft.increase = action.payload
+        console.log('드래프트', draft.increase)
+
+        // if(draft.increase.itemId === Id){
+        //   return draft.increase.count
+        // }
       }),
+    [DECREASE]: (state, action) => produce(state, (draft) => {}),
   },
   initialState
 )
@@ -140,8 +151,7 @@ const actionCreators = {
   addCartSP,
   getCartSP,
   editDecrease,
-  editIncrease
-
+  editIncrease,
 }
 
 export { actionCreators }
