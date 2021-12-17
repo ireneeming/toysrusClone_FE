@@ -4,16 +4,16 @@ import { Grid, Button, Text, Input, Images } from '../elements'
 import Count from '../shared/Count'
 import './DetailText.css'
 import { history } from '../redux/configureStore'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 const DetailText = (props) => {
-  const dispatch= useDispatch();
+  const dispatch = useDispatch()
 
   const data = useSelector((state) => state.item.list)
-  const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
- const itemId = data.itemId;
-  
+  const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+  const itemId = data.itemId
+
   //count
   const [number, setNumber] = React.useState(0)
   const onIncrease = () => {
@@ -26,15 +26,19 @@ const DetailText = (props) => {
     }
   }
 
-  const a = number * data.price;
+  const a = number * data.price
   const Totalprice = String(a).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
-
   const addCart = () => {
-    //장바구니 담기 
+    //장바구니 담기
 
-    dispatch(itemActions.addCartSP(itemId, number));
-    console.log("확인!!!! ",itemId, number)
+    dispatch(itemActions.addCartSP(itemId, number))
+    console.log('확인!!!! ', itemId, number)
+    if (number > 0) {
+      window.alert('상품이 장바구니에 담겼습니다!')
+    } else {
+      window.alert('수량을 선택해 주세요!')
+    }
   }
 
   return (
@@ -63,23 +67,20 @@ const DetailText = (props) => {
         </div>
         <div className="select">
           <div className="priceOption">
-          <WrapCount>
-            <SpinnerBox>
-              <Minus onClick={onDecrease}></Minus>
-              <Number>{number}</Number>
-              <Plus onClick={onIncrease}></Plus>
-            </SpinnerBox>
-            <BoldText>
-              {Totalprice} <span>원</span>
-            </BoldText>
-        </WrapCount>
+            <WrapCount>
+              <SpinnerBox>
+                <Minus onClick={onDecrease}></Minus>
+                <Number>{number}</Number>
+                <Plus onClick={onIncrease}></Plus>
+              </SpinnerBox>
+              <BoldText>
+                {Totalprice} <span>원</span>
+              </BoldText>
+            </WrapCount>
           </div>
         </div>
         <div>
-          <button
-            className="cart"
-            onClick={addCart}
-          >
+          <button className="cart" onClick={addCart}>
             장바구니 담기
           </button>
           <div className="buttonBorder"></div>

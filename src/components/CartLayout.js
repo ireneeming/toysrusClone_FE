@@ -38,11 +38,14 @@ const CartLayout = (props) => {
 
   const onIncrease = () => {
     setNumber(number + 1)
+    console.log('나오냐0', setNumber)
+    dispatch(itemActions.increase())
   }
 
   const onDecrease = () => {
     if (number > 0) {
       setNumber(number - 1)
+      dispatch(itemActions.decrease())
     }
   }
 
@@ -89,7 +92,12 @@ const CartLayout = (props) => {
                             <div className="count">
                               <WrapCount>
                                 <SpinnerBox>
-                                  <Minus onClick={onDecrease}></Minus>
+                                  <Minus
+                                    onClick={() => {
+                                      dispatch(itemActions.decrease())
+                                      console.log('버튼 눌려?')
+                                    }}
+                                  ></Minus>
                                   <Number>{number}</Number>
                                   <Plus onClick={onIncrease}></Plus>
                                 </SpinnerBox>
@@ -101,12 +109,10 @@ const CartLayout = (props) => {
                       </>
                     )
                   })}
-
-                  {/* list 얘를 맵을 돌려주면 되는데에에 */}
                 </ul>
                 <div className="deliveryInfo">
                   <p>
-                    258,000월 + 배송비 0원 - 할인 0원 = <b>258,900</b>원(<span className="fontRed">30,000원 이상</span> 무료배송)
+                    {lastPrice}원 + 배송비 0원 - 할인 0원 = <b>{lastPrice}</b>원(<span className="fontRed">30,000원 이상</span> 무료배송)
                   </p>
                 </div>
                 {/* 상품 리스트 영역 end */}
