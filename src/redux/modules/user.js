@@ -78,7 +78,7 @@ const registerSP = (name, email,domain, pwd ,pwdCheck,phone,address) => {
     }
 
     await api.post("/api/auth/signup", userInfo).then(function(response){
-      
+      window.alert("회원가입을 축하합니다.");
       history.push('/login');
 
     }).catch((err)=>{
