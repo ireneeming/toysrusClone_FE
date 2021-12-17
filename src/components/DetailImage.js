@@ -42,12 +42,12 @@ const DetailImage = () => {
             </BoxDiv>
           </div>
           <ImageUrl>
-            <Iframe width="100%" height="1500px" allow="fullscreen" url={data.imgDetail} />
+            <Iframe width="100%" height="500px" allow="fullscreen" url={data.imgDetail} />
           </ImageUrl>
-          <MoreButton>
+          {/* <MoreButton>
             <More>상세정보 더보기</More>
             <img url="https://static.lotteon.com/p/product/assets/img/btn_icon_arrow-bottom_red.svg"></img>
-          </MoreButton>
+          </MoreButton> */}
         </div>
       </div>
     </>
@@ -107,11 +107,11 @@ const ProductTextBold = styled.text`
   font-size: 14px;
 `
 const ImageUrl = styled.div`
-  width: 750px;
-  height: 1500px;
+  width: 900px;
+  height: 500px;
   margin-top: 50px;
   /* margin-left: 75px; */
-  background-color: #ddd;
+  background-color: #fff;
   
   }
 `
