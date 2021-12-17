@@ -24,7 +24,7 @@ const Header = (props) => {
     dispatch(userActions.getUsernameSP());
   },[])
 
-  
+
 
 
   const logout = () => {

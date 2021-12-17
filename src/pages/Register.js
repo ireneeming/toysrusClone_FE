@@ -22,6 +22,16 @@ const Register = (props) => {
   const [address, setAddress] = React.useState('');
 
   
+  //유효성 검사
+  const [isPassword, setIsPassword]= React.useState('false');
+  const [isEng, setIsEng]= React.useState('false');
+  const [isNum, setIsNum]= React.useState('false');
+  const [isChar, setIsChar]= React.useState('false');
+
+
+
+  console.log()
+
   const handlePress = (e) => {
     const regex = /^[0-9\b -]{0,11}$/;
     if (regex.test(e.target.value)) {
@@ -29,6 +39,42 @@ const Register = (props) => {
     }
   }
 
+  const onChangePwd = (e) => {
+    const num = /(?=.*[0-9])/g;
+    const eng = /[a-z]/ig;
+    const char = /[~!@#$%^&*()_+|<>?:{}]/
+    const pwdRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+    const passwordCurrent = e.target.value
+    setPwd(passwordCurrent);
+
+
+    if(!pwdRegex.test(passwordCurrent)){
+      setIsPassword(false)    
+    }else{
+      setIsPassword(true)
+    }
+
+    //영문체크
+    if(!eng.test(passwordCurrent)){
+      setIsEng(false)
+    }else{
+      setIsEng(true)
+    }
+
+    //숫자체크
+    if(!num.test(passwordCurrent)){
+      setIsNum(false) 
+    }else{
+      setIsNum(true)
+    }
+
+    //특수문자
+    if(!char.test(passwordCurrent)){
+      setIsChar(false)    
+    }else{     
+      setIsChar(true)    
+    }
+  }
   
   
 
@@ -41,10 +87,7 @@ const Register = (props) => {
       return;
     }else{
       dispatch(userActions.registerSP(name, email,domain, pwd ,pwdCheck,phone,address));
-      
-
     }
-    
   }
 
   return (
@@ -95,13 +138,14 @@ const Register = (props) => {
               <TextSmall size="15px">비밀번호</TextSmall>
             </Grid>
             <Grid1>
-              <Input type="password" value={pwd} _onChange={(e)=>{setPwd(e.target.value)}} register placeholder="아래의 조합으로 입력해 주세요."></Input>
+              <Input type="password" value={pwd} _onChange={onChangePwd} register placeholder="아래의 조합으로 입력해 주세요."></Input>
             </Grid1>
             <CheckGrid>
-              <TextPasswordCheck>영문</TextPasswordCheck>
-              <TextPasswordCheck>숫자</TextPasswordCheck>
-              <TextPasswordCheck>특수문자</TextPasswordCheck>
-              <TextPasswordCheck>8~15자리</TextPasswordCheck>
+              <TextPasswordCheck className={pwd.length > 0 &&isEng? "isChecked":""}>영문</TextPasswordCheck>
+              <TextPasswordCheck className={pwd.length > 0 &&isNum? "isChecked":""}>숫자</TextPasswordCheck>
+              <TextPasswordCheck className={pwd.length > 0 &&isChar? "isChecked":""}>특수문자</TextPasswordCheck>
+              <TextPasswordCheck className={pwd.length > 0 &&isPassword? "isChecked":""}>8~15자리</TextPasswordCheck>
+            
             </CheckGrid>
           </Grid>
           <Grid margin="0px 0px 20px 0px">
@@ -172,6 +216,10 @@ const TextPasswordCheck = styled.text`
   letter-spacing: -0.2px;
   color: #bfbfbf;
   background: url(//static.lotteon.com/p/member/assets/img/ico_check_gray.svg) no-repeat 0 0/16px 16px;
+  &.isChecked{
+    background: url(//static.lotteon.com/p/member/assets/img/ico_check_black.svg) no-repeat 0 0/16px 16px;
+    color:#222;
+  }
 `
 
 const Span = styled.span`
