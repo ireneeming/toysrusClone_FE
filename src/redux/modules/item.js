@@ -118,25 +118,9 @@ export default handleActions(
       }),
     [INCREASE]: (state, action) =>
       produce(state, (draft) => {
-        // console.log('+리듀서')
-        // console.log('state여기', state.cartList[0].itemId)
-
-        // let list = state.cartList
-        // console.log('안녕 난 리스트야', list)
-
-        // let Id = list.map((l) => {
-        //   console.log('리스트는 나오는거 가튼데', l)
-        //   console.log('아이디도 나와주면 안돼겟니', l.itemId)
-        //   return l.itemId
-        // })
-
-        console.log('state', state)
-        draft.increase = action.payload
-        console.log('드래프트', draft.increase)
-
-        // if(draft.increase.itemId === Id){
-        //   return draft.increase.count
-        // }
+        draft.cartCount = action.payload.count
+        draft.cartCount = action.payload.itemId
+        //console.log('드래프트', action.payload)
       }),
     [DECREASE]: (state, action) => produce(state, (draft) => {}),
   },
