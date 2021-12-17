@@ -23,8 +23,7 @@ const decrease = createAction(DECREASE, () => ({}))
 const initialState = {
   list: [],
   cartList: [],
-  number: 0,
-  diff: 1,
+  
 }
 
 // middleware
@@ -78,9 +77,29 @@ const getCartSP = () => {
         headers: { Authorization: `${token}` },
       })
       .then(function (response) {
-        console.log('된것이냐 ..', response.data)
+        //console.log('된것이냐 ..', response.data)
         dispatch(getCart(response.data))
       })
+  }
+}
+
+
+const editDecrease = (itemId, count) => {
+  return function(dispatch, getState, {history}){
+   let decrease = count-1;
+  // dispatch(decrease(count))
+    console.log(itemId,count,"얘decr ",decrease )
+
+  }
+}
+const editIncrease = (itemId, count) => {
+  return function(dispatch, getState, {history}){
+   
+   let increment = parseInt(count)+1;
+   dispatch(increase(increment))
+
+    console.log(itemId,count,"얘 incre " ,increment)
+
   }
 }
 
@@ -100,11 +119,13 @@ export default handleActions(
       produce(state, (draft) => {
         //console.log("다시다시다시",action.payload.cartList.items)
         draft.cartList = action.payload.cartList.items
+        draft.userInfo = action.payload.cartList.userInfo.address
+        
       }),
     [INCREASE]: (state, action) => produce(state, (draft) => {}),
     [DECREASE]: (state, action) =>
       produce(state, (draft) => {
-        console.log('나와라')
+        console.log('state', state)
       }),
   },
   initialState
@@ -118,6 +139,9 @@ const actionCreators = {
   getDetailSP,
   addCartSP,
   getCartSP,
+  editDecrease,
+  editIncrease
+
 }
 
 export { actionCreators }
