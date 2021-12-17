@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Grid, Text, Input, Button, Images } from '../elements/index'
+import Checkbox from '@material-ui/core/Checkbox'
 import Count from '../shared/Count'
 
 import { useDispatch } from 'react-redux'
@@ -13,21 +14,25 @@ const CartLayout = (props) => {
   const { layout } = props
 
   const cart_list = useSelector((state) => state.item.cartList)
-  console.log('카트 리스트', cart_list)
+  const user_address = useSelector((state) => state.item.userInfo)
+
+  const c = useSelector((state) => console.log(state))
+
+  console.log('유저 주소정보 뽑아오기', user_address)
 
   const cartPrice = cart_list.map((list) => {
-    console.log('여기부터', list)
+    //console.log('여기부터', list)
     const a = list.count
     const b = list.price
     return a * b
   })
 
-  console.log('제발 나와', cartPrice)
+  //console.log('제발 나와', cartPrice)
   const totalPrice = cartPrice.reduce((a, b) => {
     return a + b
   }, 0)
 
-  console.log('너도 제발 나와', totalPrice)
+  //console.log('너도 제발 나와', totalPrice)
   const lastPrice = String(totalPrice).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
 
   React.useEffect(() => {
@@ -38,7 +43,7 @@ const CartLayout = (props) => {
 
   const onIncrease = () => {
     setNumber(number + 1)
-    console.log('나오냐0', setNumber)
+    //console.log('나오냐0', setNumber)
     dispatch(itemActions.increase())
   }
 
@@ -56,13 +61,13 @@ const CartLayout = (props) => {
           {/* 배송지 및 주문내역 */}
           <div className="delivery_left">
             <div className="Homeaddress flexSpaceBetween">
-              <Text>배송지 주소</Text>
+              <Text>{user_address}</Text>
               <button>배송지 설정 </button>
             </div>
             <div className="cartWrap accordion">
               <input type="checkbox" id="list01"></input>
               <label htmlFor="list01">
-                롯데마트 <span>매장택배 | 계양점</span> <em></em>
+                롯데마트 <span>매장택배 | </span> <em></em>
               </label>
               <div className="newItem">
                 {/* 상품 리스트 li 영역 start */}
@@ -78,11 +83,11 @@ const CartLayout = (props) => {
                       <>
                         <li className="newList" key={p.id}>
                           <div className="newItemDetail">
-                            <input type="checkbox" />
+                            <Checkbox defaultChecked size="small" inputProps={{ 'aria-label': 'checkbox with small size' }} />
                             <label>{p.itemName}</label>
                             <div className="titleDetailWarp flexStart alignitemT">
                               <div className="imgDetail">
-                                <img src="https://contents.lotteon.com/itemimage/_v230000/LM/88/01/19/80/62/68/7_/00/1/LM8801198062687_001_M.jpg/dims/resizemc/100x100" alt="" />
+                                <img src={p.thumbnail} alt="" style={{ width: '100%' }} />
                               </div>
                               <div className="titleDetail">
                                 <p>{p.itemName}</p>
@@ -94,15 +99,15 @@ const CartLayout = (props) => {
                                 <SpinnerBox>
                                   <Minus
                                     onClick={() => {
-                                      dispatch(itemActions.decrease())
+                                      dispatch(itemActions.editDecrease(`${p.itemId}`, `${p.count}`))
                                       console.log('버튼 눌려?')
                                     }}
                                   ></Minus>
-                                  <Number>{number}</Number>
+                                  <Number>{p.count}</Number>
                                   <Plus
                                     onClick={() => {
-                                      dispatch(itemActions.increase())
-                                      console.log('+버튼')
+                                      dispatch(itemActions.editIncrease(`${p.itemId}`, `${p.count}`))
+                                      console.log('버튼 눌려?')
                                     }}
                                   ></Plus>
                                 </SpinnerBox>

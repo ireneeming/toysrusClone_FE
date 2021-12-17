@@ -62,6 +62,7 @@ const DetailSticky = () => {
             </BoldText>
           </WrapCount>
         </DivText>
+        <Margin></Margin>
         <div>
           <button className="cart" onClick={addCart}>
             장바구니 담기
@@ -130,6 +131,9 @@ const Plus = styled.button`
 `
 
 const OptionContents = styled.div`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   padding: 24px 20px 50px;
   width: 315px;
   border-right: 1px solid #ddd;
@@ -141,6 +145,10 @@ const DivText = styled.div`
   background-color: #f8f8f8;
   border-radius: 8px;
   height: 168px;
+`
+
+const Margin = styled.div`
+  margin: 450px 0px;
 `
 
 const TextDiv = styled.div`
