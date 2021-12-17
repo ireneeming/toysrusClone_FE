@@ -13,13 +13,13 @@ const DetailSticky = () => {
   const itemId = data.itemId
 
   //count
-  const [number, setNumber] = React.useState(0)
+  const [number, setNumber] = React.useState(1)
   const onIncrease = () => {
     setNumber((prevNumber) => prevNumber + 1)
   }
 
   const onDecrease = () => {
-    if (number > 0) {
+    if (number > 1) {
       setNumber(number - 1)
     }
   }
