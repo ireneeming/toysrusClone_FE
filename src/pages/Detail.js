@@ -5,23 +5,18 @@ import DetailSticky from '../components/DetailSticky'
 import DetailText from '../components/DetailText'
 import Image from '../elements/Images'
 import Header from '../components/Header'
-import Footer from '../shared/Footer';
+import Footer from '../shared/Footer'
 // import TopButton from '../components/TopButton';
 import './Detail.css'
 import { actionCreators as itemActions } from '../redux/modules/item'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-
-
 const Detail = (props) => {
-
-
-  const data = useSelector((state) => state.item.list);
+  const data = useSelector((state) => state.item.list)
   //console.log(data);
-  const dispatch = useDispatch();
-  const itemId = props.match.params.itemId;
-
+  const dispatch = useDispatch()
+  const itemId = props.match.params.itemId
 
   //장바구니 기능
 
@@ -33,7 +28,7 @@ const Detail = (props) => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <div className="container">
         <div className="wrapcontents">
           <div className="imageBox">
@@ -53,14 +48,14 @@ const Detail = (props) => {
         <DetailSticky></DetailSticky>
       </DivFlex>
 
-      <Footer/>
+      <Footer />
     </>
   )
 }
 const DivFlex = styled.div`
   display: flex;
   margin: auto;
-  width: 1143px;
+  width: 1300px;
   border-top: 1px solid #333;
   margin: auto;
 `

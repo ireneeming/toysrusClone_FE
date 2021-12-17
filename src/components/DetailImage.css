@@ -1,5 +1,5 @@
 .wrap {
-  width: 785px;
+  width: 980px;
 }
 
 .productDetailContents {
@@ -9,7 +9,7 @@
 
 .titleName {
   padding: 0 84px;
-  width: 617px;
+  width: 783px;
   border-bottom: 1px solid #eee;
 }
 
@@ -25,4 +25,3 @@
   align-items: center;
   vertical-align: center;
 }
-
