@@ -1,8 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
 import Count from '../shared/Count'
+import { useDispatch } from 'react-redux'
+import { actionCreators as itemActions } from '../redux/modules/item'
+import { useSelector } from 'react-redux'
 
 const DetailSticky = () => {
+  const dispatch = useDispatch()
+
+  const data = useSelector((state) => state.item.list)
+  const price = String(data.price).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+  const itemId = data.itemId
+
+  //count
+  const [number, setNumber] = React.useState(0)
+  const onIncrease = () => {
+    setNumber((prevNumber) => prevNumber + 1)
+  }
+
+  const onDecrease = () => {
+    if (number > 0) {
+      setNumber(number - 1)
+    }
+  }
+
+  const a = number * data.price
+  const Totalprice = String(a).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+
+  const addCart = () => {
+    //장바구니 담기
+
+    dispatch(itemActions.addCartSP(itemId, number))
+    console.log('확인!!!! ', itemId, number)
+    if (number > 0) {
+      window.alert('상품이 장바구니에 담겼습니다!')
+    } else {
+      window.alert('수량을 선택해 주세요!')
+    }
+  }
   return (
     <>
       <OptionContents>
@@ -16,12 +51,83 @@ const DetailSticky = () => {
 
             <UnderLine></UnderLine>
           </div>
-          <Count></Count>
+          <WrapCount>
+            <SpinnerBox>
+              <Minus onClick={onDecrease}></Minus>
+              <Number>{number}</Number>
+              <Plus onClick={onIncrease}></Plus>
+            </SpinnerBox>
+            <BoldText>
+              {Totalprice} <span>원</span>
+            </BoldText>
+          </WrapCount>
         </DivText>
+        <div>
+          <button className="cart" onClick={addCart}>
+            장바구니 담기
+          </button>
+          <div className="buttonBorder"></div>
+        </div>
       </OptionContents>
     </>
   )
 }
+
+const WrapCount = styled.div`
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: space-between;
+`
+
+const BoldText = styled.div`
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+`
+
+const SpinnerBox = styled.div`
+  /* width: 110px;
+  height: 32px; */
+  border: 1px solid #ddd;
+  background-color: #fff;
+  display: flex;
+`
+
+const Number = styled.div`
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  line-height: 30px;
+  text-align: center;
+  width: 42px;
+  font-size: 13px;
+`
+
+const Minus = styled.button`
+  border: none;
+  color: #333;
+  overflow: hidden;
+  text-indent: -99999px;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  background: url(//static.lotteon.com/p/product/assets/img/btn_minus.svg) no-repeat 50%;
+`
+
+const Plus = styled.button`
+  border: none;
+  color: #333;
+  overflow: hidden;
+  text-indent: -99999px;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  background: url(//static.lotteon.com/p/product/assets/img/btn_plus.svg) no-repeat 50%;
+`
 
 const OptionContents = styled.div`
   padding: 24px 20px 50px;
