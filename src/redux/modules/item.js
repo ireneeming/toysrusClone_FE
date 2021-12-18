@@ -2,6 +2,7 @@ import { createAction, handleActions } from 'redux-actions'
 import { produce } from 'immer'
 import api from '../../api/api'
 import axios from 'axios'
+import { ConstructionOutlined } from '@mui/icons-material'
 
 // 액션 타입
 
@@ -18,7 +19,7 @@ const getDetail = createAction(GET_DETAIL, (item) => ({ item }))
 //const addcart = createAction(ADD_CART, (cart_list) => ({cart_list}))
 const getCart = createAction(GET_CART, (cartList) => ({ cartList }))
 const increase = createAction(INCREASE, (itemId, count) => ({ itemId, count }))
-const decrease = createAction(DECREASE, () => ({}))
+const decrease = createAction(DECREASE, (itemId, count) => ({ itemId, count }))
 
 const initialState = {
   list: [],
@@ -76,7 +77,7 @@ const getCartSP = () => {
         headers: { Authorization: `${token}` },
       })
       .then(function (response) {
-        //console.log('된것이냐 ..', response.data)
+        console.log('된것이냐 ..', response.data)
         dispatch(getCart(response.data))
       })
   }
@@ -84,9 +85,9 @@ const getCartSP = () => {
 
 const editDecrease = (itemId, count) => {
   return function (dispatch, getState, { history }) {
-    let decrease = count - 1
-    // dispatch(decrease(count))
-    console.log(itemId, count, '얘decr ', decrease)
+    let decrement = parseInt(count) - 1
+    dispatch(increase(itemId, decrement))
+    console.log(itemId, count, '얘decr ', decrement)
   }
 }
 const editIncrease = (itemId, count) => {
@@ -112,17 +113,39 @@ export default handleActions(
       }),
     [GET_CART]: (state, action) =>
       produce(state, (draft) => {
-        //console.log("다시다시다시",action.payload.cartList.items)
+        console.log('다시다시다시', action.payload.cartList.items)
+
         draft.cartList = action.payload.cartList.items
         draft.userInfo = action.payload.cartList.userInfo.address
       }),
     [INCREASE]: (state, action) =>
       produce(state, (draft) => {
-        draft.cartCount = action.payload.count
-        draft.cartCount = action.payload.itemId
-        //console.log('드래프트', action.payload)
+        let list = [...state.cartList]
+        let countCart = list.filter((x) => x.itemId == action.payload.itemId)
+        const a = { ...countCart[0] }
+        a.count = action.payload.count
+        const b = list.map((l) => {
+          if (l.itemId == action.payload.itemId) {
+            l = a
+            console.log('l', l)
+          } else {
+            l = l
+          }
+          return l
+        })
+        draft.cartList = b
       }),
-    [DECREASE]: (state, action) => produce(state, (draft) => {}),
+    [DECREASE]: (state, action) =>
+      produce(state, (draft) => {
+        let list = [...state.cartList]
+        let countCart = list.filter((x) => x.itemId == action.payload.itemId)
+        const a = { ...countCart[0] }
+        a.count = action.payload.count
+        const b = list.map((l) => {
+          l.itemId == action.payload.itemId ? (l = a) : (l = l)
+        })
+        draft.cartList = b
+      }),
   },
   initialState
 )
