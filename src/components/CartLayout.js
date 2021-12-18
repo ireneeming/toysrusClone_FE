@@ -18,13 +18,12 @@ const CartLayout = (props) => {
   const cart_list = useSelector((state) => state.item.cartList)
   const user_address = useSelector((state) => state.item.userInfo)
   const newCount = useSelector((state) => state.item.cartCount)
-  const id = useSelector((state) => state.item.cartCount)
+  const id = useSelector((state) => state.item.cartId)
 
   const [count, setCount] = React.useState('count')
 
-  console.log('이것만 나오면 되는데!/.', newCount)
-
-  console.log('유저 주소정보 뽑아오기', user_address)
+  console.log('이건 카운트야', newCount)
+  console.log('이건 아이디야', id)
 
   const cartPrice = cart_list.map((list) => {
     //console.log('여기부터', list)
@@ -44,21 +43,6 @@ const CartLayout = (props) => {
   React.useEffect(() => {
     dispatch(itemActions.getCartSP())
   }, [])
-
-  const [number, setNumber] = React.useState(0)
-
-  const onIncrease = () => {
-    setNumber(number + 1)
-    //console.log('나오냐0', setNumber)
-    dispatch(itemActions.increase())
-  }
-
-  const onDecrease = () => {
-    if (number > 0) {
-      setNumber(number - 1)
-      dispatch(itemActions.decrease())
-    }
-  }
 
   if (layout === 'normal') {
     return (
@@ -105,12 +89,14 @@ const CartLayout = (props) => {
                                 <SpinnerBox>
                                   <Minus
                                     onClick={() => {
-                                      dispatch(itemActions.editDecrease(`${p.itemId}`, `${p.count}`))
-                                      console.log('버튼 눌려?')
+                                      if (p.count > 1) {
+                                        dispatch(itemActions.editDecrease(`${p.itemId}`, `${p.count}`))
+                                        console.log('버튼 눌려?')
+                                      }
                                     }}
                                   ></Minus>
-
                                   <Number>{p.count}</Number>
+                                  {/* <Number>{id === p.itemId && newCount ? newCount : p.count}</Number> */}
                                   <Plus
                                     onClick={() => {
                                       dispatch(itemActions.editIncrease(`${p.itemId}`, `${p.count}`))

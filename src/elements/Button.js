@@ -7,14 +7,11 @@ const Button = (props) => {
     position: position,
     width: width,
     margin: margin,
-    className:className,
+    className: className,
   }
   if (search_btn) {
-    return (
-      <SearchBtn onClick={_onClick} {...styles}></SearchBtn>
-    )
+    return <SearchBtn onClick={_onClick} {...styles}></SearchBtn>
   }
-
 
   if (cart_btn) {
     return (
@@ -56,19 +53,16 @@ Button.defaultProps = {
   _disabled: () => {},
 }
 const SearchBtn = styled.button`
-position:absolute;
-top: 8px;
-right: 15px;
-opacity: 1;
-width: 28px;
-height: 28px;
-outline: none;
-border:none;
-cursor:pointer;
-
-`;
-
-
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  opacity: 1;
+  width: 28px;
+  height: 28px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+`
 
 const BtnCircle = styled.button`
   background-image: url(https://static.lotteon.com/p/display/plugin/assets/img/icon_cart_toy.svg);
@@ -125,6 +119,7 @@ const BtnRed = styled.button`
   color: #fff !important;
   border: none;
   background-color: #ef2a23;
+  cursor: pointer;
 `
 
 export default Button
