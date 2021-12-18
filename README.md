@@ -17,7 +17,8 @@
 # 👥 멤버
 - Back-end: [이한울](https://github.com/goodn911), [오규화](https://github.com/59-devv)
 - Front-end: [김자운](https://github.com/jawoon816), [서민지](https://github.com/ireneeming)
-- [\[Front-End Github\]](https://github.com/ireneeming/toysrusClone_FE)
+- Group Notion : [그룹노션 바로가기](https://www.notion.so/99-4-7-4d2c17ed11524289931f438db24372b9)
+- [\[Back-End Github\]](https://github.com/59-devv/toysrusClone_BE)
 <br />
 
 # 🗓 프로젝트 기간
