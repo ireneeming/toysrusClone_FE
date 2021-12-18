@@ -99,9 +99,9 @@ const DetailText = (props) => {
             <TextPadding>2만원 이상 구매 시 무료</TextPadding>
           </div>
           <GridFlex>
-            <Center>
-              <Images width="28px" height="28px" src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Images>
-              <TextM>스마트픽</TextM>
+            <Center style={{marginTop:"20px"}}>
+              <Images width="28px" height="28px" margin="0" src="https://static.lotteon.com/p/product/assets/img/icon_pddetail_smartPick.svg"></Images>
+              <TextM style={{marginBottom:"0px"}}>스마트픽</TextM>
               <Imgarrow src="https://static.lotteon.com/p/product/assets/img/icon_page_arrow.svg"></Imgarrow>
             </Center>
           </GridFlex>
@@ -116,11 +116,9 @@ const DetailText = (props) => {
         <Grid1>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <BasicText>적립혜택</BasicText>
-
             <Img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAALKADAAQAAAABAAAALAAAAAD8buejAAAEf0lEQVRYCe1YT2wUVRj/zZ/O7rbbZUvtQtGQ6AVOnkyICaALhhghkTMEL16I0eDBBG94MlEPqCQciEYvRhMTT0RjBGsgEA4mJB7kUC40NNA1pcWWbndnd56/b6bbZvfNdPbPFC/zJTsz75v3ft9vf+97M/M+ILVUgTYFjLZWAg31J4YrVezMOXhc2If5BCDbIBIhXJnC/qaHkwQ7rhR2rkcwUOX1lAn8UDLxo1HG6vq9Pi/6JkxiZuV3vKmAs7zeJ/EtG8rOwLCGAK8JNOuAWwuYMVCFV19kLFwcK2Mx8PZ+7JmwmkZmbganSPQDKOwxDKhMHsbwGOCM6ASEdJX0VhbgeR5M9l/mH7zkWDg/XsZ9fcTmnq4Jz99Cob6M0xzwPslOCtHcNhgj41TW2TyI3FWeTxorj6CaDRgc7xLrO1vhs/HX8Hc8QtAjlvA/1zDpNUjSw2kSLZgmvNwYzBEqanLqezaCVB8DT0i8UfOJ04PL/AOf7DiEG3F4kYTnp/Ccq/ARiZ4iiCP5ObydU18EkzQOtrv7tSUS53OkLkuTRtI3DRPndpRxJfDox1DClas4yBm8zFwbtR2oERLl9FNSHSAJj7sCLJN4bTlA4yx+SrXPhmFrhNUUsnNN3IOBidESFd0eNmxrfA0+9Bbu8wHjwrQMvFE6jF86I2maPVQ4zKQq5YpPl6wQs7NAcVcwj5zhE51kpa0RNhV2yw0nJ8enb0OMK08giubz6GRgdzo8vhB8n5YsnT2DdqNio34veFxwwSCzpwYzT336tbW4PIUubY1wr3GErPtgA8YqNuHk+bbYItNSYoviJAabEk5MygigVOEIYRJzpwonJmUEUKpwhDCJuVOFlWx8ttA2PgL6DNK5+6hNO5APIn5Ph5q1rYnsi/3v9gcm7Ox24c5y/yQ7M5qcG4vRmdZYMAciHI0cxI89Ws80MPzSKuTTshvrtl8U1sAKC7A96SL/atNPBeVF5MIaAyvPCssAphHmBlCx4MG57Q1VPtqT/A5maoUy0CZSGZgRqtwI/i8mlSKS5S6JG+EQ0whnbdxg5ycrixw32OyFhIt3SZ1CjIx/Da7ajxrh4gEssMvHVNh4NAPlrhU52ocl32J1Cf8+YDkrKBPeZrXz+7AokSvk4VWc54AzMj1D3H6zmIJsgZ7IEWHw8T4RhPU2rC5xRhmLI26zeHN04iBIX7dNw8/9gZeZFh8y/Y9xBZh+uYr1CtbWYGrLVQeP9BCMBH2irTIV+97hgv+8VMbXTIfIZNyUcCvg3HW8oOp4Fx7e5qIsSN2AahuiuhQ/ujWpGVeZcCy9tiqY8iz4mXhflg7hN8GNw+qKcAuElfY8p+0t1i7eI/Re8Uu6ZEeDn5Vp9dw4y8KVmpkoyrM/7QzKFr4xLVygonc3esdf9US4BSe5RvJHeH6Hv9fp9yvEfIspTqsh6UI/uJAUVV2PQQX/Yt+v+Me+ndjvk25Bdn1eB+t6REdHKXSz+nhM8py/58nzWXZhGRFLBJ9le5bta8z/n0qvYLpjeNpMFRhUgf8AEBpbGWthdPMAAAAASUVORK5CYII="></Img>
             <TextNomal>L.POINT 최대</TextNomal>
             <TextNomal>120P</TextNomal>
-
             <UnderlineText>더보기</UnderlineText>
           </div>
         </Grid1>
@@ -144,10 +142,11 @@ const GridFlex = styled.div`
   display: flex-start;
   align-items: center;
   vertical-align: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const Center = styled.div`
+  display:flex;
   align-items: center;
   height: 28px;
   display: flex;
@@ -160,6 +159,7 @@ const Div = styled.div`
   padding: 20px 0;
   margin-bottom: 20px;
   width: 100%;
+  display:flex;
   align-items: center;
   vertical-align: center;
 `
@@ -167,6 +167,7 @@ const Div = styled.div`
 const Img = styled.img`
   width: 22px;
   height: 22px;
+
 `
 
 const Imgarrow = styled.img`
@@ -186,7 +187,7 @@ const TextLotte = styled.text`
   font-size: 16px;
   font-weight: 600;
   margin: 8px;
-  padding-bottom: 25px;
+  
 `
 
 const UnderLine = styled.div`
@@ -203,6 +204,7 @@ const UnderlineText = styled.div`
   font-size: 13px;
   position: absolute;
   right: 0px;
+
 `
 const TextPadding = styled.text`
   color: #333;
