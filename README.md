@@ -10,7 +10,7 @@
 <br />   
   
 - [\[사이트 바로가기\]](http://toysrus-clone-frontend.s3-website.ap-northeast-2.amazonaws.com/)  
-- [\[시연영상 구경하기\]](https://www.naver.com)  
+- [\[시연영상 구경하기\]](https://www.youtube.com/watch?v=xMYTOBW1igw)  
 
 <br />
 
